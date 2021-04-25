@@ -1,0 +1,71 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Repos\\microcompiler\\runtime\\src\\Bytewizer.TinyCLR.Core\\Bytewizer.TinyCLR.Core.csproj": {}
+  },
+  "projects": {
+    "C:\\Repos\\microcompiler\\runtime\\src\\Bytewizer.TinyCLR.Core\\Bytewizer.TinyCLR.Core.csproj": {
+      "version": "2.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Repos\\microcompiler\\runtime\\src\\Bytewizer.TinyCLR.Core\\Bytewizer.TinyCLR.Core.csproj",
+        "projectName": "Bytewizer.TinyCLR.Core",
+        "projectPath": "C:\\Repos\\microcompiler\\runtime\\src\\Bytewizer.TinyCLR.Core\\Bytewizer.TinyCLR.Core.csproj",
+        "packagesPath": "C:\\Users\\Tom Rice\\.nuget\\packages\\",
+        "outputPath": "C:\\Repos\\microcompiler\\runtime\\src\\Bytewizer.TinyCLR.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Repos\\microcompiler\\runtime\\playground\\NuGet.Config",
+          "C:\\Users\\Tom Rice\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net452"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Repos\\microcompiler\\runtime\\.prerelease\\packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net452": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net452": {
+          "dependencies": {
+            "GHIElectronics.TinyCLR.Core": {
+              "target": "Package",
+              "version": "[2.1.0-preview4, )"
+            },
+            "Microsoft.SourceLink.GitHub": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "NuGet.Build.Tasks.Pack": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.9.1, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
