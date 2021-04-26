@@ -60,6 +60,20 @@
           "buildCrossTargeting/NuGet.Build.Tasks.Pack.targets": {}
         }
       },
+      "Bytewizer.TinyCLR.Logging/2.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.2",
+        "dependencies": {
+          "Bytewizer.TinyCLR.Logging.Abstractions": "2.0.0",
+          "GHIElectronics.TinyCLR.Core": "2.1.0-preview4"
+        },
+        "compile": {
+          "bin/placeholder/Bytewizer.TinyCLR.Logging.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Bytewizer.TinyCLR.Logging.dll": {}
+        }
+      },
       "Bytewizer.TinyCLR.Logging.Abstractions/2.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.2",
@@ -131,6 +145,20 @@
         },
         "buildMultiTargeting": {
           "buildCrossTargeting/NuGet.Build.Tasks.Pack.targets": {}
+        }
+      },
+      "Bytewizer.TinyCLR.Logging/2.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.2",
+        "dependencies": {
+          "Bytewizer.TinyCLR.Logging.Abstractions": "2.0.0",
+          "GHIElectronics.TinyCLR.Core": "2.1.0-preview4"
+        },
+        "compile": {
+          "bin/placeholder/Bytewizer.TinyCLR.Logging.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Bytewizer.TinyCLR.Logging.dll": {}
         }
       },
       "Bytewizer.TinyCLR.Logging.Abstractions/2.0.0": {
@@ -206,6 +234,20 @@
           "buildCrossTargeting/NuGet.Build.Tasks.Pack.targets": {}
         }
       },
+      "Bytewizer.TinyCLR.Logging/2.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.2",
+        "dependencies": {
+          "Bytewizer.TinyCLR.Logging.Abstractions": "2.0.0",
+          "GHIElectronics.TinyCLR.Core": "2.1.0-preview4"
+        },
+        "compile": {
+          "bin/placeholder/Bytewizer.TinyCLR.Logging.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Bytewizer.TinyCLR.Logging.dll": {}
+        }
+      },
       "Bytewizer.TinyCLR.Logging.Abstractions/2.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.2",
@@ -277,6 +319,20 @@
         },
         "buildMultiTargeting": {
           "buildCrossTargeting/NuGet.Build.Tasks.Pack.targets": {}
+        }
+      },
+      "Bytewizer.TinyCLR.Logging/2.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.2",
+        "dependencies": {
+          "Bytewizer.TinyCLR.Logging.Abstractions": "2.0.0",
+          "GHIElectronics.TinyCLR.Core": "2.1.0-preview4"
+        },
+        "compile": {
+          "bin/placeholder/Bytewizer.TinyCLR.Logging.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Bytewizer.TinyCLR.Logging.dll": {}
         }
       },
       "Bytewizer.TinyCLR.Logging.Abstractions/2.0.0": {
@@ -485,6 +541,11 @@
         "nuget.build.tasks.pack.nuspec"
       ]
     },
+    "Bytewizer.TinyCLR.Logging/2.0.0": {
+      "type": "project",
+      "path": "../Bytewizer.TinyCLR.Logging/Bytewizer.TinyCLR.Logging.csproj",
+      "msbuildProject": "../Bytewizer.TinyCLR.Logging/Bytewizer.TinyCLR.Logging.csproj"
+    },
     "Bytewizer.TinyCLR.Logging.Abstractions/2.0.0": {
       "type": "project",
       "path": "../Bytewizer.TinyCLR.Logging.Abstractions/Bytewizer.TinyCLR.Logging.Abstractions.csproj",
@@ -493,6 +554,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.5.2": [
+      "Bytewizer.TinyCLR.Logging >= 2.0.0",
       "Bytewizer.TinyCLR.Logging.Abstractions >= 2.0.0",
       "GHIElectronics.TinyCLR.Core >= 2.1.0-preview4",
       "Microsoft.SourceLink.GitHub >= 1.0.0",
@@ -530,6 +592,9 @@
           "projectReferences": {
             "C:\\Repos\\microcompiler\\runtime\\src\\Bytewizer.TinyCLR.Logging.Abstractions\\Bytewizer.TinyCLR.Logging.Abstractions.csproj": {
               "projectPath": "C:\\Repos\\microcompiler\\runtime\\src\\Bytewizer.TinyCLR.Logging.Abstractions\\Bytewizer.TinyCLR.Logging.Abstractions.csproj"
+            },
+            "C:\\Repos\\microcompiler\\runtime\\src\\Bytewizer.TinyCLR.Logging\\Bytewizer.TinyCLR.Logging.csproj": {
+              "projectPath": "C:\\Repos\\microcompiler\\runtime\\src\\Bytewizer.TinyCLR.Logging\\Bytewizer.TinyCLR.Logging.csproj"
             }
           }
         }

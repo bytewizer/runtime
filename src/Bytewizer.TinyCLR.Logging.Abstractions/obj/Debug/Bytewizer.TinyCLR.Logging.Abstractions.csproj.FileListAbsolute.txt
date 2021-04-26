@@ -1,0 +1,10 @@
+C:\Repos\microcompiler\runtime\src\Bytewizer.TinyCLR.Logging.Abstractions\bin\Debug\Bytewizer.TinyCLR.Logging.Abstractions.xml
+C:\Repos\microcompiler\runtime\src\Bytewizer.TinyCLR.Logging.Abstractions\bin\Debug\Bytewizer.TinyCLR.Logging.Abstractions.dll
+C:\Repos\microcompiler\runtime\src\Bytewizer.TinyCLR.Logging.Abstractions\bin\Debug\Bytewizer.TinyCLR.Logging.Abstractions.pdb
+C:\Repos\microcompiler\runtime\src\Bytewizer.TinyCLR.Logging.Abstractions\bin\Debug\mscorlib.dll
+C:\Repos\microcompiler\runtime\src\Bytewizer.TinyCLR.Logging.Abstractions\obj\Debug\Bytewizer.TinyCLR.Logging.Abstractions.csprojAssemblyReference.cache
+C:\Repos\microcompiler\runtime\src\Bytewizer.TinyCLR.Logging.Abstractions\obj\Debug\Bytewizer.TinyCLR.Logging.Abstractions.csproj.CoreCompileInputs.cache
+C:\Repos\microcompiler\runtime\src\Bytewizer.TinyCLR.Logging.Abstractions\obj\Debug\Bytewizer.TinyCLR.Logging.Abstractions.sourcelink.json
+C:\Repos\microcompiler\runtime\src\Bytewizer.TinyCLR.Logging.Abstractions\obj\Debug\Bytewizer.TinyCLR.Logging.Abstractions.csproj.CopyComplete
+C:\Repos\microcompiler\runtime\src\Bytewizer.TinyCLR.Logging.Abstractions\obj\Debug\Bytewizer.TinyCLR.Logging.Abstractions.dll
+C:\Repos\microcompiler\runtime\src\Bytewizer.TinyCLR.Logging.Abstractions\obj\Debug\Bytewizer.TinyCLR.Logging.Abstractions.pdb

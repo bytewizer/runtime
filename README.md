@@ -2,11 +2,12 @@
 
 This repo contains libraries but for TinyCLR OS.
 
-[![Build Status](https://img.shields.io/github/workflow/status/microcompiler/runtime/Actions%20CI?style=flat-square&logo=github)](https://github.com/microcompiler/runtime/actions)
+[![Build CI](https://github.com/microcompiler/runtime/actions/workflows/actions.yml/badge.svg)](https://github.com/microcompiler/runtime/actions/workflows/actions.yml)
+[![Build CI](https://github.com/microcompiler/runtime/actions/workflows/release.yml/badge.svg)](https://github.com/microcompiler/runtime/actions/workflows/release.yml)
 
 ## Branches
 
-**master** - This is the branch containing the latest release - no contributions should be made directly to this branch.
+**main** - This is the branch containing the latest release - no contributions should be made directly to this branch.
 
 **develop** - This is the development branch to which contributions should be proposed by contributors as pull requests. This development branch will periodically be merged to the master branch, and be released to [NuGet Gallery](https://www.nuget.org).
 
