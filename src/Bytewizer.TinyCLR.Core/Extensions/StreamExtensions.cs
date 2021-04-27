@@ -9,6 +9,85 @@ namespace Bytewizer.TinyCLR
     public static class StreamExtensions
     {
         /// <summary>
+        /// Reads the bytes from the current stream and writes them to another stream.
+        /// </summary>
+        /// <param name="source">The source <see cref="MemoryStream"/> to read from.</param>
+        /// <param name="destination">The <see cref="Stream"/> to which the contents of the current stream will be copied.</param>
+        public static void CopyTo(this MemoryStream source, Stream destination)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
+            if (destination == null)
+            {
+                throw new ArgumentNullException(nameof(destination));
+            }
+
+            destination.Write(source.GetBuffer(), (int)source.Position, (int)(source.Length - source.Position));
+        }
+
+        /// <summary>
+        /// Reads the bytes from the current stream and writes them to another stream.
+        /// </summary>
+        /// <param name="source">The source <see cref="Stream"/> to read from.</param>
+        /// <param name="destination">The <see cref="MemoryStream"/> to which the contents of the current stream will be copied.</param>
+        public static void CopyTo(this Stream source, MemoryStream destination)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
+            if (destination == null)
+            {
+                throw new ArgumentNullException(nameof(destination));
+            }
+
+            if (source.CanSeek)
+            {
+                int position = (int)destination.Position;
+                int length = (int)(source.Length - source.Position) + position;
+                destination.SetLength(length);
+
+                while (position < length)
+                    position += source.Read(destination.GetBuffer(), position, length - position);
+            }
+            else
+            {
+                source.CopyTo((Stream)destination);
+            }
+        }
+
+        /// <summary>
+        /// Reads the bytes from the current stream and writes them to another stream.
+        /// </summary>
+        /// <param name="source">The source <see cref="Stream"/> to read from.</param>
+        /// <param name="destination">The <see cref="Stream"/> to which the contents of the current stream will be copied.</param>
+        public static void CopyTo(this Stream source, Stream destination)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
+            if (destination == null)
+            {
+                throw new ArgumentNullException(nameof(destination));
+            }
+
+            int size = (source.CanSeek) ? Math.Min((int)(source.Length - source.Position), 0x2000) : 0x2000;
+            var buffer = new byte[size];
+
+            int read;
+            while ((read = source.Read(buffer, 0, buffer.Length)) > 0)
+            {
+                destination.Write(buffer, 0, read);
+            }
+        }
+        
+        /// <summary>
         /// Writes a sequence of bytes to the current stream and advances the current position within this stream by the number of bytes written.
         /// </summary>
         /// <param name="source">The source <see cref="Stream"/> to read from.</param>
@@ -17,45 +96,5 @@ namespace Bytewizer.TinyCLR
         {
             source.Write(buffer, 0, buffer.Length);
         }
-        
-        /// <summary>
-        /// Reads the bytes from the current stream and writes them to another stream.
-        /// </summary>
-        /// <param name="source">The source <see cref="Stream"/> to read from.</param>
-        /// <param name="destination">The <see cref="Stream"/> to which the contents of the current stream will be copied.</param>
-        public static void CopyTo(this Stream source, Stream destination)
-        {
-            int maxChunkSize = 0x2000;
-            
-            int size = (source.CanSeek) ? Math.Min((int)(source.Length - source.Position), maxChunkSize) : maxChunkSize;
-            byte[] buffer = new byte[size];
-            int n;
-            do
-            {
-                n = source.Read(buffer, 0, buffer.Length);
-                if (n == -1) n=0;
-                destination.Write(buffer, 0, n);
-            } while (n != 0);
-        }
-
-        //public static void CopyTo(this MemoryStream src, Stream dest)
-        //{
-        //    dest.Write(src.GetBuffer(), (int)src.Position, (int)(src.Length - src.Position));
-        //}
-
-        //public static void CopyTo(this Stream src, MemoryStream dest)
-        //{
-        //    if (src.CanSeek)
-        //    {
-        //        int pos = (int)dest.Position;
-        //        int length = (int)(src.Length - src.Position) + pos;
-        //        dest.SetLength(length);
-
-        //        while (pos < length)
-        //            pos += src.Read(dest.GetBuffer(), pos, length - pos);
-        //    }
-        //    else
-        //        src.CopyTo((Stream)dest);
-        //}
     }
 }

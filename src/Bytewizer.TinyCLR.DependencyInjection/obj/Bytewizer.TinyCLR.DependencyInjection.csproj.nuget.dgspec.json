@@ -38,7 +38,7 @@
           "dependencies": {
             "GHIElectronics.TinyCLR.Core": {
               "target": "Package",
-              "version": "[2.1.0-preview4, )"
+              "version": "[2.1.0-rc1, )"
             },
             "Microsoft.SourceLink.GitHub": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -105,7 +105,7 @@
           "dependencies": {
             "GHIElectronics.TinyCLR.Core": {
               "target": "Package",
-              "version": "[2.1.0-preview4, )"
+              "version": "[2.1.0-rc1, )"
             },
             "Microsoft.SourceLink.GitHub": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -175,7 +175,7 @@
           "dependencies": {
             "GHIElectronics.TinyCLR.Core": {
               "target": "Package",
-              "version": "[2.1.0-preview4, )"
+              "version": "[2.1.0-rc1, )"
             },
             "Microsoft.SourceLink.GitHub": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

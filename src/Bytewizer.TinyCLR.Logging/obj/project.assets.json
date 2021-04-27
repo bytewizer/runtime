@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.5.2": {
-      "GHIElectronics.TinyCLR.Core/2.1.0-preview4": {
+      "GHIElectronics.TinyCLR.Core/2.1.0-rc1": {
         "type": "package",
         "compile": {
           "lib/net452/mscorlib.dll": {}
@@ -64,7 +64,7 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.2",
         "dependencies": {
-          "GHIElectronics.TinyCLR.Core": "2.1.0-preview4"
+          "GHIElectronics.TinyCLR.Core": "2.1.0-rc1"
         },
         "compile": {
           "bin/placeholder/Bytewizer.TinyCLR.Logging.Abstractions.dll": {}
@@ -75,7 +75,7 @@
       }
     },
     ".NETFramework,Version=v4.5.2/win": {
-      "GHIElectronics.TinyCLR.Core/2.1.0-preview4": {
+      "GHIElectronics.TinyCLR.Core/2.1.0-rc1": {
         "type": "package",
         "compile": {
           "lib/net452/mscorlib.dll": {}
@@ -137,7 +137,7 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.2",
         "dependencies": {
-          "GHIElectronics.TinyCLR.Core": "2.1.0-preview4"
+          "GHIElectronics.TinyCLR.Core": "2.1.0-rc1"
         },
         "compile": {
           "bin/placeholder/Bytewizer.TinyCLR.Logging.Abstractions.dll": {}
@@ -148,7 +148,7 @@
       }
     },
     ".NETFramework,Version=v4.5.2/win-x64": {
-      "GHIElectronics.TinyCLR.Core/2.1.0-preview4": {
+      "GHIElectronics.TinyCLR.Core/2.1.0-rc1": {
         "type": "package",
         "compile": {
           "lib/net452/mscorlib.dll": {}
@@ -210,7 +210,7 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.2",
         "dependencies": {
-          "GHIElectronics.TinyCLR.Core": "2.1.0-preview4"
+          "GHIElectronics.TinyCLR.Core": "2.1.0-rc1"
         },
         "compile": {
           "bin/placeholder/Bytewizer.TinyCLR.Logging.Abstractions.dll": {}
@@ -221,7 +221,7 @@
       }
     },
     ".NETFramework,Version=v4.5.2/win-x86": {
-      "GHIElectronics.TinyCLR.Core/2.1.0-preview4": {
+      "GHIElectronics.TinyCLR.Core/2.1.0-rc1": {
         "type": "package",
         "compile": {
           "lib/net452/mscorlib.dll": {}
@@ -283,7 +283,7 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.2",
         "dependencies": {
-          "GHIElectronics.TinyCLR.Core": "2.1.0-preview4"
+          "GHIElectronics.TinyCLR.Core": "2.1.0-rc1"
         },
         "compile": {
           "bin/placeholder/Bytewizer.TinyCLR.Logging.Abstractions.dll": {}
@@ -295,14 +295,14 @@
     }
   },
   "libraries": {
-    "GHIElectronics.TinyCLR.Core/2.1.0-preview4": {
-      "sha512": "fSdVQz6V7GT7rUDw7JYjWoe63XQcJ6bxgvW6TE8NVAImD55hRGY/zn00plllf1mHLzmR9x1uW6+1o3432MuUOQ==",
+    "GHIElectronics.TinyCLR.Core/2.1.0-rc1": {
+      "sha512": "1N9Sq06YomJL2NrTrLEhsVdA/TUaTO7RAVQ+VC9cTsi0CC0YphHCdEI8v6dP1caj/avWPBYFrpNICNYbO3Yipg==",
       "type": "package",
-      "path": "ghielectronics.tinyclr.core/2.1.0-preview4",
+      "path": "ghielectronics.tinyclr.core/2.1.0-rc1",
       "files": [
         ".nupkg.metadata",
         "build/net452/GHIElectronics.TinyCLR.Core.props",
-        "ghielectronics.tinyclr.core.2.1.0-preview4.nupkg.sha512",
+        "ghielectronics.tinyclr.core.2.1.0-rc1.nupkg.sha512",
         "ghielectronics.tinyclr.core.nuspec",
         "lib/net452/mscorlib.dll"
       ]
@@ -494,7 +494,7 @@
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.5.2": [
       "Bytewizer.TinyCLR.Logging.Abstractions >= 2.0.0",
-      "GHIElectronics.TinyCLR.Core >= 2.1.0-preview4",
+      "GHIElectronics.TinyCLR.Core >= 2.1.0-rc1",
       "Microsoft.SourceLink.GitHub >= 1.0.0",
       "NuGet.Build.Tasks.Pack >= 5.9.1"
     ]
@@ -540,7 +540,7 @@
         "dependencies": {
           "GHIElectronics.TinyCLR.Core": {
             "target": "Package",
-            "version": "[2.1.0-preview4, )"
+            "version": "[2.1.0-rc1, )"
           },
           "Microsoft.SourceLink.GitHub": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
