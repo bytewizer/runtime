@@ -1,9 +1,0 @@
-C:\Repos\tinyclr\microserver\src\Bytewizer.TinyCLR.Core\bin\Debug\Bytewizer.TinyCLR.Core.xml
-C:\Repos\tinyclr\microserver\src\Bytewizer.TinyCLR.Core\bin\Debug\Bytewizer.TinyCLR.Core.dll
-C:\Repos\tinyclr\microserver\src\Bytewizer.TinyCLR.Core\bin\Debug\Bytewizer.TinyCLR.Core.pdb
-C:\Repos\tinyclr\microserver\src\Bytewizer.TinyCLR.Core\bin\Debug\mscorlib.dll
-C:\Repos\tinyclr\microserver\src\Bytewizer.TinyCLR.Core\obj\Debug\Bytewizer.TinyCLR.Core.csproj.CoreCompileInputs.cache
-C:\Repos\tinyclr\microserver\src\Bytewizer.TinyCLR.Core\obj\Debug\Bytewizer.TinyCLR.Core.sourcelink.json
-C:\Repos\tinyclr\microserver\src\Bytewizer.TinyCLR.Core\obj\Debug\Bytewizer.TinyCLR.Core.csproj.CopyComplete
-C:\Repos\tinyclr\microserver\src\Bytewizer.TinyCLR.Core\obj\Debug\Bytewizer.TinyCLR.Core.dll
-C:\Repos\tinyclr\microserver\src\Bytewizer.TinyCLR.Core\obj\Debug\Bytewizer.TinyCLR.Core.pdb
