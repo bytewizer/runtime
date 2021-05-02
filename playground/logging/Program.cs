@@ -7,21 +7,11 @@ namespace Bytewizer.Playground.Logging
 {
     class Program
     {
-        private static ILoggerFactory loggerFactory;
-        
+        private static readonly ILoggerFactory loggerFactory = new LoggerFactory();
+
         static void Main()
         {
-            var filter = new LoggerFilterOptions()
-            {
-                MinLevel = LogLevel.Information
-            };
-
-            var provider = new ArrayList
-            {
-                new DebugLoggerProvider(LogLevel.Information)
-            };
-
-            loggerFactory = new LoggerFactory(provider, filter);
+            loggerFactory.AddDebug();
 
             TestLoggerExtensions();
         }
@@ -39,21 +29,3 @@ namespace Bytewizer.Playground.Logging
         }
     }
 }
-
-
-//private static void TestLogger()
-//{
-//    ILogger logger = loggerFactory.CreateLogger(nameof(TestLogger));
-
-//    var id = new EventId(10, "event id name");
-//    logger.Log(LogLevel.Information, id, "event id message");
-
-//    try 
-//    {
-//        throw new NullReferenceException();
-//    }
-//    catch (Exception ex)
-//    {
-//        logger.Log(LogLevel.Error, id, ex, "message");
-//    }         
-//}

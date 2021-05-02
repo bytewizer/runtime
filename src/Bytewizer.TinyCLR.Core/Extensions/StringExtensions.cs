@@ -13,6 +13,11 @@
         /// <returns><c>true</c> if value matches the beginning of this string; otherwise, <c>false.</c></returns>
         public static bool StartsWith(this string source, string value)
         {
+            if (string.IsNullOrEmpty(source))
+            {
+                return false;
+            }
+
             return source.ToLower().IndexOf(value.ToLower()) == 0;
         }
 
@@ -24,6 +29,11 @@
         /// <returns><c>true</c> if value matches the beginning of this string; otherwise, <c>false.</c></returns>
         public static bool EndsWith(this string source, string value)
         {
+            if (string.IsNullOrEmpty(source))
+            {
+                return false;
+            }
+
             return source.ToLower().IndexOf(value.ToLower()) == source.Length - value.Length;
         }
 
@@ -35,6 +45,11 @@
         /// <returns><c>true</c> if the value parameter occurs within this string, or if value is the empty string (""); otherwise, <c>false.</c></returns>
         public static bool Contains(this string source, string value)
         {
+            if (string.IsNullOrEmpty(source))
+            {
+                return false;
+            }
+
             return source.ToLower().IndexOf(value.ToLower()) >= 0;
         }
 
