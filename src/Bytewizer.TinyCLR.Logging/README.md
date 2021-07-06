@@ -2,7 +2,7 @@
 
 Provides a flexable logging provider.
 
-## Simple Debug Logging Example
+## Simple Serial Logging Example
 ```CSharp
 class Program
 {
@@ -10,7 +10,8 @@ class Program
 
     static void Main()
     {
-        loggerFactory.AddDebug();
+        loggerFactory.AddDebug(LogLevel.Debug);
+        loggerFactory.AddSerial(SC20260.UartPort.Uart1, LogLevel.Critical);
         
         TestLoggerExtensions();
     }
@@ -19,6 +20,9 @@ class Program
     {
         ILogger logger = loggerFactory.CreateLogger(nameof(TestLoggerExtensions));
 
+        logger.Log(LogLevel.Information, new EventId(10, "Id Name"), "logging without extensions", null);
+
+        // Requires Bytewizer.TinyCLR.Logging.Extensions convenience packages
         logger.LogTrace("Trace");
         logger.LogDebug("Debug");
         logger.LogInformation("Information");
@@ -27,4 +31,11 @@ class Program
         logger.LogCritical("Critical");
     }
 }
+```
+
+## TinyCLR Packages
+```bash
+PM> Install-Package Bytewizer.TinyCLR.Logging.Debug
+PM> Install-Package Bytewizer.TinyCLR.Logging.Serial
+PM> Install-Package Bytewizer.TinyCLR.Logging.Extensions
 ```

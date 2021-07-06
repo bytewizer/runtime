@@ -6,7 +6,7 @@
     public static class DebugLoggerFactoryExtensions
     {
         /// <summary>
-        /// Adds a debug logger that is enabled for <see cref="LogLevel"/>.Information or higher.
+        /// Adds a debug logger that is enabled for <see cref="LogLevel"/> Information or higher.
         /// </summary>
         /// <param name="factory">The extension method argument.</param>
         public static ILoggerFactory AddDebug(this ILoggerFactory factory)

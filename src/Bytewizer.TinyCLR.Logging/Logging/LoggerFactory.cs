@@ -79,7 +79,8 @@ namespace Bytewizer.TinyCLR.Logging
                 }
 
                 messageLoggers[i] = new MessageLogger(
-                    loggers[i].Logger, loggers[i].Category, loggers[i].ProviderType.FullName, minLevel);
+                        loggers[i].Logger, loggers[i].Category, loggers[i].ProviderType.FullName, minLevel
+                    );
             }
 
             return messageLoggers;

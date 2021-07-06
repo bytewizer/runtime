@@ -66,12 +66,13 @@
     <Compile Include="Logging\LoggerFactory.cs" />
     <Compile Include="Logging\LoggerFilterOptions.cs" />
     <Compile Include="Logging\LoggerInformation.cs" />
+    <Compile Include="Logging\LogLevelString.cs" />
     <Compile Include="Logging\MessageLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GHIElectronics.TinyCLR.Core">
-      <Version>2.1.0-rc1</Version>
+      <Version>2.1.0-rc2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.SourceLink.GitHub">
       <Version>1.0.0</Version>
