@@ -74,10 +74,10 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: Release Package
-        path: /builds/artifacts
+        path: \builds\artifacts
     
     - name: Create release asset
-      run: Compress-Archive -DestinationPath /builds/packages.zip -Path /builds/artifacts/*.*nupkg
+      run: Compress-Archive -DestinationPath \builds\packages.zip -Path \builds\artifacts\*.*nupkg
       
     - name: Upload release asset
       uses: actions/upload-release-asset@v1.0.1
@@ -85,7 +85,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ github.event.release.upload_url }}
-        asset_path: /builds/packages.zip
+        asset_path: \builds\packages.zip
         asset_name: Packages.zip
         asset_content_type: application/zip
     
@@ -97,7 +97,7 @@ jobs:
     - name: Publish package to github.com
       run: |
         nuget sources add -name github.com -source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
-        nuget push /builds/artifacts/*.nupkg -source github.com -apikey ${{secrets.PACKAGE_API_KEY}} -skipduplicate
+        nuget push \builds\artifacts\**\*.nupkg -source github.com -apikey ${{secrets.PACKAGE_API_KEY}} -skipduplicate
 
 #   - name: Publish package to nuget.org
 #     run: |
