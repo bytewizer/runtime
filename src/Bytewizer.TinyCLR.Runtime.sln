@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Core", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.DependencyInjection", "Bytewizer.TinyCLR.DependencyInjection\Bytewizer.TinyCLR.DependencyInjection.csproj", "{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.DependencyInjection.Abstraction", "Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstraction.csproj", "{F5997E37-7348-4FA6-9103-990D9906DA4F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging", "Bytewizer.TinyCLR.Logging\Bytewizer.TinyCLR.Logging.csproj", "{D6D13310-C4A1-4409-B0E3-10F29F7FF262}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging.Abstractions", "Bytewizer.TinyCLR.Logging.Abstractions\Bytewizer.TinyCLR.Logging.Abstractions.csproj", "{598D7917-49D1-4E76-BFF4-23221BAD7072}"
@@ -20,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging.Serial", "Bytewizer.TinyCLR.Logging.Serial\Bytewizer.TinyCLR.Logging.Serial.csproj", "{86FC7114-6D76-4E8F-8D9A-E22260B1704C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Pipeline", "Bytewizer.TinyCLR.Pipeline\Bytewizer.TinyCLR.Pipeline.csproj", "{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.DependencyInjection.Abstractions", "Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstractions.csproj", "{F5997E37-7348-4FA6-9103-990D9906DA4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,6 @@ Global
 		{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F5997E37-7348-4FA6-9103-990D9906DA4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F5997E37-7348-4FA6-9103-990D9906DA4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F5997E37-7348-4FA6-9103-990D9906DA4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F5997E37-7348-4FA6-9103-990D9906DA4F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D6D13310-C4A1-4409-B0E3-10F29F7FF262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D6D13310-C4A1-4409-B0E3-10F29F7FF262}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6D13310-C4A1-4409-B0E3-10F29F7FF262}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,6 +59,10 @@ Global
 		{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5997E37-7348-4FA6-9103-990D9906DA4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5997E37-7348-4FA6-9103-990D9906DA4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5997E37-7348-4FA6-9103-990D9906DA4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5997E37-7348-4FA6-9103-990D9906DA4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
