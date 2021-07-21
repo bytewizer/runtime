@@ -85,9 +85,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstraction.csproj">
+    <ProjectReference Include="..\Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstractions.csproj">
       <Project>{F5997E37-7348-4FA6-9103-990D9906DA4F}</Project>
-      <Name>Bytewizer.TinyCLR.DependencyInjection.Abstraction</Name>
+      <Name>Bytewizer.TinyCLR.DependencyInjection.Abstractions</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj">
       <Project>{70392D1D-6B78-46C8-9531-C02915742A46}</Project>
