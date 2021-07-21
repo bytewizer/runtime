@@ -1,9 +1,10 @@
-﻿using Bytewizer.TinyCLR.Logging;
+﻿using System;
+
+using Bytewizer.TinyCLR.Logging;
 using Bytewizer.TinyCLR.Logging.Debug;
 using Bytewizer.TinyCLR.Logging.Serial;
 
 using GHIElectronics.TinyCLR.Pins;
-using System;
 
 namespace Bytewizer.Playground.Logging
 {

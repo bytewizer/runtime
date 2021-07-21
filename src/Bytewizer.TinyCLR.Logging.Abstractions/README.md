@@ -1,6 +1,6 @@
 # Logging Abstraction
 
-Provides a minimalistic logger that does nothing useful for libraries.
+Provides a minimalistic logger useful for libraries that does nothing.
 
 ## TinyCLR Packages
 ```bash

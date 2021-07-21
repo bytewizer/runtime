@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D6D13310-C4A1-4409-B0E3-10F29F7FF262}</ProjectGuid>
+    <ProjectGuid>{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bytewizer.TincyCLR.Logging</RootNamespace>
-    <AssemblyName>Bytewizer.TinyCLR.Logging</AssemblyName>
+    <RootNamespace>Bytewizer.TinyCLR.Pipeline</RootNamespace>
+    <AssemblyName>Bytewizer.TinyCLR.Pipeline</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A1948822-69DD-4150-919B-F3F42EFB71CC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -46,7 +46,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Bytewizer.TinyCLR.Logging.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\Bytewizer.TinyCLR.Pipeline.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -62,13 +62,20 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logging\Logger.cs" />
-    <Compile Include="Logging\LoggerFactory.cs" />
-    <Compile Include="Logging\LoggerFilterOptions.cs" />
-    <Compile Include="Logging\LoggerInformation.cs" />
-    <Compile Include="Logging\LogLevelString.cs" />
-    <Compile Include="Logging\MessageLogger.cs" />
+    <Compile Include="Pipeline\ContextPool.cs" />
+    <Compile Include="Pipeline\ApplicationDelegate.cs" />
+    <Compile Include="Pipeline\Builder\IApplication.cs" />
+    <Compile Include="Pipeline\InlineMiddlewareDelegate.cs" />
+    <Compile Include="Pipeline\InlineMiddleware.cs" />
+    <Compile Include="Pipeline\MiddlewareDelegate.cs" />
+    <Compile Include="Pipeline\MiddlewareDelegateExtensions.cs" />
+    <Compile Include="Pipeline\IContext.cs" />
+    <Compile Include="Pipeline\Builder\IApplicationBuilder.cs" />
+    <Compile Include="Pipeline\IMiddleware.cs" />
+    <Compile Include="Pipeline\Builder\ApplicationBuilder.cs" />
+    <Compile Include="Pipeline\Middleware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pipeline\RequestDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GHIElectronics.TinyCLR.Core">
@@ -86,9 +93,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bytewizer.TinyCLR.Logging.Abstractions\Bytewizer.TinyCLR.Logging.Abstractions.csproj">
-      <Project>{598D7917-49D1-4E76-BFF4-23221BAD7072}</Project>
-      <Name>Bytewizer.TinyCLR.Logging.Abstractions</Name>
+    <ProjectReference Include="..\Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj">
+      <Project>{70392D1D-6B78-46C8-9531-C02915742A46}</Project>
+      <Name>Bytewizer.TinyCLR.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,12 +1,4 @@
-﻿// https://github.com/grumpydev/TinyIoC/blob/master/src/TinyIoC/TinyIoC.cs
-// https://github.com/microsoft/MinIoC/blob/master/Container.cs#L224
-// https://github.com/dotnet/runtime/tree/master/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src
-// https://ruijarimba.wordpress.com/2013/10/28/implementing-a-basic-ioc-container-using-csharp/
-// https://docs.servicestack.net/simple-ioc#fast-small-minimal-dependency-ioc
-// https://github.com/seesharper/LightInject/blob/master/src/LightInject/LightInject.cs
-// https://melgrubb.com/2008/11/03/itty-bitty-ioc-a-c-ioc-container-in-100-lines/
-
-using Bytewizer.TinyCLR.Logging;
+﻿using Bytewizer.TinyCLR.Logging;
 using Bytewizer.TinyCLR.Logging.Debug;
 using Bytewizer.TinyCLR.DependencyInjection;
 
@@ -17,13 +9,13 @@ namespace Bytewizer.Playground.DependencyInjection
         static void Main()
         {
             var serviceProvider = new ServiceCollection()
-                //.AddLogging(b => b.AddDebug())
+                .AddSingleton(typeof(ILoggerFactory), typeof(LoggerFactory))
                 .AddSingleton(typeof(IFooService), typeof(FooService))
                 .AddSingleton(typeof(IBarService), typeof(BarService))
                 .BuildServiceProvider();
 
             var loggerFactory = (LoggerFactory)serviceProvider.GetService(typeof(ILoggerFactory));
-            loggerFactory.AddProvider(new DebugLoggerProvider());
+            loggerFactory.AddDebug();
 
             var logger = loggerFactory.CreateLogger(typeof(Program));
             logger.LogInformation("Starting application");
@@ -70,7 +62,6 @@ namespace Bytewizer.Playground.DependencyInjection
         
         public FooService(ILoggerFactory loggerFactory)
         {
-            //loggerFactory.AddProvider(new DebugLoggerProvider(LogLevel.Trace));
             _logger = loggerFactory.CreateLogger(typeof(FooService));
         }
 
