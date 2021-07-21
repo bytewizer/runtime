@@ -5,9 +5,9 @@ on:
       types: [published]
 
 env:
-  ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-  CONFIGURATION: 'Release'
   VERBOSITY:  'Normal'
+  CONFIGURATION: 'Release'
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
   
 jobs:
   Release:
@@ -53,17 +53,18 @@ jobs:
       run: >- 
         msbuild -t:restore -verbosity:${env:VERBOSITY} 
 
-    - name: Release Build and pack libraries
+    - name: Release build and pack libraries
       working-directory: src
       run: >- 
         msbuild -t:pack -verbosity:${env:VERBOSITY} 
         -p:PackageOutputPath=\builds\artifacts
         -p:BuildNumber="${{ steps.info.outputs.build }}" 
         -p:Copyright="${{ steps.info.outputs.copyright }}"
+        -p:VersionPrefix="2.1.0"
         -p:PackageVersion="${{ steps.info.outputs.version }}"
         -p:Configuration=${env:CONFIGURATION}
-        -p:RepositoryUrl="https://github.com/microcompiler/microserver"
-        -p:PackageTags="tcp-server udp-server socket-server http-server http https tinyclr tinyclros sitcore iot"
+        -p:RepositoryUrl="https://github.com/microcompiler/runtime"
+        -p:PackageTags="ghi tinyclr tinyclros sitcore iot"
         -p:IncludeSymbols=true 
         -p:SymbolPackageFormat="snupkg"
         -p:PublishRepositoryUrl=true
@@ -91,15 +92,14 @@ jobs:
     - name: Setup nuget
       uses: nuget/setup-nuget@v1
       with:
-        nuget-api-key: ${{ secrets.NUGET_API_KEY }}
         nuget-version: 'latest' 
+    
+   - name: Publish package to github.com
+     run: |
+      nuget sources add -name github.com -source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+      nuget push /builds/artifacts/*.nupkg -source github.com -apikey ${{secrets.PACKAGE_API_KEY}} -skipduplicate
 
-#    - name: Publish package to github
-#      run: |
-#      nuget source Add -Name "GitHub" -Source "https://nuget.pkg.github.com/microcompiler/index.json" -UserName microcompiler -Password ${{secrets.GITHUB_TOKEN}}
-#      nuget push artifacts/*.nupkg -Source "GitHub"
+#   - name: Publish package to nuget.org
+#     run: |
+#       nuget push /builds/artifacts/*.*nupkg -source nuget.org -apikey ${{secrets.NUGET_API_KEY}} -skipduplicate
 
-#    - name: Publish package to nuget
-#      run: |
-#        nuget sources Add -Name "NuGet" -Source "https://int.nugettest.org"
-#        nuget push artifacts/*.*nupkg -Source "NuGet"
