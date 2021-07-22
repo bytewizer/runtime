@@ -63,6 +63,7 @@ jobs:
         -p:PackageTags="ghi tinyclr tinyclros sitcore iot"
         -p:IncludeSymbols=true 
         -p:SymbolPackageFormat="snupkg"
+        -p:DebugType=Portable
         -p:PublishRepositoryUrl=true
         -p:EmbedUntrackedSources=true
             
