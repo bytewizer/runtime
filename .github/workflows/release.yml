@@ -2,7 +2,8 @@ name: Release
 
 on:
   release:
-      types: [published]
+    types: [published]
+    branches: [main]
 
 env:
   VERBOSITY:  'Normal'
@@ -94,12 +95,11 @@ jobs:
       with:
         nuget-version: 'latest' 
     
-#    - name: Publish package to github.com
-#      run: |
-#        nuget sources add -name github.com -source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" -username ${{ github.actor }} -password ${{secrets.PACKAGE_API_KEY}}
-#        nuget push \builds\artifacts\**\*.nupkg -source github.com -apikey ${{secrets.PACKAGE_API_KEY}} -skipduplicate
+    - name: Publish package to github.com
+      run: |
+        nuget sources add -name github.com -source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" -username ${{ github.actor }} -password ${{secrets.PACKAGE_API_KEY}}
+        nuget push \builds\artifacts\**\*.nupkg -source github.com -apikey ${{secrets.PACKAGE_API_KEY}} -skipduplicate
 
-#   - name: Publish package to nuget.org
-#     run: |
-#       nuget push \builds\artifacts\**\*.*nupkg -source nuget.org -apikey ${{secrets.NUGET_API_KEY}} -skipduplicate
-
+    - name: Publish package to nuget.org
+      run: |
+       nuget push \builds\artifacts\**\*.*nupkg -source nuget.org -apikey ${{secrets.NUGET_API_KEY}} -skipduplicate
