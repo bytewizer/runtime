@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Bytewizer Dependency Injection")]
-[assembly: AssemblyDescription("Dependency injection for IoT devices")]
+[assembly: AssemblyTitle("Bytewizer Core Library")]
+[assembly: AssemblyDescription("Core library for IoT devices")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Bytewizer Http Server")]

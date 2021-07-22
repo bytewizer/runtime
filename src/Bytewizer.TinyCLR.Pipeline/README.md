@@ -1,6 +1,6 @@
 # Pipeline
 
-Pipleline is a generic middleware pipeline built for TinyCLR OS.
+Provides a generic middleware pipeline built for TinyCLR OS.
 
 ## Simple Pipeline Example
 

@@ -1,6 +1,6 @@
 # Debug Logging
 
-Provides a flexable debug logging provider.
+Provides a flexable debug logging provider built for TinyCLR OS.
 
 ## Simple Debug Logging Example
 ```CSharp

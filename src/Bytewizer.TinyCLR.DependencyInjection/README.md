@@ -1,6 +1,6 @@
 # Dependency Injection (DI)
 
-Provides dependency injection for Inversion of Control (IoC) between classes and their dependencies.
+Provides dependency injection for Inversion of Control (IoC) between classes and their dependencies built for TinyCLR OS.
 
 ## Simple Dependency Injection Example
 ```CSharp

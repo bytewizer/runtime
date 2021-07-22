@@ -59,7 +59,7 @@ jobs:
         -p:VersionPrefix="2.1.0"
         -p:VersionSuffix=prebuild.${{ steps.info.outputs.build }} 
         -p:Configuration=${env:CONFIGURATION}
-        -p:RepositoryUrl="https://github.com/microcompiler/microserver"
+        -p:RepositoryUrl="https://github.com/${{ github.repository }}"
         -p:PackageTags="ghi tinyclr tinyclros sitcore iot"
         -p:IncludeSymbols=true 
         -p:SymbolPackageFormat="snupkg"

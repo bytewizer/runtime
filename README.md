@@ -1,16 +1,16 @@
 # Runtime libraries for TinyCLR OS
 
-[![Release](https://github.com/microcompiler/runtime/actions/workflows/release.yml/badge.svg)](https://github.com/microcompiler/runtime/actions/workflows/release.yml)
-[![Build](https://github.com/microcompiler/runtime/actions/workflows/actions.yml/badge.svg)](https://github.com/microcompiler/runtime/actions/workflows/actions.yml)
+[![Release](https://github.com/bytewizer/runtime/actions/workflows/release.yml/badge.svg)](https://github.com/bytewizer/runtime/actions/workflows/release.yml)
+[![Build](https://github.com/bytewizer/runtime/actions/workflows/actions.yml/badge.svg)](https://github.com/bytewizer/runtime/actions/workflows/actions.yml)
 
 ## Libraries
 
 This repo contains several runtime libraries built for TinyCLR OS. These libraries provide implementations for many general and app-specific types, algorithms, and utility functionality.
 
-* <a href="https://github.com/microcompiler/runtime/tree/develop/src/Bytewizer.TinyCLR.Core">Core</a> 
-* <a href="https://github.com/microcompiler/runtime/tree/develop/src/Bytewizer.TinyCLR.Logging">Logging</a> 
-* <a href="https://github.com/microcompiler/runtime/tree/develop/src/Bytewizer.TinyCLR.Pipeline">Middleware Pipeline</a> 
-* <a href="https://github.com/microcompiler/runtime/tree/develop/src/Bytewizer.TinyCLR.DependencyInjection">Dependency Injection (DI)</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Core">Core</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Logging">Logging</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Pipeline">Middleware Pipeline</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.DependencyInjection">Dependency Injection (DI)</a> 
 
 ## Requirements
 
@@ -24,7 +24,7 @@ If you like or are using this project to start your solution, please give it a s
 
 **main** :: This is the branch containing the latest release build. No contributions should be made directly to this branch. The development branch will periodically be merged to the master branch, and be released to [NuGet Gallery](https://www.nuget.org).
 
-**develop** :: This is the development branch to which contributions should be proposed by contributors as pull requests. Development build packages are available as attached artifacts on successful [Build](https://github.com/microcompiler/microserver/actions/workflows/actions.yml) workflows.
+**develop** :: This is the development branch to which contributions should be proposed by contributors as pull requests. Development build packages are available as attached artifacts on successful [Build](https://github.com/bytewizer/microserver/actions/workflows/actions.yml) workflows.
 
 ## Contributions
 
