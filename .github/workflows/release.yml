@@ -102,4 +102,5 @@ jobs:
 
     - name: Publish package to nuget.org
       run: |
-       nuget push \builds\artifacts\**\*.*nupkg -source nuget.org -apikey ${{secrets.NUGET_API_KEY}} -skipduplicate
+        nuget push \builds\artifacts\**\*.nupkg -source nuget.org -apikey ${{secrets.NUGET_API_KEY}} -skipduplicate
+        nuget push \builds\artifacts\**\*.snupkg -source nuget.org -apikey ${{secrets.NUGET_API_KEY}} -skipduplicate
