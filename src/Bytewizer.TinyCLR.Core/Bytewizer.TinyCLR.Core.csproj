@@ -27,7 +27,7 @@
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <Authors>Microcompiler</Authors>
     <Company>Bytewizer Inc.</Company>
-    <description>This is a test description</description>
+	<Description>This is a test description</Description>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
