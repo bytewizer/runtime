@@ -13,7 +13,8 @@
 		<FileAlignment>512</FileAlignment>
 		<ProjectTypeGuids>{A1948822-69DD-4150-919B-F3F42EFB71CC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
 		<LangVersion>9</LangVersion>
-		<NuGetPackageImportStamp></NuGetPackageImportStamp>
+		<NuGetPackageImportStamp>
+		</NuGetPackageImportStamp>
 	</PropertyGroup>
 	<!-- Github Properties -->
 	<PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
@@ -24,7 +25,6 @@
 		<VersionPrefix>2.0.0</VersionPrefix>
 		<Version Condition=" '$(Version)' == '' and '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
 		<Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
-		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
 		<Authors>Microcompiler</Authors>
 		<Company>Bytewizer Inc.</Company>
 		<Description>Core runtime library built for TinyCLR IoT devices.</Description>
@@ -63,6 +63,7 @@
 		<None Include="README.md" />
 	</ItemGroup>
 	<ItemGroup>
+		<Compile Include="Properties\AssemblyInfo.cs" />
 		<Compile Include="System\Activator.cs" />
 		<Compile Include="Extensions\StringExtensions.cs" />
 		<Compile Include="System\IServiceProvider.cs" />
@@ -83,8 +84,30 @@
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="Properties\" />
-	</ItemGroup>
+	<ItemGroup />
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+	<Target Name="BeforeBuild">
+		<Message Text="Updating AssemblyInfo to Version $(VersionPrefix).$(BuildNumber)"></Message>
+		<ItemGroup>
+			<AssemblyAttributes Include="AssemblyCopyright">
+				<_Parameter1_TypeName>System.String</_Parameter1_TypeName>
+				<_Parameter1>$(Copyright)</_Parameter1>
+			</AssemblyAttributes>
+			<AssemblyAttributes Include="AssemblyVersion">
+				<_Parameter1_TypeName>System.String</_Parameter1_TypeName>
+				<_Parameter1>$(VersionPrefix).$(BuildNumber)</_Parameter1>
+			</AssemblyAttributes>
+			<AssemblyAttributes Include="AssemblyFileVersionAttribute">
+				<_Parameter1_TypeName>System.String</_Parameter1_TypeName>
+				<_Parameter1>$(VersionPrefix).$(BuildNumber)</_Parameter1>
+			</AssemblyAttributes>
+		</ItemGroup>
+		<MakeDir Directories="$(IntermediateOutputPath)" />
+		<WriteCodeFragment Language="C#"
+						   OutputFile="$(IntermediateOutputPath)CustomAssemblyInfo.cs"
+						   AssemblyAttributes="@(AssemblyAttributes)" />
+		<ItemGroup>
+			<Compile Include="$(IntermediateOutputPath)CustomAssemblyInfo.cs" />
+		</ItemGroup>
+	</Target>
 </Project>
