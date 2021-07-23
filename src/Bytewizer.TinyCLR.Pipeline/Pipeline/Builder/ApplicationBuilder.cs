@@ -38,7 +38,7 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
         public bool TryGetProperty(string key, out object value)
         {
             value = default;
-            
+
             if (_properties == null)
             {
                 return false;

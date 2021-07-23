@@ -1,5 +1,5 @@
 ﻿using System;
- 
+
 namespace Bytewizer.TinyCLR.DependencyInjection
 {
     /// <summary>
@@ -13,7 +13,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         /// Initializes a new instance of the <see cref="DefaultServiceProviderFactory"/> class
         /// with default options.
         /// </summary>
-        public DefaultServiceProviderFactory() 
+        public DefaultServiceProviderFactory()
             : this(ServiceProviderOptions.Default)
         {
         }

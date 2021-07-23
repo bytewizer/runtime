@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 
 namespace Bytewizer.TinyCLR.Pipeline.Builder
 {
@@ -45,7 +44,7 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
         /// </summary>
         /// <param name="middleware">The <see cref="InlineMiddleware"/> delegate to include in the application pipeline.</param>
         IApplicationBuilder Use(InlineMiddlewareDelegate middleware);
-        
+
         /// <summary>
         /// Builds the delegate used by this application to process HTTP requests.
         /// </summary>

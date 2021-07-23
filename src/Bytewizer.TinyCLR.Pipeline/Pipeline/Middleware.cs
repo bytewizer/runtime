@@ -1,6 +1,5 @@
-﻿using System;
-
-using Bytewizer.TinyCLR.Pipeline.Builder;
+﻿using Bytewizer.TinyCLR.Pipeline.Builder;
+using System;
 
 namespace Bytewizer.TinyCLR.Pipeline
 {
@@ -45,9 +44,9 @@ namespace Bytewizer.TinyCLR.Pipeline
         /// <inheritdoc/>
         void IApplication.Invoke(IContext context)
         {
-            Invoke(context, ctx => 
+            Invoke(context, ctx =>
                 {
-                    if (next != null) 
+                    if (next != null)
                         next.Invoke(ctx);
                 });
         }

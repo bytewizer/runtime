@@ -1,6 +1,6 @@
 using System;
-using System.Text;
 using System.Diagnostics;
+using System.Text;
 
 namespace Bytewizer.TinyCLR.Logging.Debug
 {
@@ -45,7 +45,7 @@ namespace Bytewizer.TinyCLR.Logging.Debug
         {
             if (_minLevel <= logLevel)
             {
-                return true ;
+                return true;
             }
 
             return false;

@@ -4,7 +4,7 @@ namespace Bytewizer.TinyCLR.Logging
 {
     internal readonly struct LoggerInformation
     {
-        public LoggerInformation(ILoggerProvider provider, string category) 
+        public LoggerInformation(ILoggerProvider provider, string category)
             : this()
         {
             ProviderType = provider.GetType();

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Reflection;
 using System.Collections;
+using System.Reflection;
 
 namespace Bytewizer.TinyCLR.DependencyInjection
 {
@@ -14,7 +14,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         internal ServiceProvider(IServiceCollection serviceDescriptors, ServiceProviderOptions options)
         {
             _serviceDescriptors = serviceDescriptors;
-            
+
             if (options.ValidateOnBuild)
             {
                 ArrayList exceptions = null;
@@ -45,7 +45,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         public IEnumerable GetServices(Type serviceType)
         {
             ArrayList services = new ArrayList();
-           
+
             foreach (ServiceDescriptor serviceDescriptor in _serviceDescriptors)
             {
                 if (serviceDescriptor.ServiceType == serviceType)

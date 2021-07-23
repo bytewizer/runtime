@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Text;
 using System.Collections;
+using System.Text;
 
 namespace Bytewizer.TinyCLR.Logging
 {
     internal class Logger : ILogger
     {
         public LoggerInformation[] Loggers { get; set; }
-        
+
         public MessageLogger[] MessageLoggers { get; set; }
 
         public void Log(LogLevel logLevel, EventId eventId, object state, Exception exception)
@@ -111,7 +111,7 @@ namespace Bytewizer.TinyCLR.Logging
 
             return false;
         }
-        
+
         private static void ThrowLoggingError(ArrayList exceptions)
         {
             var msg = new StringBuilder();
@@ -119,7 +119,7 @@ namespace Bytewizer.TinyCLR.Logging
             {
                 msg.AppendLine(execption.Message.ToString());
             }
-            
+
             throw new InvalidOperationException($"An error occurred while writing to logger(s). Message(s): {msg}");
         }
     }

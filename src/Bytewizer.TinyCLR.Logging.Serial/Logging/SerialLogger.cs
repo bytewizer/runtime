@@ -1,7 +1,6 @@
+using GHIElectronics.TinyCLR.Devices.Uart;
 using System;
 using System.Text;
-
-using GHIElectronics.TinyCLR.Devices.Uart;
 
 namespace Bytewizer.TinyCLR.Logging.Serial
 {
@@ -52,7 +51,7 @@ namespace Bytewizer.TinyCLR.Logging.Serial
         {
             if (_minLevel <= logLevel)
             {
-                return true ;
+                return true;
             }
 
             return false;

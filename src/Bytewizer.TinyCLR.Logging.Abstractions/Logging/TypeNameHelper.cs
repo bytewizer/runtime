@@ -18,10 +18,10 @@ namespace Bytewizer.TinyCLR.Logging
         public static string GetTypeDisplayName(Type type, bool fullName = true)
         {
             var builder = new StringBuilder();
-            
+
             var name = fullName ? type.FullName : type.Name;
             builder.Append(name);
-            
+
             return builder.ToString();
         }
     }

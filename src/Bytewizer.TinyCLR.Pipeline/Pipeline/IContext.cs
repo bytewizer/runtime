@@ -3,7 +3,7 @@
     /// <summary>
     /// An interface for <see cref="IMiddleware"/>.
     /// </summary>
-    public interface IContext 
+    public interface IContext
     {
         /// <summary>
         /// Clears the context and connected socket channel.

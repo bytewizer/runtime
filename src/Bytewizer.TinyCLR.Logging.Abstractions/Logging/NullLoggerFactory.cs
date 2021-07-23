@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Bytewizer.TinyCLR.Logging
+﻿namespace Bytewizer.TinyCLR.Logging
 {
     /// <summary>
     /// An <see cref="ILoggerFactory"/> used to create instance of

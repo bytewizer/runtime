@@ -18,7 +18,7 @@ namespace Bytewizer.TinyCLR.Logging
         /// Creates a new <see cref="LoggerFactory"/> instance.
         /// </summary>
         public LoggerFactory()
-            : this (new ArrayList(), new LoggerFilterOptions())
+            : this(new ArrayList(), new LoggerFilterOptions())
         {
         }
 
@@ -55,7 +55,8 @@ namespace Bytewizer.TinyCLR.Logging
         {
             lock (_sync)
             {
-                var logger = new Logger() {
+                var logger = new Logger()
+                {
                     Loggers = CreateLoggers(categoryName)
                 };
                 logger.MessageLoggers = CreateMessageLoggers(logger.Loggers);
@@ -69,7 +70,7 @@ namespace Bytewizer.TinyCLR.Logging
         private MessageLogger[] CreateMessageLoggers(LoggerInformation[] loggers)
         {
             var messageLoggers = new MessageLogger[loggers.Length];
-            
+
             var minLevel = _filterOptions.MinLevel;
             for (int i = 0; i < loggers.Length; i++)
             {

@@ -29,7 +29,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
             object service = provider.GetService(serviceType);
             if (service == null)
             {
-                throw new InvalidOperationException($"No service for type '{serviceType}' has been registered.") ;
+                throw new InvalidOperationException($"No service for type '{serviceType}' has been registered.");
             }
 
             return service;
