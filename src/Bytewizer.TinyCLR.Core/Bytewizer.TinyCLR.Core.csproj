@@ -34,8 +34,7 @@
 		<AssemblyVersion>$(VersionPrefix).$(BuildNumber)</AssemblyVersion>
 		<FileVersion>$(VersionPrefix).$(BuildNumber)</FileVersion>
 		<PackageId>$(AssemblyName)</PackageId>
-		<PackageTags>
-		</PackageTags>
+		<PackageTags>ghi tinyclr tinyclros sitcore iot</PackageTags>
 		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 		<PackageIcon>package-logo.png</PackageIcon>
 	</PropertyGroup>
@@ -104,8 +103,8 @@
 		</ItemGroup>
 		<MakeDir Directories="$(IntermediateOutputPath)" />
 		<WriteCodeFragment Language="C#"
-						   OutputFile="$(IntermediateOutputPath)CustomAssemblyInfo.cs"
-						   AssemblyAttributes="@(AssemblyAttributes)" />
+			OutputFile="$(IntermediateOutputPath)CustomAssemblyInfo.cs"
+			AssemblyAttributes="@(AssemblyAttributes)" />
 		<ItemGroup>
 			<Compile Include="$(IntermediateOutputPath)CustomAssemblyInfo.cs" />
 		</ItemGroup>
