@@ -89,7 +89,7 @@
 		</PackageReference>
 	</ItemGroup>
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-	<<Target Name="BeforeBuild">
+	<Target Name="BeforeBuild">
 		<Message Text="Updating AssemblyInfo to Version $(VersionPrefix).$(BuildNumber)"></Message>
 		<ItemGroup>
 			<AssemblyAttributes Include="AssemblyCompany">
