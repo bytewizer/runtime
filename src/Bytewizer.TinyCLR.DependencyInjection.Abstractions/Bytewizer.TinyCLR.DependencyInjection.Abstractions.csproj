@@ -26,7 +26,7 @@
 		<Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
 		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
 		<Authors>Microcompiler</Authors>
-		<Company>Bytewise Technology</Company>
+		<Company>Bytewizer Technology</Company>
 		<Description>Dependency injection abstraction library built for TinyCLR IoT devices.</Description>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
