@@ -63,14 +63,13 @@ jobs:
         -p:PackageTags="ghi tinyclr tinyclros sitcore iot"
         -p:IncludeSymbols=true 
         -p:SymbolPackageFormat="snupkg"
-        -p:DebugType=Portable
         -p:PublishRepositoryUrl=true
         -p:EmbedUntrackedSources=true
             
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: Build Package
+        name: Build-${{ steps.info.outputs.build }} Packages
         path: \builds\artifacts
 
     - name: Setup nuget
