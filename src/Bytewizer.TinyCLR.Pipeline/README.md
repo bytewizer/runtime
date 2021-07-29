@@ -1,4 +1,4 @@
-# Pipeline
+# Middleware Pipeline
 
 Provides a generic middleware pipeline built for TinyCLR OS.
 
@@ -108,6 +108,7 @@ Context: Finished
 ```
 
 ## TinyCLR Packages
-```bash
+Install the package from [NuGet](https://www.nuget.org/packages?q=bytewizer.tinyclr) or from the `Package Manager Console` :
+```powershell
 PM> Install-Package Bytewizer.TinyCLR.Pipeline
 ```

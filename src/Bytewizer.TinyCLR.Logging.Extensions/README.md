@@ -19,6 +19,8 @@ class Program
     {
         ILogger logger = loggerFactory.CreateLogger(nameof(TestLoggerExtensions));
 
+        logger.Log(LogLevel.Information, new EventId(10, "Id Name"), "logging without extensions", null);
+
         // Requires Bytewizer.TinyCLR.Logging.Extensions convenience packages
         logger.LogTrace("Trace");
         logger.LogDebug("Debug");
@@ -31,7 +33,8 @@ class Program
 ```
 
 ## TinyCLR Packages
-```bash
+Install the package from [NuGet](https://www.nuget.org/packages?q=bytewizer.tinyclr) or from the `Package Manager Console` :
+```powershell
 PM> Install-Package Bytewizer.TinyCLR.Logging.Debug
 PM> Install-Package Bytewizer.TinyCLR.Logging.Extensions
 ```

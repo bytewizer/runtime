@@ -5,7 +5,8 @@
 
 ## Libraries
 
-This repo contains several runtime libraries built for TinyCLR OS. These libraries provide implementations for many general and app-specific types, algorithms, and utility functionality.
+This repo contains several runtime libraries built for TinyCLR OS. These libraries provide implementations for many general and app-specific types, algorithms, and utility functionality. Install release package from [NuGet](https://www.nuget.org/packages?q=bytewizer.tinyclr).
+
 
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Core">Core</a> 
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Logging">Logging</a> 
@@ -22,9 +23,9 @@ If you like or are using this project to start your solution, please give it a s
 
 ## Branches
 
-**main** :: This is the branch containing the latest release build. No contributions should be made directly to this branch. The development branch will periodically be merged to the master branch, and be released to [NuGet Gallery](https://www.nuget.org).
+**main** :: This is the branch containing the latest release build. No contributions should be made directly to this branch. The development branch will periodically be merged to the master branch, and be released to [NuGet Gallery](https://www.nuget.org/packages?q=bytewizer.tinyclr).
 
-**develop** :: This is the development branch to which contributions should be proposed by contributors as pull requests. Development build packages are available as attached artifacts on successful [Build](https://github.com/bytewizer/microserver/actions/workflows/actions.yml) workflows.
+**develop** :: This is the development branch to which contributions should be proposed by contributors as pull requests. Development build packages are available as attached artifacts on successful build [ workflows](https://github.com/bytewizer/microserver/actions/workflows/actions.yml).
 
 ## Contributions
 

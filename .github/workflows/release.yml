@@ -45,7 +45,7 @@ jobs:
         echo "release.prerelease  = ${{ github.event.release.prerelease }}"
     
     - name: Setup msbuild
-      uses: microsoft/setup-msbuild@v1.0.0
+      uses: microsoft/setup-msbuild@v1.0.2
       with:
         vs-version: ${{ matrix.vs-version }}       
     
@@ -65,15 +65,13 @@ jobs:
         -p:PackageVersion="${{ steps.info.outputs.version }}"
         -p:Configuration=${env:CONFIGURATION}
         -p:RepositoryUrl="https://github.com/${{ github.repository }}"
-        -p:PackageTags="ghi tinyclr tinyclros sitcore iot"
         -p:IncludeSymbols=true 
         -p:SymbolPackageFormat="snupkg"
-        -p:DebugType=Portable
         -p:PublishRepositoryUrl=true
         -p:EmbedUntrackedSources=true
    
     - name: Upload release artifacts
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: Release-${{ steps.info.outputs.build }} Packages
         path: \builds\artifacts
@@ -88,7 +86,7 @@ jobs:
       with:
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: \builds\nuget-packages.zip
-        asset_name: Nuget Packages.zip
+        asset_name: Nuget packages (zip)
         asset_content_type: application/zip
     
     - name: Setup nuget
@@ -97,10 +95,12 @@ jobs:
         nuget-version: 'latest' 
     
     - name: Publish package to github.com
-      run: |
+      if: github.event.release.draft = 'false'
+      run: |    
         nuget sources add -name github.com -source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" -username ${{ github.actor }} -password ${{secrets.PACKAGE_API_KEY}}
         nuget push \builds\artifacts\**\*.nupkg -source github.com -apikey ${{secrets.PACKAGE_API_KEY}} -skipduplicate
 
     - name: Publish package to nuget.org
+      if: github.event.release.draft = 'false'
       run: |
         nuget push \builds\artifacts\**\*.nupkg -source nuget.org -apikey ${{secrets.NUGET_API_KEY}} -skipduplicate
