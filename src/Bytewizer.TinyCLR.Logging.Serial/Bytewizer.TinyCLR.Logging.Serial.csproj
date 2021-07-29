@@ -24,7 +24,6 @@
 		<VersionPrefix>2.0.0</VersionPrefix>
 		<Version Condition=" '$(Version)' == '' and '$(VersionSuffix)' != '' ">$(VersionPrefix)-$(VersionSuffix)</Version>
 		<Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
-		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
 		<Authors>Microcompiler</Authors>
 		<Company>Bytewizer Technology</Company>
 		<Description>Serial Logging library built for TinyCLR IoT devices.</Description>
