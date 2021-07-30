@@ -2,7 +2,7 @@
 
 Provides a flexable logging provider built for TinyCLR OS.
 
-## Simple Serial Logging Example
+## Simple Logging Example
 ```CSharp
 class Program
 {
