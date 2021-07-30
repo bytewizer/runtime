@@ -1,6 +1,6 @@
 # Logging
 
-Provides a flexable logging provider.
+Provides a flexable logging provider built for TinyCLR OS.
 
 ## Simple Serial Logging Example
 ```CSharp

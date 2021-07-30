@@ -68,7 +68,7 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: Build-${{ steps.info.outputs.build }} Packages
+        name: Build Packages ${{ steps.info.outputs.build }} 
         path: \builds\artifacts
 
     - name: Setup nuget

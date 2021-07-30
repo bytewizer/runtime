@@ -73,7 +73,7 @@ jobs:
     - name: Upload release artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: Release-${{ steps.info.outputs.build }} Packages
+        name: Release Packages
         path: \builds\artifacts
     
     - name: Create release asset
