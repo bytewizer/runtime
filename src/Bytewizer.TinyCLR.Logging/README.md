@@ -34,8 +34,9 @@ class Program
 ```
 
 ## TinyCLR Packages
-Install the package from [NuGet](https://www.nuget.org/packages?q=bytewizer.tinyclr) or from the `Package Manager Console` :
+Install release package from [NuGet](https://www.nuget.org/packages?q=bytewizer.tinyclr) or using the Package Manager Console :
 ```powershell
+PM> Install-Package Bytewizer.TinyCLR.Logging
 PM> Install-Package Bytewizer.TinyCLR.Logging.Debug
 PM> Install-Package Bytewizer.TinyCLR.Logging.Serial
 PM> Install-Package Bytewizer.TinyCLR.Logging.Extensions

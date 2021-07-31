@@ -3,7 +3,7 @@
 namespace Bytewizer.TinyCLR.DependencyInjection
 {
     /// <summary>
-    /// Default implementation of <see cref="IServiceProviderFactory{TContainerBuilder}"/>.
+    /// Default implementation of <see cref="DefaultServiceProviderFactory"/>.
     /// </summary>
     public class DefaultServiceProviderFactory : IServiceProviderFactory
     {
