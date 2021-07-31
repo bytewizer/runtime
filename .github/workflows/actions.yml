@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-    - develop
+    - [main, develop]
     paths: 
       - '**'
       - '!.editorconfig'
@@ -52,7 +52,8 @@ jobs:
     - name: Build and pack libraries
       working-directory: src
       run: >- 
-        msbuild -t:pack -verbosity:${env:VERBOSITY} 
+        msbuild -t:pack -verbosity:${env:VERBOSITY}
+        -p:Deterministic=true 
         -p:PackageOutputPath=\builds\artifacts
         -p:BuildNumber="${{ steps.info.outputs.build }}" 
         -p:Copyright="${{ steps.info.outputs.copyright }}"
