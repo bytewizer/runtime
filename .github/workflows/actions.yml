@@ -63,9 +63,6 @@ jobs:
         -p:RepositoryUrl="https://github.com/${{ github.repository }}"
         -p:SourceLinkCreate=true
         -p:IncludeSymbols=true
-        -p:SymbolPackageFormat="snupkg"
-        -p:PublishRepositoryUrl=true
-        -p:EmbedUntrackedSources=true
             
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
