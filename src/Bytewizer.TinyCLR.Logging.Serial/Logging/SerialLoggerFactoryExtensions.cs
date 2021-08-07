@@ -1,4 +1,7 @@
-﻿using GHIElectronics.TinyCLR.Devices.Uart;
+﻿// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
+using GHIElectronics.TinyCLR.Devices.Uart;
 
 namespace Bytewizer.TinyCLR.Logging.Serial
 {

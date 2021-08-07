@@ -1,3 +1,6 @@
+// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
 using System;
 
 namespace Bytewizer.TinyCLR.Logging
@@ -8,6 +11,8 @@ namespace Bytewizer.TinyCLR.Logging
     /// <remarks>Aggregates most logging patterns to a single method.</remarks>
     public interface ILogger
     {
+
+
         /// <summary>
         /// Writes a log entry.
         /// </summary>

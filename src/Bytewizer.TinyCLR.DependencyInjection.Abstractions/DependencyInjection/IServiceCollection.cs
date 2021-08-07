@@ -1,7 +1,12 @@
-﻿using System.Collections;
+﻿// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
+using System.Collections;
 
 namespace Bytewizer.TinyCLR.DependencyInjection
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+
     /// <summary>
     /// Specifies the contract for a collection of service descriptors.
     /// </summary>

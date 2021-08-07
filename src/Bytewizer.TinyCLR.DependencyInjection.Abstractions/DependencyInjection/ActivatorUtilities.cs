@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
+using System;
 
 namespace Bytewizer.TinyCLR.DependencyInjection
 {
@@ -7,7 +10,6 @@ namespace Bytewizer.TinyCLR.DependencyInjection
     /// </summary>
     public static class ActivatorUtilities
     {
-
         /// <summary>
         /// Retrieve an instance of the given type from the service provider. If one is not found then instantiate it directly.
         /// </summary>
@@ -18,7 +20,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
             IServiceProvider provider,
             Type type)
         {
-            return provider.GetService(type) ?? CreateInstance(type);
+            return provider.GetService(type) ?? CreateInstance(provider, type);
         }
 
         /// <summary>
@@ -29,6 +31,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         /// <param name="parameters">Constructor arguments not provided by the <paramref name="provider"/>.</param>
         /// <returns>An activated object of type instanceType</returns>
         public static object CreateInstance(
+            IServiceProvider provider,
             Type instanceType,
             params object[] parameters)
         {

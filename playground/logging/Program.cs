@@ -23,9 +23,11 @@ namespace Bytewizer.Playground.Logging
         private static void TestLoggerExtensions()
         {            
             ILogger logger = loggerFactory.CreateLogger(nameof(TestLoggerExtensions));
-           
+
+            logger.Log(LogLevel.Critical, "logging in the most simple form");
             logger.Log(LogLevel.Information, new EventId(10, "Id Name"), "logging without extensions", null);
 
+            // These APIs require the Bytewizer.TinyCLR.Logging.Extensions package
             logger.LogTrace("Trace");
             logger.LogDebug("Debug");
             logger.LogInformation("Information");

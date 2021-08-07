@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
+using System;
 using System.Collections;
 using System.Text;
 
@@ -9,6 +12,11 @@ namespace Bytewizer.TinyCLR.Logging
         public LoggerInformation[] Loggers { get; set; }
 
         public MessageLogger[] MessageLoggers { get; set; }
+
+        public void Log(LogLevel logLevel, string message)
+        {
+            Log(logLevel, new EventId(), message, null);
+        }
 
         public void Log(LogLevel logLevel, EventId eventId, object state, Exception exception)
         {

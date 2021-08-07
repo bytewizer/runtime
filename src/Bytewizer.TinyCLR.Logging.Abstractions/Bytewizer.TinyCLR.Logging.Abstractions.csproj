@@ -63,6 +63,7 @@
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\ILoggerFactory.cs" />
     <Compile Include="Logging\ILoggerProvider.cs" />
+    <Compile Include="Logging\LoggerExtensions.cs" />
     <Compile Include="Logging\LoggerFactoryExtensions.cs" />
     <Compile Include="Logging\LogLevel.cs" />
     <Compile Include="Logging\NullLogger.cs" />
