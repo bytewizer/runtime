@@ -2,7 +2,8 @@ name: Release
 
 on:
   release:
-    branches: [main]
+    branches: 
+    - main
     types: [published]
 
 env:
@@ -61,10 +62,9 @@ jobs:
         -p:PackageOutputPath=\builds\artifacts
         -p:BuildNumber="${{ steps.info.outputs.build }}"
         -p:Copyright="${{ steps.info.outputs.copyright }}"
-        -p:VersionPrefix="2.1.4"
+        -p:VersionPrefix="${{ steps.info.outputs.version }}"
         -p:PackageVersion="${{ steps.info.outputs.version }}"
         -p:Configuration=${env:CONFIGURATION}
-        -p:RepositoryUrl="https://github.com/${{ github.repository }}"
    
     - name: Upload release artifacts
       uses: actions/upload-artifact@v2
@@ -82,7 +82,7 @@ jobs:
       with:
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: \builds\nuget-packages.zip
-        asset_name: Nuget packages (zip)
+        asset_name: Packages
         asset_content_type: application/zip
     
     - name: Setup nuget
@@ -95,6 +95,6 @@ jobs:
         nuget sources add -name github.com -source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" -username ${{ github.actor }} -password ${{secrets.PACKAGE_API_KEY}}
         nuget push \builds\artifacts\**\*.nupkg -source github.com -apikey ${{secrets.PACKAGE_API_KEY}} -skipduplicate
 
-    - name: Publish package to nuget.org
-      run: |
-        nuget push \builds\artifacts\**\*.nupkg -source nuget.org -apikey ${{secrets.NUGET_API_KEY}} -skipduplicate
+    # - name: Publish package to nuget.org
+    #   run: |
+    #     nuget push \builds\artifacts\**\*.nupkg -source nuget.org -apikey ${{secrets.NUGET_API_KEY}} -skipduplicate

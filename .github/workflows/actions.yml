@@ -60,7 +60,6 @@ jobs:
         -p:VersionPrefix="2.1.4"
         -p:VersionSuffix=preview.${{ steps.info.outputs.build }}
         -p:Configuration=${env:CONFIGURATION}
-        -p:RepositoryUrl="https://github.com/${{ github.repository }}"
             
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
