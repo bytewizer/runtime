@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F5997E37-7348-4FA6-9103-990D9906DA4F}</ProjectGuid>
+    <ProjectGuid>{F3BC40E6-C04D-44AB-81AA-92DBB7BD33A3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bytewizer.TinyCLR.DependencyInjection</RootNamespace>
-    <AssemblyName>Bytewizer.TinyCLR.DependencyInjection.Abstractions</AssemblyName>
+    <RootNamespace>Bytewizer.TinyCLR.Assertions</RootNamespace>
+    <AssemblyName>Bytewizer.TinyCLR.Assertions</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A1948822-69DD-4150-919B-F3F42EFB71CC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -23,12 +23,12 @@
     <Version Condition=" '$(Version)' == '' ">$(VersionPrefix)</Version>
     <Authors>Microcompiler</Authors>
     <Company>Bytewizer Technology</Company>
-    <Description>Dependency injection abstraction library built for TinyCLR IoT devices.</Description>
+    <Description>Testing assertions library built for TinyCLR IoT devices.</Description>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
     <PackageId>$(AssemblyName)</PackageId>
-    <PackageTags>ghi tinyclr tinyclros sitcore iot di ioc dependencyinjection</PackageTags>
+    <PackageTags>ghi tinyclr tinyclros sitcore iot</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageIcon>package-logo.png</PackageIcon>
   </PropertyGroup>
@@ -40,7 +40,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Bytewizer.TinyCLR.DependencyInjection.Abstractions.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\Bytewizer.TinyCLR.Assertions.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -49,7 +49,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Bytewizer.TinyCLR.DependencyInjection.Abstractions.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\Bytewizer.TinyCLR.Assertions.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
@@ -57,14 +57,22 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DependencyInjection\IServiceCollection.cs" />
-    <Compile Include="DependencyInjection\IServiceProviderFactory.cs" />
-    <Compile Include="DependencyInjection\IServiceScope.cs" />
+    <Compile Include="Assertions\Assert.Comparisons.cs" />
+    <Compile Include="Assertions\Assert.Conditions.cs" />
+    <Compile Include="Assertions\Assert.cs" />
+    <Compile Include="Assertions\Assert.Equality.cs" />
+    <Compile Include="Assertions\Assert.Exceptions.cs" />
+    <Compile Include="Assertions\Assert.Types.cs" />
+    <Compile Include="Assertions\CollectionAssert.cs" />
+    <Compile Include="Assertions\StringAssert.cs" />
+    <Compile Include="Exceptions\AssertionException.cs" />
+    <Compile Include="Exceptions\NotEqualAssertionException.cs" />
+    <Compile Include="Exceptions\SuccessException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DependencyInjection\ServiceCollectionServiceExtensions.cs" />
-    <Compile Include="DependencyInjection\ServiceDescriptor.cs" />
-    <Compile Include="DependencyInjection\ServiceLifetime.cs" />
-    <Compile Include="DependencyInjection\ServiceProviderServiceExtensions.cs" />
+    <Compile Include="System\Stopwatch.cs" />
+    <Compile Include="TestFixture.cs" />
+    <Compile Include="TestRunner.cs" />
+    <Compile Include="TestResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GHIElectronics.TinyCLR.Core">
@@ -87,6 +95,7 @@
       <Name>Bytewizer.TinyCLR.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="BeforeBuild">
     <Message Text="Updating AssemblyInfo to Version $(VersionPrefix).$(BuildNumber)">

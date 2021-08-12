@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics;
 
 namespace Bytewizer.TinyCLR.Pipeline.Builder
 {
@@ -33,6 +34,18 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
         public ApplicationBuilder()
         {
         }
+
+        /// <summary>
+        /// Initializes an instance of the <see cref="ApplicationBuilder" /> class.
+        /// </summary>
+        /// <param name="serviceProvider">A service object of type.</param>
+        public ApplicationBuilder(IServiceProvider serviceProvider)
+        {
+            ApplicationServices = serviceProvider;
+        }
+
+        /// <inheritdoc/>
+        public IServiceProvider ApplicationServices { get; set; }
 
         /// <inheritdoc/>
         public bool TryGetProperty(string key, out object value)
@@ -79,7 +92,34 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
         public IApplicationBuilder Use(InlineMiddlewareDelegate middleware)
         {
             Use(new InlineMiddleware(middleware));
+
             return this;
+        }
+
+        /// <inheritdoc/>
+        public IApplicationBuilder Use(Type serviceType)
+        {
+            return Use(serviceType, null);
+        }
+
+        /// <inheritdoc/>
+        public IApplicationBuilder Use(Type serviceType, params object[] args)
+        {
+            if (ApplicationServices == null)
+            {
+                throw new InvalidOperationException(
+                    $"No service for type '{serviceType}' has been registered.");
+            }
+
+            if (!serviceType.IsSubclassOf(typeof(Middleware)))
+            {
+                throw new InvalidOperationException(
+                    $"Unable to resolve service for type '{ serviceType }' must be a subclass of Middleware to activate.");
+            }
+
+            var instance = (IMiddleware)Activator.GetServiceOrCreateInstance(ApplicationServices, serviceType);
+
+            return Use(instance);
         }
 
         /// <inheritdoc/>
@@ -91,6 +131,7 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
             }
 
             _components = _components.Append(() => middleware);
+
             return this;
         }
 

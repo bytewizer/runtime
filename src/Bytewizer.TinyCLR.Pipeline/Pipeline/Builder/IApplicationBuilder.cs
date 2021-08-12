@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
 namespace Bytewizer.TinyCLR.Pipeline.Builder
 {
@@ -36,6 +37,20 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
         /// <summary>
         /// Register a <see cref="IMiddleware"/> to the pipeline. Middleware are executed in the order added.
         /// </summary>
+        /// <param name="serviceType">An object that specifies the type of service object to get.</param>
+        IApplicationBuilder Use(Type serviceType);
+
+        /// <summary>
+        /// Register a <see cref="IMiddleware"/> to the pipeline. Middleware are executed in the order added.
+        /// </summary>
+        /// <param name="serviceType">An object that specifies the type of service object to get.</param>
+        /// // <param name="args">An array of arguments that match in number, order, and type the parameters of the constructor to invoke. 
+        /// If args is an empty array or null, the constructor that takes no parameters (the parameterless constructor) is invoked.</param>
+        IApplicationBuilder Use(Type serviceType, params object[] args);
+
+        /// <summary>
+        /// Register a <see cref="IMiddleware"/> to the pipeline. Middleware are executed in the order added.
+        /// </summary>
         /// <param name="middleware">The <see cref="IMiddleware"/> to include in the application pipeline.</param>
         IApplicationBuilder Use(IMiddleware middleware);
 
@@ -44,6 +59,11 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
         /// </summary>
         /// <param name="middleware">The <see cref="InlineMiddleware"/> delegate to include in the application pipeline.</param>
         IApplicationBuilder Use(InlineMiddlewareDelegate middleware);
+
+        /// <summary>
+        /// Gets or sets the <see cref="IServiceProvider"/> that provides access to the application's service container.
+        /// </summary>
+        IServiceProvider ApplicationServices { get; set; }
 
         /// <summary>
         /// Builds the delegate used by this application to process HTTP requests.

@@ -5,10 +5,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{745C8C5B-9ACD-4BCB-830A-64F7226A0D7E}</ProjectGuid>
+    <ProjectGuid>{634604B7-7F36-4D6E-9535-04696B980A88}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Bytewizer.Playground.Pipeline</RootNamespace>
-    <AssemblyName>Bytewizer.Playground.Pipeline</AssemblyName>
+    <RootNamespace>Bytewizer.Playground.Assertions</RootNamespace>
+    <AssemblyName>Bytewizer.Playground.Assertions</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -36,14 +36,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Context.cs" />
-    <Compile Include="Middleware3.cs" />
-    <Compile Include="Middleware2.cs" />
-    <Compile Include="Middleware1.cs" />
-    <Compile Include="MiddlewareExtensions .cs" />
-    <Compile Include="MiddlewareOptions.cs" />
+    <Compile Include="UnitTest\AssertComparisonsTests.cs" />
+    <Compile Include="UnitTest\AssertConditionsTests.cs" />
+    <Compile Include="UnitTest\AssertExecptionTests.cs" />
+    <Compile Include="UnitTest\AssertEqualityTest.cs" />
+    <Compile Include="UnitTest\AssertTypeTests.cs" />
+    <Compile Include="UnitTest\CollectionAssertTests.cs" />
+    <Compile Include="UnitTest\AssertTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTest\StringAssertTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Assertions\Bytewizer.TinyCLR.Assertions.csproj">
+      <Project>{F3BC40E6-C04D-44AB-81AA-92DBB7BD33A3}</Project>
+      <Name>Bytewizer.TinyCLR.Assertions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj">
+      <Project>{70392D1D-6B78-46C8-9531-C02915742A46}</Project>
+      <Name>Bytewizer.TinyCLR.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -52,36 +64,9 @@
     <Reference Include="GHIElectronics.TinyCLR.IO, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\GHIElectronics.TinyCLR.IO.2.1.0\lib\net452\GHIElectronics.TinyCLR.IO.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj">
-      <Project>{70392D1D-6B78-46C8-9531-C02915742A46}</Project>
-      <Name>Bytewizer.TinyCLR.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstractions.csproj">
-      <Project>{F5997E37-7348-4FA6-9103-990D9906DA4F}</Project>
-      <Name>Bytewizer.TinyCLR.DependencyInjection.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.DependencyInjection\Bytewizer.TinyCLR.DependencyInjection.csproj">
-      <Project>{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}</Project>
-      <Name>Bytewizer.TinyCLR.DependencyInjection</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Logging.Abstractions\Bytewizer.TinyCLR.Logging.Abstractions.csproj">
-      <Project>{598D7917-49D1-4E76-BFF4-23221BAD7072}</Project>
-      <Name>Bytewizer.TinyCLR.Logging.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Logging.Debug\Bytewizer.TinyCLR.Logging.Debug.csproj">
-      <Project>{BE75C9F4-A4E1-4083-881D-AF55266EC7A7}</Project>
-      <Name>Bytewizer.TinyCLR.Logging.Debug</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Logging\Bytewizer.TinyCLR.Logging.csproj">
-      <Project>{D6D13310-C4A1-4409-B0E3-10F29F7FF262}</Project>
-      <Name>Bytewizer.TinyCLR.Logging</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Pipeline\Bytewizer.TinyCLR.Pipeline.csproj">
-      <Project>{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}</Project>
-      <Name>Bytewizer.TinyCLR.Pipeline</Name>
-    </ProjectReference>
+    <Reference Include="GHIElectronics.TinyCLR.RegularExpressions, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GHIElectronics.TinyCLR.RegularExpressions.2.1.0\lib\net452\GHIElectronics.TinyCLR.RegularExpressions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
