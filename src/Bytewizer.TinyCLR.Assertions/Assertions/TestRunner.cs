@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Reflection;
 using System.Collections;
 using System.Diagnostics;
@@ -11,6 +12,7 @@ namespace Bytewizer.TinyCLR.Assertions
     public class TestRunner
     {
         private readonly ArrayList _actions = new ArrayList();
+        private readonly ArrayList _constructors = new ArrayList();
 
         private long _passCount;
         private long _failCount;
@@ -47,9 +49,21 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <summary>
         /// Invokes method actions inherited from <see cref="TestFixture"/> class. 
         /// </summary>
-        public void Run()
+        public string Run()
         {
             _timer = Stopwatch.StartNew();
+
+            foreach(Type type in _constructors)
+            {
+                try
+                {
+                    Activator.CreateInstance(type);
+                }
+                catch 
+                {
+                    throw;
+                }
+            }
 
             foreach (MethodInfo method in _actions)
             {
@@ -72,14 +86,18 @@ namespace Bytewizer.TinyCLR.Assertions
 
             _timer.Stop();
             _runTime = _timer.ElapsedMilliseconds;
+
+            return Results();
         }
 
         /// <summary>
-        /// Displays test results to the debug window.
+        /// Test results to display in the debug window.
         /// </summary>
-        public void DebugResults()
+        public string Results()
         {
-            Debug.WriteLine($"[TEST] :: Count {TestResults.Count}");
+            var sb = new StringBuilder();
+            
+            sb.AppendLine($"[TEST] :: Count {TestResults.Count}");
 
             foreach (DictionaryEntry result in TestResults)
             {
@@ -87,15 +105,17 @@ namespace Bytewizer.TinyCLR.Assertions
 
                 if (testResult.Pass)
                 {
-                    Debug.WriteLine($"[PASS] :: {testResult.Class.Name} :: {testResult.Method.Name}");
+                    sb.AppendLine($"[PASS] :: {testResult.Class.Name} :: {testResult.Method.Name}");
                 }
                 else
                 {
-                    Debug.WriteLine($"[FAIL] :: {testResult.Class.Name} :: {testResult.Method.Name} :: Message: {testResult.Message}");
+                    sb.AppendLine($"[FAIL] :: {testResult.Class.Name} :: {testResult.Method.Name} :: Message: {testResult.Message}");
                 }
             }
 
-            Debug.WriteLine($"[TEST] :: Pass {_passCount} :: Fail {_failCount} :: Elapsed {_runTime} ms");
+            sb.AppendLine($"[TEST] :: Pass {_passCount} :: Fail {_failCount} :: Elapsed {_runTime} ms");
+
+            return sb.ToString();
         }
 
         private void GetAssemblies(Assembly[] assemblies)
@@ -116,6 +136,7 @@ namespace Bytewizer.TinyCLR.Assertions
                 if (type.IsSubclassOf(typeof(TestFixture)))
                 {
                     MapActions(type);
+                    MapConstructors(type);
                 }
             }
         }
@@ -125,12 +146,24 @@ namespace Bytewizer.TinyCLR.Assertions
             foreach (MethodInfo method in type.GetMethods())
             {
                 if (type.IsAbstract || type.IsNotPublic)
+                {
                     continue;
+                }
 
                 if (method.ReturnType.Equals(typeof(void)))
                 {
                     _actions.Add(method);
                 }
+            }
+        }
+
+        private void MapConstructors(Type type)
+        {
+            ConstructorInfo constructor = type.GetConstructors()[0];
+            ParameterInfo[] constructorParameters = constructor.GetParameters();
+            if (constructorParameters.Length == 0)
+            {
+                _constructors.Add(type);
             }
         }
     }

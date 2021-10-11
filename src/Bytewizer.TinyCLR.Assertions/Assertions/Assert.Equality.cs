@@ -1,7 +1,5 @@
 // Copyright (c) Charlie Poole, Rob Prouse and Contributors. MIT License - see LICENSE.txt
 
-#nullable enable
-
 using System;
 using System.Collections;
 
@@ -22,7 +20,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="delta">The maximum acceptable difference between the the expected and the actual</param>
         /// <param name="message">The message to display in case of failure</param>
         /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void AreEqual(double expected, double actual, double delta, string? message, params object?[]? args)
+        public static void AreEqual(double expected, double actual, double delta, string message, params object[] args)
         {
             // Delta must be positive otherwise the following case fails
             if (delta < 0)
@@ -71,7 +69,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="actual">The actual value</param>
         /// <param name="message">The message to display in case of failure</param>
         /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void AreEqual(object? expected, object? actual, string? message, params object?[]? args)
+        public static void AreEqual(object expected, object actual, string message, params object[] args)
         {
             IncrementAssertCount();
 
@@ -98,7 +96,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// </summary>
         /// <param name="expected">The value that is expected</param>
         /// <param name="actual">The actual value</param>
-        public static void AreEqual(object? expected, object? actual)
+        public static void AreEqual(object expected, object actual)
         {
             Assert.AreEqual(expected, actual, string.Empty, null);
         }
@@ -120,7 +118,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="actual">The actual value</param>
         /// <param name="message">The message to display in case of failure</param>
         /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void AreNotEqual(object? expected, object? actual, string? message, params object?[]? args)
+        public static void AreNotEqual(object expected, object actual, string message, params object[] args)
         {
             IncrementAssertCount();
 
@@ -144,7 +142,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// </summary>
         /// <param name="expected">The value that is expected</param>
         /// <param name="actual">The actual value</param>
-        public static void AreNotEqual(object? expected, object? actual)
+        public static void AreNotEqual(object expected, object actual)
         {
             Assert.AreNotEqual(expected, actual, string.Empty, null);
         }
@@ -163,7 +161,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="actual">The actual object</param>
         /// <param name="message">The message to display in case of failure</param>
         /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void AreSame(object? expected, object? actual, string? message, params object?[]? args)
+        public static void AreSame(object expected, object actual, string message, params object[] args)
         {
             IncrementAssertCount();
 
@@ -183,7 +181,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
-        public static void AreSame(object? expected, object? actual)
+        public static void AreSame(object expected, object actual)
         {
             Assert.AreSame(expected, actual, string.Empty, null);
         }
@@ -200,7 +198,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="actual">The actual object</param>
         /// <param name="message">The message to display in case of failure</param>
         /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void AreNotSame(object? expected, object? actual, string? message, params object?[]? args)
+        public static void AreNotSame(object expected, object actual, string message, params object[] args)
         {
             IncrementAssertCount();
 
@@ -220,7 +218,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The actual object</param>
-        public static void AreNotSame(object? expected, object? actual)
+        public static void AreNotSame(object expected, object actual)
         {
             Assert.AreNotSame(expected, actual, string.Empty, null);
         }
@@ -321,7 +319,13 @@ namespace Bytewizer.TinyCLR.Assertions
         private static bool CheckItemInCollection(ICollection collection, object item)
         {
             //Reused Arraylist's implementation of Contains, uses Equals override and null checking of items
-            IList list = new ArrayList(collection);
+
+            IList list = new ArrayList();
+            foreach (var record in collection)
+            {
+                list.Add(record);
+            }
+
             return list.Contains(item);
         }
 
@@ -356,13 +360,12 @@ namespace Bytewizer.TinyCLR.Assertions
             return isArrayType;
         }
 
-        private static bool IsNumericType(object? obj)
+        private static bool IsNumericType(object obj)
         {
             if (null != obj)
             {
                 if (obj is byte) return true;
                 if (obj is sbyte) return true;
-                if (obj is decimal) return true;
                 if (obj is double) return true;
                 if (obj is float) return true;
                 if (obj is int) return true;
@@ -373,7 +376,6 @@ namespace Bytewizer.TinyCLR.Assertions
 
                 if (obj is Byte) return true;
                 if (obj is SByte) return true;
-                if (obj is Decimal) return true;
                 if (obj is Double) return true;
                 if (obj is Single) return true;
                 if (obj is Int32) return true;
@@ -387,7 +389,7 @@ namespace Bytewizer.TinyCLR.Assertions
             return false;
         }
 
-        private static void AssertDoublesAreEqual(double expected, double actual, double delta, string? message, object?[]? args)
+        private static void AssertDoublesAreEqual(double expected, double actual, double delta, string message, object[] args)
         {
             if (double.IsNaN(expected) || double.IsInfinity(expected))
             {

@@ -1,5 +1,6 @@
-﻿using Bytewizer.TinyCLR.Assertions;
-using System;
+﻿using System;
+
+using Bytewizer.TinyCLR.Assertions;
 
 namespace Bytewizer.Playground.Assertions
 {

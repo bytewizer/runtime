@@ -1,7 +1,3 @@
-// Copyright (c) Charlie Poole, Rob Prouse and Contributors. MIT License - see LICENSE.txt
-
-#nullable enable
-
 using System;
 
 namespace Bytewizer.TinyCLR.Assertions
@@ -21,14 +17,14 @@ namespace Bytewizer.TinyCLR.Assertions
 
         /// <param name="message">The error message that explains
         /// the reason for the exception</param>
-        public AssertionException(string? message) : base(message)
+        public AssertionException(string message) : base(message)
         {}
 
         /// <param name="message">The error message that explains
         /// the reason for the exception</param>
         /// <param name="inner">The exception that caused the
         /// current exception</param>
-        public AssertionException(string? message, Exception? inner) :
+        public AssertionException(string message, Exception inner) :
             base(message, inner)
         {}
     }

@@ -1,7 +1,3 @@
-// Copyright (c) Charlie Poole, Rob Prouse and Contributors. MIT License - see LICENSE.txt
-
-#nullable enable
-
 using System;
 
 namespace Bytewizer.TinyCLR.Assertions
@@ -14,7 +10,7 @@ namespace Bytewizer.TinyCLR.Assertions
     public class SuccessException : AssertionException
     {
         /// <param name="message"></param>
-        public SuccessException(string? message)
+        public SuccessException(string message)
             : base(message)
         { }
 
@@ -22,7 +18,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// the reason for the exception</param>
         /// <param name="inner">The exception that caused the
         /// current exception</param>
-        public SuccessException(string? message, Exception? inner)
+        public SuccessException(string message, Exception inner)
             :
             base(message, inner)
         { }

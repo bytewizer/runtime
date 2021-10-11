@@ -135,25 +135,10 @@ namespace Bytewizer.Playground.Assertions
             Assert.AreEqual(expected, actual);
         }
 
-        //public void Decimal()
-        //{
-        //    decimal expected = 100m;
-        //    decimal actual = 100.0m;
-        //    int integer = 100;
-
-        //    Assert.IsTrue(expected == actual);
-        //    Assert.AreEqual(expected, actual);
-        //    Assert.IsTrue(expected == integer);
-        //    Assert.AreEqual(expected, integer);
-        //    Assert.IsTrue(actual == integer);
-        //    Assert.AreEqual(actual, integer);
-        //}
-
         public void EqualsSameTypes()
         {
             byte b1 = 35;
             sbyte sb2 = 35;
-            //decimal d4 = 35;
             double d5 = 35;
             float f6 = 35;
             int i7 = 35;
@@ -166,7 +151,6 @@ namespace Bytewizer.Playground.Assertions
 
             System.Byte b12 = 35;
             System.SByte sb13 = 35;
-            //System.Decimal d14 = 35;
             System.Double d15 = 35;
             System.Single s16 = 35;
             System.Int32 i17 = 35;
@@ -180,7 +164,6 @@ namespace Bytewizer.Playground.Assertions
 
             Assert.AreEqual(35, b1);
             Assert.AreEqual(35, sb2);
-            //Assert.AreEqual(35, d4);
             Assert.AreEqual(35, d5);
             Assert.AreEqual(35, f6);
             Assert.AreEqual(35, i7);
@@ -193,7 +176,6 @@ namespace Bytewizer.Playground.Assertions
 
             Assert.AreEqual(35, b12);
             Assert.AreEqual(35, sb13);
-            //Assert.AreEqual(35, d14);
             Assert.AreEqual(35, d15);
             Assert.AreEqual(35, s16);
             Assert.AreEqual(35, i17);
@@ -207,7 +189,6 @@ namespace Bytewizer.Playground.Assertions
 
             byte b23 = 35;
             sbyte sb24 = 35;
-            //decimal d25 = 35;
             double d26 = 35;
             float f27 = 35;
             int i28 = 35;
@@ -220,7 +201,6 @@ namespace Bytewizer.Playground.Assertions
 
             Assert.AreEqual(35, b23);
             Assert.AreEqual(35, sb24);
-            //Assert.AreEqual(35, d25);
             Assert.AreEqual(35, d26);
             Assert.AreEqual(35, f27);
             Assert.AreEqual(35, i28);
@@ -270,14 +250,6 @@ namespace Bytewizer.Playground.Assertions
             Assert.AreEqual(a, b);
             Assert.AreEqual(b, a);
         }
-
-        //public void ArraysOfDecimal()
-        //{
-        //    decimal[] a = new decimal[] { 1.0m, 2.0m, 3.0m };
-        //    decimal[] b = new decimal[] { 1.0m, 2.0m, 3.0m };
-        //    Assert.AreEqual(a, b);
-        //    Assert.AreEqual(b, a);
-        //}
 
         //public void ArrayOfIntAndArrayOfDouble()
         //{

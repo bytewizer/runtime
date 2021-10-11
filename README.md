@@ -8,6 +8,7 @@ This repo contains several runtime libraries built for TinyCLR OS. These librari
 
 
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Core">Runtime Core</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Assertions">Testing Framework</a> 
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Logging">Logging Framework</a> 
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Pipeline">Middleware Pipeline</a> 
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.DependencyInjection">Dependency Injection (DI)</a> 

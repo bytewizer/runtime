@@ -1,11 +1,8 @@
 // Copyright (c) Charlie Poole, Rob Prouse and Contributors. MIT License - see LICENSE.txt
 
-#nullable enable
-
 using System;
 using System.Collections;
 using System.ComponentModel;
-using System.Diagnostics;
 
 namespace Bytewizer.TinyCLR.Assertions
 {
@@ -56,7 +53,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// </summary>
         /// <param name="message">The message to initialize the <see cref="AssertionException"/> with.</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        static public void Pass(string? message, params object?[]? args)
+        static public void Pass(string message, params object[] args)
         {
             if (message == null)
             {
@@ -76,7 +73,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// of success returned.
         /// </summary>
         /// <param name="message">The message to initialize the <see cref="AssertionException"/> with.</param>
-        static public void Pass(string? message)
+        static public void Pass(string message)
         {
             Assert.Pass(message, null);
         }
@@ -101,7 +98,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// </summary>
         /// <param name="message">The message to initialize the <see cref="AssertionException"/> with.</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        static public void Fail(string? message, params object?[]? args)
+        static public void Fail(string message, params object[] args)
         {
             if (message == null)
             {
@@ -120,7 +117,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// inside a multiple assert block.
         /// </summary>
         /// <param name="message">The message to initialize the <see cref="AssertionException"/> with.</param>
-        static public void Fail(string? message)
+        static public void Fail(string message)
         {
             Assert.Fail(message, null);
         }
@@ -145,7 +142,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="actual">The collection to be examined</param>
         /// <param name="message">The message to display in case of failure</param>
         /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void Contains(object? expected, ICollection? actual, string? message, params object?[]? args)
+        public static void Contains(object expected, ICollection actual, string message, params object[] args)
         {
             // TODO
             throw new NotImplementedException();
@@ -157,7 +154,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// </summary>
         /// <param name="expected">The expected object</param>
         /// <param name="actual">The collection to be examined</param>
-        public static void Contains(object? expected, ICollection? actual)
+        public static void Contains(object expected, ICollection actual)
         {
             // TODO
             throw new NotImplementedException();

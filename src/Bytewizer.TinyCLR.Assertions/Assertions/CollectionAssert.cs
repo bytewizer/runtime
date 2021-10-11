@@ -622,15 +622,20 @@ namespace Bytewizer.TinyCLR.Assertions
 
         private static bool CheckItemInCollection(ICollection collection, object item)
         {
-            IList list = new ArrayList(collection);
+            IList list = new ArrayList();
+
+            foreach (var record in collection)
+            {
+                list.Add(record);
+            }
+            
             return list.Contains(item);
         }
 
         private static void AreElementsEqual(IEnumerable expected, IEnumerable actual)
         {
-            string failMessage;
 
-            bool areEqual = ElementsEqual(expected, actual, out failMessage);
+            bool areEqual = ElementsEqual(expected, actual, out string failMessage);
             if (!areEqual)
             {
                 Assert.Fail(failMessage);
@@ -732,13 +737,12 @@ namespace Bytewizer.TinyCLR.Assertions
             return isArrayType;
         }
 
-        private static bool IsNumericType(object? obj)
+        private static bool IsNumericType(object obj)
         {
             if (null != obj)
             {
                 if (obj is byte) return true;
                 if (obj is sbyte) return true;
-                if (obj is decimal) return true;
                 if (obj is double) return true;
                 if (obj is float) return true;
                 if (obj is int) return true;
@@ -749,7 +753,6 @@ namespace Bytewizer.TinyCLR.Assertions
 
                 if (obj is Byte) return true;
                 if (obj is SByte) return true;
-                if (obj is Decimal) return true;
                 if (obj is Double) return true;
                 if (obj is Single) return true;
                 if (obj is Int32) return true;

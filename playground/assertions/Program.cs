@@ -12,18 +12,25 @@ namespace Bytewizer.Playground.Assertions
         static void Main()
         {
             var testRunner = new TestRunner();
-            testRunner.Run();
-            testRunner.DebugResults();
+            var results = testRunner.Run();
+
+            Debug.WriteLine(results);
         }
     }
 
     // Test class must inherit from the TestFixture class
     public class UnitTests : TestFixture
     {
+        // Constructors must containe no parameters
+        public UnitTests()
+        {
+            Debug.WriteLine("Invoked constructors before tests run");
+        }
+
         // Test method must be public and void
         public void IsTrueTestCase()
         {
-            Assert.True(3 > 4);
+            Assert.True(4 > 3);
         }
     }
 }

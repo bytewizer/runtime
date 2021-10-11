@@ -1,7 +1,5 @@
 // Copyright (c) Charlie Poole, Rob Prouse and Contributors. MIT License - see LICENSE.txt
 
-#nullable enable
-
 using System;
 
 namespace Bytewizer.TinyCLR.Assertions
@@ -18,7 +16,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="code">A test delegate action</param>
         /// <param name="message">The message that will be displayed on failure</param>
         /// <param name="args">Arguments to be used in formatting the message</param>
-        public static void Throws(Type expectedExceptionType, Action code, string? message, params object?[]? args)
+        public static void Throws(Type expectedExceptionType, Action code, string message, params object[] args)
         {
             try
             {

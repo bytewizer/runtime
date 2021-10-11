@@ -1,7 +1,5 @@
 // Copyright (c) Charlie Poole, Rob Prouse and Contributors. MIT License - see LICENSE.txt
 
-#nullable enable
-
 using System;
 
 namespace Bytewizer.TinyCLR.Assertions
@@ -18,7 +16,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="actual">The object under examination</param>
         /// <param name="message">The message to display in case of failure</param>
         /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void IsAssignableFrom(Type expected, object? actual, string? message, params object?[]? args)
+        public static void IsAssignableFrom(Type expected, object actual, string message, params object[] args)
         {
             throw new NotImplementedException();
         }
@@ -29,7 +27,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// </summary>
         /// <param name="expected">The expected Type.</param>
         /// <param name="actual">The object under examination</param>
-        public static void IsAssignableFrom(Type expected, object? actual)
+        public static void IsAssignableFrom(Type expected, object actual)
         {
             throw new NotImplementedException();
         }
@@ -46,7 +44,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="actual">The object under examination</param>
         /// <param name="message">The message to display in case of failure</param>
         /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void IsNotAssignableFrom(Type expected, object? actual, string? message, params object?[]? args)
+        public static void IsNotAssignableFrom(Type expected, object actual, string message, params object[] args)
         {
             throw new NotImplementedException();
         }
@@ -57,7 +55,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// </summary>
         /// <param name="expected">The expected Type.</param>
         /// <param name="actual">The object under examination</param>
-        public static void IsNotAssignableFrom(Type expected, object? actual)
+        public static void IsNotAssignableFrom(Type expected, object actual)
         {
             throw new NotImplementedException();
         }
@@ -74,7 +72,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="actual">The object being examined</param>
         /// <param name="message">The message to display in case of failure</param>
         /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void IsInstanceOf(Type expected, object? actual, string? message, params object?[]? args)
+        public static void IsInstanceOf(Type expected, object actual, string message, params object[] args)
         {
           if (actual == null)
             { 
@@ -90,7 +88,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// </summary>
         /// <param name="expected">The expected Type</param>
         /// <param name="actual">The object being examined</param>
-        public static void IsInstanceOf(Type expected, object? actual)
+        public static void IsInstanceOf(Type expected, object actual)
         {
             Assert.IsInstanceOf(expected, actual, null, null);
         }
@@ -107,7 +105,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="actual">The object being examined</param>
         /// <param name="message">The message to display in case of failure</param>
         /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void IsNotInstanceOf(Type expected, object? actual, string? message, params object?[]? args)
+        public static void IsNotInstanceOf(Type expected, object actual, string message, params object[] args)
         {
             if (actual == null)
             {
@@ -123,7 +121,7 @@ namespace Bytewizer.TinyCLR.Assertions
         /// </summary>
         /// <param name="expected">The expected Type</param>
         /// <param name="actual">The object being examined</param>
-        public static void IsNotInstanceOf(Type expected, object? actual)
+        public static void IsNotInstanceOf(Type expected, object actual)
         {
             Assert.IsNotInstanceOf(expected, actual, null, null);
         }

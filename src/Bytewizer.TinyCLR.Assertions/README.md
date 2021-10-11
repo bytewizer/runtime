@@ -26,7 +26,7 @@ public class UnitTests : TestFixture
 ```
 
 ## TinyCLR Packages
-Install release package from [NuGet](https://www.nuget.org/packages?q=bytewizer.tinyclr) or using the Package Manager Console :
+Install release package from [NuGet](https://www.nuget.org/packagesq=bytewizer.tinyclr) or using the Package Manager Console :
 ```powershell
 PM> Install-Package Bytewizer.TinyCLR.Assertions
 ```

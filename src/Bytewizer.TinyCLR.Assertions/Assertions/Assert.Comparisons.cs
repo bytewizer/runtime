@@ -1,7 +1,5 @@
 // Copyright (c) Charlie Poole, Rob Prouse and Contributors. MIT License - see LICENSE.txt
 
-#nullable enable
-
 using System;
 
 namespace Bytewizer.TinyCLR.Assertions
@@ -135,40 +133,6 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="arg1">The first value, expected to be greater</param>
         /// <param name="arg2">The second value, expected to be less</param>
         public static void Greater(ulong arg1, ulong arg2)
-        {
-            Assert.Greater(arg1, arg2, string.Empty, null);
-        }
-
-        #endregion
-
-        #region Decimals
-
-        /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If it is not, then an
-        /// <see cref="AssertionException"/> is thrown. 
-        /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        /// <param name="message">The message to display in case of failure</param>
-        /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void Greater(decimal arg1, decimal arg2, string message, params object[] args)
-        {
-            //Assert.True(arg1 > arg2,
-            //    msg1,
-            //    arg1, arg2, string.Format(message, args));
-
-            throw new NotSupportedException();
-        }
-
-        /// <summary>
-        /// Verifies that the first value is greater than the second
-        /// value. If it is not, then an
-        /// <see cref="AssertionException"/> is thrown. 
-        /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void Greater(decimal arg1, decimal arg2)
         {
             Assert.Greater(arg1, arg2, string.Empty, null);
         }
@@ -405,40 +369,6 @@ namespace Bytewizer.TinyCLR.Assertions
 
         #endregion
 
-        #region Decimals
-
-        /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an
-        /// <see cref="AssertionException"/> is thrown. 
-        /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        /// <param name="message">The message to display in case of failure</param>
-        /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void Less(decimal arg1, decimal arg2, string message, params object[] args)
-        {
-            //Assert.True(arg1 < arg2,
-            //    msg3,
-            //    arg1, arg2, string.Format(message, args));
-
-            throw new NotSupportedException();
-        }
-
-        /// <summary>
-        /// Verifies that the first value is less than the second
-        /// value. If it is not, then an
-        /// <see cref="AssertionException"/> is thrown. 
-        /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void Less(decimal arg1, decimal arg2)
-        {
-            Assert.Less(arg1, arg2, string.Empty, null);
-        }
-
-        #endregion
-
         #region Doubles
 
         /// <summary>
@@ -669,40 +599,6 @@ namespace Bytewizer.TinyCLR.Assertions
 
         #endregion
 
-        #region Decimals
-
-        /// <summary>
-        /// Verifies that the first value is greater than or equal to the second
-        /// value. If it is not, then an
-        /// <see cref="AssertionException"/> is thrown. 
-        /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        /// <param name="message">The message to display in case of failure</param>
-        /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void GreaterOrEqual(decimal arg1, decimal arg2, string message, params object[] args)
-        {
-            //Assert.True(arg1 >= arg2,
-            //    msg1,
-            //    arg1, arg2, string.Format(message, args));
-
-            throw new NotSupportedException();
-        }
-
-        /// <summary>
-        /// Verifies that the first value is greater than or equal to the second
-        /// value. If it is not, then an
-        /// <see cref="AssertionException"/> is thrown. 
-        /// </summary>
-        /// <param name="arg1">The first value, expected to be greater</param>
-        /// <param name="arg2">The second value, expected to be less</param>
-        public static void GreaterOrEqual(decimal arg1, decimal arg2)
-        {
-            Assert.GreaterOrEqual(arg1, arg2, string.Empty, null);
-        }
-
-        #endregion
-
         #region Doubles
 
         /// <summary>
@@ -927,40 +823,6 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="arg1">The first value, expected to be less</param>
         /// <param name="arg2">The second value, expected to be greater</param>
         public static void LessOrEqual(ulong arg1, ulong arg2)
-        {
-            Assert.LessOrEqual(arg1, arg2, string.Empty, null);
-        }
-
-        #endregion
-
-        #region Decimals
-
-        /// <summary>
-        /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an
-        /// <see cref="AssertionException"/> is thrown. 
-        /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        /// <param name="message">The message to display in case of failure</param>
-        /// <param name="args">Array of objects to be used in formatting the message</param>
-        public static void LessOrEqual(decimal arg1, decimal arg2, string message, params object[] args)
-        {
-            //Assert.True(arg1 <= arg2,
-            //    msg3,
-            //    arg1, arg2, string.Format(message, args));
-
-            throw new NotSupportedException();
-        }
-
-        /// <summary>
-        /// Verifies that the first value is less than or equal to the second
-        /// value. If it is not, then an
-        /// <see cref="AssertionException"/> is thrown. 
-        /// </summary>
-        /// <param name="arg1">The first value, expected to be less</param>
-        /// <param name="arg2">The second value, expected to be greater</param>
-        public static void LessOrEqual(decimal arg1, decimal arg2)
         {
             Assert.LessOrEqual(arg1, arg2, string.Empty, null);
         }

@@ -65,14 +65,14 @@
     <Compile Include="Assertions\Assert.Types.cs" />
     <Compile Include="Assertions\CollectionAssert.cs" />
     <Compile Include="Assertions\StringAssert.cs" />
+    <Compile Include="Assertions\TestFixture.cs" />
+    <Compile Include="Assertions\TestResult.cs" />
+    <Compile Include="Assertions\TestRunner.cs" />
     <Compile Include="Exceptions\AssertionException.cs" />
     <Compile Include="Exceptions\NotEqualAssertionException.cs" />
     <Compile Include="Exceptions\SuccessException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Stopwatch.cs" />
-    <Compile Include="TestFixture.cs" />
-    <Compile Include="TestRunner.cs" />
-    <Compile Include="TestResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GHIElectronics.TinyCLR.Core">

@@ -81,7 +81,6 @@ namespace Bytewizer.Playground.Assertions
             Assert.Zero((uint)0);
             Assert.Zero((long)0);
             Assert.Zero((ulong)0);
-            //Assert.Zero((decimal)0);
             Assert.Zero((double)0);
             Assert.Zero((float)0);
         }
@@ -92,7 +91,6 @@ namespace Bytewizer.Playground.Assertions
             Assert.Throws(typeof(AssertionException), () => Assert.Zero((uint)1));
             Assert.Throws(typeof(AssertionException), () => Assert.Zero((long)1));
             Assert.Throws(typeof(AssertionException), () => Assert.Zero((ulong)1));
-            //Assert.Throws(typeof(AssertionException), () => Assert.Zero((decimal)1));
             Assert.Throws(typeof(AssertionException), () => Assert.Zero((double)1));
             Assert.Throws(typeof(AssertionException), () => Assert.Zero((float)1));
         }
@@ -106,7 +104,6 @@ namespace Bytewizer.Playground.Assertions
             Assert.NotZero((uint)1);
             Assert.NotZero((long)1);
             Assert.NotZero((ulong)1);
-            //Assert.NotZero((decimal)1);
             Assert.NotZero((double)1);
             Assert.NotZero((float)1);
         }
@@ -119,7 +116,6 @@ namespace Bytewizer.Playground.Assertions
             Assert.Positive((uint)1);
             Assert.Positive((long)1);
             Assert.Positive((ulong)1);
-            //Assert.Positive((decimal)1);
             Assert.Positive((double)1);
             Assert.Positive((float)1);
         }
@@ -129,10 +125,7 @@ namespace Bytewizer.Playground.Assertions
         public void Negative()
         {
             Assert.Negative(-1);
-            //Assert.Negative((uint)-1);
             Assert.Negative((long)-1);
-            //Assert.Negative((ulong)-1);
-            //Assert.Negative((decimal)-1);
             Assert.Negative((double)-1);
             Assert.Negative((float)-1);
         }

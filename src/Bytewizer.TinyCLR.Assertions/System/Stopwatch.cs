@@ -45,9 +45,9 @@ namespace System.Diagnostics
         public void Start()
         {
             if (startTicks != 0 && stopTicks != 0)
-                startTicks = DateTime.Now.Ticks - (stopTicks - startTicks); 
+                startTicks = DateTime.UtcNow.Ticks - (stopTicks - startTicks); 
             else
-                startTicks = DateTime.Now.Ticks; 
+                startTicks = DateTime.UtcNow.Ticks; 
             isRunning = true;
         }
 
@@ -56,7 +56,7 @@ namespace System.Diagnostics
         /// </summary>
         public void Stop()
         {
-            stopTicks = DateTime.Now.Ticks;
+            stopTicks = DateTime.UtcNow.Ticks;
             isRunning = false;
         }
 
@@ -68,7 +68,7 @@ namespace System.Diagnostics
             get
             {
                 if (startTicks != 0 && isRunning)
-                    return (DateTime.Now.Ticks - startTicks) / m_ticksPerMillisecond;
+                    return (DateTime.UtcNow.Ticks - startTicks) / m_ticksPerMillisecond;
                 else if (startTicks != 0 && !isRunning)
                     return (stopTicks - startTicks) / m_ticksPerMillisecond;
                 else
@@ -85,7 +85,7 @@ namespace System.Diagnostics
             {
                 if (startTicks != 0 && isRunning)
                 {
-                    TimeSpan duration = new TimeSpan((DateTime.Now.Ticks - startTicks));
+                    TimeSpan duration = new TimeSpan((DateTime.UtcNow.Ticks - startTicks));
                     return duration.Seconds;
                 }
                 else if (startTicks != 0 && !isRunning)
@@ -107,7 +107,7 @@ namespace System.Diagnostics
             {
                 if (startTicks != 0 && isRunning)
                 {
-                    TimeSpan duration = new TimeSpan(DateTime.Now.Ticks - startTicks);
+                    TimeSpan duration = new TimeSpan(DateTime.UtcNow.Ticks - startTicks);
                     return duration.Minutes;
                 }
                 else if (startTicks != 0 && !isRunning)
