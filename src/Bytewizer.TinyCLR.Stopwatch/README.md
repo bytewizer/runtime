@@ -1,6 +1,6 @@
 # Stopwatch
 
-Provides a time managment methods built for TinyCLR OS.
+Provides time managment methods built for TinyCLR OS.
 
 ## Simple Example
 ```CSharp
@@ -12,6 +12,7 @@ class Program
         stopWatch.Start();
         Thread.Sleep(10000);
         stopWatch.Stop();
+        
         // Get the elapsed time as a TimeSpan value.
         TimeSpan ts = stopWatch.Elapsed;
 
