@@ -10,7 +10,7 @@ class Program
     {
         var testRunner = new TestRunner();
         testRunner.Run();
-        testRunner.DebugResults();
+        Debug.WriteLine(testRunner.Results());
     }
 }
 
