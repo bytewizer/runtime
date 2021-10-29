@@ -21,7 +21,9 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="a"></param>
         /// <param name="b"></param>
         [EditorBrowsable(EditorBrowsableState.Never)]
+#pragma warning disable IDE0060 // Remove unused parameter
         public static new bool Equals(object a, object b)
+#pragma warning restore IDE0060 // Remove unused parameter
         {
             throw new InvalidOperationException("StringAssert.Equals should not be used. Use StringAssert.AreEqualIgnoringCase or Assert.AreEqual instead.");
         }
@@ -34,7 +36,9 @@ namespace Bytewizer.TinyCLR.Assertions
         /// <param name="a"></param>
         /// <param name="b"></param>
         [EditorBrowsable(EditorBrowsableState.Never)]
+#pragma warning disable IDE0060 // Remove unused parameter
         public static new void ReferenceEquals(object a, object b)
+#pragma warning restore IDE0060 // Remove unused parameter
         {
             throw new InvalidOperationException("StringAssert.ReferenceEquals should not be used.");
         }

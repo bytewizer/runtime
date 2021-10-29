@@ -7,7 +7,8 @@
 This repo contains several runtime libraries built for TinyCLR OS. These libraries provide implementations for many general and app-specific types, algorithms, and utility functionality.  Be sure to follow this project on our [YouTube](https://www.youtube.com/channel/UCfFRHPY9XEsfIC0pLTSJ8kw) channel. 
 
 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Core">Runtime Core</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Core">Runtime Core</a>
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Stopwatch">Time Measurement</a>
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Assertions">Testing Framework</a> 
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Logging">Logging Framework</a> 
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Pipeline">Middleware Pipeline</a> 
