@@ -4,22 +4,20 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}</ProjectGuid>
+    <ProjectGuid>{6FD1BF73-3383-4DA1-8F85-94D880DA9827}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bytewizer.TinyCLR.DependencyInjection</RootNamespace>
-    <AssemblyName>Bytewizer.TinyCLR.DependencyInjection</AssemblyName>
+    <RootNamespace>Bytewizer.TinyCLR.Identity</RootNamespace>
+    <AssemblyName>Bytewizer.TinyCLR.Identity</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A1948822-69DD-4150-919B-F3F42EFB71CC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <LangVersion>9</LangVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup>
-    <Description>Dependency injection library built for TinyCLR IoT devices.</Description>
-    <PackageTags>ghi tinyclr tinyclros sitcore iot di ioc dependencyinjection</PackageTags>
+    <Description>Identity is an authentication service built for TinyCLR IoT devices.</Description>
+    <PackageTags>ghi tinyclr tinyclros sitcore iot identity</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,7 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Bytewizer.TinyCLR.DependencyInjection.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\Bytewizer.TinyCLR.Identity.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -38,7 +36,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Bytewizer.TinyCLR.DependencyInjection.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
@@ -46,15 +43,23 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DependencyInjection\DefaultServiceProviderFactory.cs" />
+    <Compile Include="Identity\StoreChangedHandler.cs" />
+    <Compile Include="Identity\IdentityUser.cs" />
+    <Compile Include="Identity\IPasswordHasher.cs" />
+    <Compile Include="Identity\IPasswordValidator.cs" />
+    <Compile Include="Identity\IUserValidator.cs" />
+    <Compile Include="Identity\PasswordHasher.cs" />
+    <Compile Include="Identity\IdentityProvider.cs" />
+    <Compile Include="Identity\DefaultUserValidator.cs" />
+    <Compile Include="Identity\DefaultPasswordValidator.cs" />
+    <Compile Include="Identity\UserStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DependencyInjection\ServiceCollection.cs" />
-    <Compile Include="DependencyInjection\ServiceCollectionContainerBuilderExtensions.cs" />
-    <Compile Include="DependencyInjection\ServiceProvider.cs" />
-    <Compile Include="DependencyInjection\ServiceProviderOptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GHIElectronics.TinyCLR.Core">
+      <Version>2.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="GHIElectronics.TinyCLR.Cryptography">
       <Version>2.1.0</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
@@ -68,9 +73,9 @@
       <Project>{70392D1D-6B78-46C8-9531-C02915742A46}</Project>
       <Name>Bytewizer.TinyCLR.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstractions.csproj">
-      <Project>{F5997E37-7348-4FA6-9103-990D9906DA4F}</Project>
-      <Name>Bytewizer.TinyCLR.DependencyInjection.Abstractions</Name>
+    <ProjectReference Include="..\Bytewizer.TinyCLR.Identity.Abstractions\Bytewizer.TinyCLR.Identity.Abstractions.csproj">
+      <Project>{6FD1BF73-3383-4DA1-8F85-93D880DA9827}</Project>
+      <Name>Bytewizer.TinyCLR.Identity.Abstractions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

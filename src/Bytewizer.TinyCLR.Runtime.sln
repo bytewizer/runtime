@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30413.136
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Core", "Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj", "{70392D1D-6B78-46C8-9531-C02915742A46}"
 EndProject
@@ -24,6 +24,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Assertions", "Bytewizer.TinyCLR.Assertions\Bytewizer.TinyCLR.Assertions.csproj", "{F3BC40E6-C04D-44AB-81AA-92DBB7BD33A3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Stopwatch", "Bytewizer.TinyCLR.Stopwatch\Bytewizer.TinyCLR.Stopwatch.csproj", "{504AD0B8-A412-4383-AD36-68DF1FEFF449}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Identity.Abstractions", "Bytewizer.TinyCLR.Identity.Abstractions\Bytewizer.TinyCLR.Identity.Abstractions.csproj", "{6FD1BF73-3383-4DA1-8F85-93D880DA9827}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Identity", "Bytewizer.TinyCLR.Identity\Bytewizer.TinyCLR.Identity.csproj", "{6FD1BF73-3383-4DA1-8F85-94D880DA9827}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +79,14 @@ Global
 		{504AD0B8-A412-4383-AD36-68DF1FEFF449}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{504AD0B8-A412-4383-AD36-68DF1FEFF449}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{504AD0B8-A412-4383-AD36-68DF1FEFF449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-93D880DA9827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-93D880DA9827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-93D880DA9827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-93D880DA9827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-94D880DA9827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-94D880DA9827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-94D880DA9827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-94D880DA9827}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -36,16 +36,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="UnitTest\AssertComparisonsTests.cs" />
-    <Compile Include="UnitTest\AssertConditionsTests.cs" />
-    <Compile Include="UnitTest\AssertExecptionTests.cs" />
-    <Compile Include="UnitTest\AssertEqualityTest.cs" />
-    <Compile Include="UnitTest\AssertTypeTests.cs" />
-    <Compile Include="UnitTest\CollectionAssertTests.cs" />
-    <Compile Include="UnitTest\AssertTest.cs" />
+    <Compile Include="UnitTests\AssertComparisonsTests.cs" />
+    <Compile Include="UnitTests\AssertConditionsTests.cs" />
+    <Compile Include="UnitTests\AssertExecptionTests.cs" />
+    <Compile Include="UnitTests\AssertEqualityTests.cs" />
+    <Compile Include="UnitTests\AssertTypeTests.cs" />
+    <Compile Include="UnitTests\CollectionAssertTests.cs" />
+    <Compile Include="UnitTests\AssertTests.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTest\StringAssertTests.cs" />
+    <Compile Include="UnitTests\StringAssertTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Assertions\Bytewizer.TinyCLR.Assertions.csproj">

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30002.166
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Playground", "Playground", "{4E3B2537-B6D2-419B-AACF-F243DC0F8A68}"
 EndProject
@@ -27,11 +27,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging.E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.Playground.Pipeline", "pipeline\Bytewizer.Playground.Pipeline.csproj", "{745C8C5B-9ACD-4BCB-830A-64F7226A0D7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Pipeline", "..\src\Bytewizer.TinyCLR.Pipeline\Bytewizer.TinyCLR.Pipeline.csproj", "{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.Playground.Assertions", "assertions\Bytewizer.Playground.Assertions.csproj", "{634604B7-7F36-4D6E-9535-04696B980A88}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Assertions", "..\src\Bytewizer.TinyCLR.Assertions\Bytewizer.TinyCLR.Assertions.csproj", "{F3BC40E6-C04D-44AB-81AA-92DBB7BD33A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Stopwatch", "..\src\Bytewizer.TinyCLR.Stopwatch\Bytewizer.TinyCLR.Stopwatch.csproj", "{504AD0B8-A412-4383-AD36-68DF1FEFF449}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.Playground.Identity", "identity\Bytewizer.Playground.Identity.csproj", "{A54374B8-E0D6-4C24-AE3A-56925EE96D62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Identity.Abstractions", "..\src\Bytewizer.TinyCLR.Identity.Abstractions\Bytewizer.TinyCLR.Identity.Abstractions.csproj", "{6FD1BF73-3383-4DA1-8F85-93D880DA9827}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Identity", "..\src\Bytewizer.TinyCLR.Identity\Bytewizer.TinyCLR.Identity.csproj", "{6FD1BF73-3383-4DA1-8F85-94D880DA9827}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Pipeline", "..\src\Bytewizer.TinyCLR.Pipeline\Bytewizer.TinyCLR.Pipeline.csproj", "{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,10 +97,6 @@ Global
 		{745C8C5B-9ACD-4BCB-830A-64F7226A0D7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{745C8C5B-9ACD-4BCB-830A-64F7226A0D7E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{745C8C5B-9ACD-4BCB-830A-64F7226A0D7E}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{634604B7-7F36-4D6E-9535-04696B980A88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{634604B7-7F36-4D6E-9535-04696B980A88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{634604B7-7F36-4D6E-9535-04696B980A88}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -103,6 +107,28 @@ Global
 		{F3BC40E6-C04D-44AB-81AA-92DBB7BD33A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3BC40E6-C04D-44AB-81AA-92DBB7BD33A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3BC40E6-C04D-44AB-81AA-92DBB7BD33A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{504AD0B8-A412-4383-AD36-68DF1FEFF449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{504AD0B8-A412-4383-AD36-68DF1FEFF449}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{504AD0B8-A412-4383-AD36-68DF1FEFF449}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{504AD0B8-A412-4383-AD36-68DF1FEFF449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A54374B8-E0D6-4C24-AE3A-56925EE96D62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54374B8-E0D6-4C24-AE3A-56925EE96D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54374B8-E0D6-4C24-AE3A-56925EE96D62}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A54374B8-E0D6-4C24-AE3A-56925EE96D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54374B8-E0D6-4C24-AE3A-56925EE96D62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A54374B8-E0D6-4C24-AE3A-56925EE96D62}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-93D880DA9827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-93D880DA9827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-93D880DA9827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-93D880DA9827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-94D880DA9827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-94D880DA9827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-94D880DA9827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FD1BF73-3383-4DA1-8F85-94D880DA9827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,6 +138,7 @@ Global
 		{D2D43294-6EFA-49D3-A811-DF078915B4F9} = {4E3B2537-B6D2-419B-AACF-F243DC0F8A68}
 		{745C8C5B-9ACD-4BCB-830A-64F7226A0D7E} = {4E3B2537-B6D2-419B-AACF-F243DC0F8A68}
 		{634604B7-7F36-4D6E-9535-04696B980A88} = {4E3B2537-B6D2-419B-AACF-F243DC0F8A68}
+		{A54374B8-E0D6-4C24-AE3A-56925EE96D62} = {4E3B2537-B6D2-419B-AACF-F243DC0F8A68}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C04E0A8C-D974-4A4F-9D49-9E9AC9A78F05}

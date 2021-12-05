@@ -4,7 +4,7 @@ using Bytewizer.TinyCLR.Assertions;
 
 namespace Bytewizer.Playground.Assertions
 {
-    public class AssertTest : TestFixture
+    public class AssertTests : TestFixture
     {
         #region Equals and ReferenceEquals
 

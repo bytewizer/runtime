@@ -4,24 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{70392D1D-6B78-46C8-9531-C02915742A46}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bytewizer.TinyCLR</RootNamespace>
-    <AssemblyName>Bytewizer.TinyCLR.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <ProjectGuid>{A54374B8-E0D6-4C24-AE3A-56925EE96D62}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Bytewizer.Playground.Identity</RootNamespace>
+    <AssemblyName>Bytewizer.Playground.Identity</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <ProjectTypeGuids>{A1948822-69DD-4150-919B-F3F42EFB71CC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <LangVersion>9</LangVersion>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup>
-    <Description>Core runtime library built for TinyCLR IoT devices.</Description>
-    <PackageTags>ghi tinyclr tinyclros sitcore iot</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -29,40 +23,47 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Bytewizer.TinyCLR.Core.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Bytewizer.TinyCLR.Core.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="..\..\LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
-    <None Include="..\..\images\package-logo.png" Pack="true" PackagePath="\" />
-    <None Include="README.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Execptions\AggregateException.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="System\Activator.cs" />
-    <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="System\IServiceProvider.cs" />
-    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="UnitTests\ProviderTests.cs" />
+    <Compile Include="UnitTests\UserStoreTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GHIElectronics.TinyCLR.Core">
       <Version>2.1.0</Version>
     </PackageReference>
-    <PackageReference Include="NuGet.Build.Tasks.Pack">
-      <Version>6.0.0</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
+    <PackageReference Include="GHIElectronics.TinyCLR.Devices.SecureStorage">
+      <Version>2.1.0</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Assertions\Bytewizer.TinyCLR.Assertions.csproj">
+      <Project>{F3BC40E6-C04D-44AB-81AA-92DBB7BD33A3}</Project>
+      <Name>Bytewizer.TinyCLR.Assertions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj">
+      <Project>{70392D1D-6B78-46C8-9531-C02915742A46}</Project>
+      <Name>Bytewizer.TinyCLR.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Identity.Abstractions\Bytewizer.TinyCLR.Identity.Abstractions.csproj">
+      <Project>{6FD1BF73-3383-4DA1-8F85-93D880DA9827}</Project>
+      <Name>Bytewizer.TinyCLR.Identity.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Identity\Bytewizer.TinyCLR.Identity.csproj">
+      <Project>{6FD1BF73-3383-4DA1-8F85-94D880DA9827}</Project>
+      <Name>Bytewizer.TinyCLR.Identity</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
