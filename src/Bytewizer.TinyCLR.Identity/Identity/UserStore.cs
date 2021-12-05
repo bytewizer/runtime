@@ -42,9 +42,9 @@ namespace Bytewizer.TinyCLR.Identity
             {
                 lock (_lock)
                 {
-                    if (!Users.Contains(user.Name))
+                    if (!Users.Contains(user.UserName))
                     {
-                        Users.Add(user.Name, user);
+                        Users.Add(user.UserName, user);
                         return IdentityResult.Success;
                     }
                     else
@@ -67,9 +67,9 @@ namespace Bytewizer.TinyCLR.Identity
         {
             try
             {
-                if (Users.Contains(user.Name))
+                if (Users.Contains(user.UserName))
                 {
-                    Users.Remove(user.Name);
+                    Users.Remove(user.UserName);
                     return IdentityResult.Success;
                 }
                 else
@@ -89,7 +89,7 @@ namespace Bytewizer.TinyCLR.Identity
         /// <param name="user"></param>
         public virtual bool HasPassword(IIdentityUser user)
         {
-            if (TryGetUser(user.Name, out user))
+            if (TryGetUser(user.UserName, out user))
             {
                 if (user.PasswordHash == null)
                 {
@@ -167,7 +167,7 @@ namespace Bytewizer.TinyCLR.Identity
         /// <param name="user"></param>
         public byte[] GetPasswordHash(IIdentityUser user)
         {
-            IIdentityUser identityUser = FindByName(user.Name);
+            IIdentityUser identityUser = FindByName(user.UserName);
             if (identityUser != null)
             {
                 return identityUser.PasswordHash;

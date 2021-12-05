@@ -20,19 +20,22 @@ namespace Bytewizer.TinyCLR.Identity
             }
 
             Id = DateTime.Now.Ticks.ToString();
-            Name = userName;
+            UserName = userName;
         }
 
         /// <inheritdoc/>
         public string Id { get; private set; }
 
         /// <inheritdoc/>
-        public string Name { get; private set; }
+        public string UserName { get; private set; }
 
         /// <inheritdoc/>
         public byte[] PasswordHash { get; set; }
 
         /// <inheritdoc/>
         public byte[] PasswordSalt { get; set; }
+        
+        /// <inheritdoc/>    
+        public object Metadata { get; set; }
     }
 }

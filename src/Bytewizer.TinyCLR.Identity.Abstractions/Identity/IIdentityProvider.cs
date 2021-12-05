@@ -6,6 +6,13 @@
     public interface IIdentityProvider
     {
         /// <summary>
+        /// Retrive the specified user from the user store.
+        /// </summary>
+        /// <param name="username">The user name to retrive.</param>
+        /// <param name="user">The <see cref="IIdentityUser"/> retrived if located.</param>
+        bool TryGetUser(string username, out IIdentityUser user);
+
+        /// <summary>
         /// Finds and returns a user, if any, who has the specified <paramref name="userId"/>.
         /// </summary>
         /// <param name="userId">The user id to search for.</param>
@@ -14,8 +21,8 @@
         /// <summary>
         /// Finds and returns a user, if any, who has the specified user name.
         /// </summary>
-        /// <param name="userName">The user name to search for.</param>
-        IIdentityUser FindByName(string userName);
+        /// <param name="username">The user name to search for.</param>
+        IIdentityUser FindByName(string username);
 
         /// <summary>
         /// Determines whether the password is valid for the user.

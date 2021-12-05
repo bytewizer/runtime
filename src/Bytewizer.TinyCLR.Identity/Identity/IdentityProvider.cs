@@ -118,6 +118,17 @@ namespace Bytewizer.TinyCLR.Identity
         }
 
         /// <inheritdoc/>
+        public bool TryGetUser(string userName, out IIdentityUser user)
+        {
+            if (userName == null)
+            {
+                throw new ArgumentNullException(nameof(userName));
+            }
+
+            return _userStore.TryGetUser(userName, out user);   
+        }
+
+        /// <inheritdoc/>
         public virtual IIdentityUser FindByName(string userName)
         {
             if (userName == null)

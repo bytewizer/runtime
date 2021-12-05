@@ -23,7 +23,7 @@ namespace Bytewizer.TinyCLR.Identity
 
             var errors = new ArrayList();
 
-            if (user.Name.Length < 6)
+            if (user.UserName.Length < 6)
             {
                 errors.Add(new Exception("User name must be at least 6 characters long"));
             }
