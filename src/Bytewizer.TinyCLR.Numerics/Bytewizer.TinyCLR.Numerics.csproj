@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{70392D1D-6B78-46C8-9531-C02915742A46}</ProjectGuid>
+    <ProjectGuid>{70392D1D-6B78-46C8-9531-C12915442A46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bytewizer.TinyCLR</RootNamespace>
-    <AssemblyName>Bytewizer.TinyCLR.Core</AssemblyName>
+    <RootNamespace>Bytewizer.TinyCLR.Numerics</RootNamespace>
+    <AssemblyName>Bytewizer.TinyCLR.Numerics</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A1948822-69DD-4150-919B-F3F42EFB71CC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -18,8 +18,8 @@
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup>
-    <Description>Core runtime library built for TinyCLR IoT devices.</Description>
-    <PackageTags>ghi tinyclr tinyclros sitcore iot</PackageTags>
+    <Description>Numerics library built for TinyCLR IoT devices.</Description>
+    <PackageTags>biginteger ghi tinyclr tinyclros sitcore iot</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,7 +29,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Bytewizer.TinyCLR.Core.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\Bytewizer.TinyCLR.Numerics.xml</DocumentationFile>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -46,15 +47,8 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Execptions\AggregateException.cs" />
-    <Compile Include="Extensions\ByteArrayExtensions.cs" />
-    <Compile Include="Extensions\DateTimeExtensions.cs" />
-    <Compile Include="Extensions\StreamExtensions.cs" />
+    <Compile Include="Numerics\BigInteger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="System\Activator.cs" />
-    <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="System\IServiceProvider.cs" />
-    <Compile Include="Extensions\TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GHIElectronics.TinyCLR.Core">

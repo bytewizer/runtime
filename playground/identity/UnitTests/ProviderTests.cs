@@ -140,17 +140,18 @@ namespace Bytewizer.Playground.Identity
             public User(string name, string firstName, string lastName)
             {
                 Id = DateTime.Now.Ticks.ToString();
-                Name = name;    
+                UserName = name;    
                 FirstName = firstName;
                 LastName = lastName;
             }
 
             public string Id { get; set; }
-            public string Name { get; set; }
+            public string UserName { get; set; }
             public string FirstName { get; set; }
             public string LastName { get; set; }
             public byte[] PasswordHash { get; set; }
             public byte[] PasswordSalt { get; set; }
+            public object Metadata { get; set; }
         }
     }
 }

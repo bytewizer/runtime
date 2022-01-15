@@ -14,9 +14,13 @@
             Type type = Type.GetType(typename);
 
             if (type != null)
+            {
                 return CreateInstance(type);
+            }
             else
+            {
                 return null;
+            }
         }
 
         /// <summary>
