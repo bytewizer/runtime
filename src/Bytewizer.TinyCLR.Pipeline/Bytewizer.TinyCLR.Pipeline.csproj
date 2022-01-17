@@ -46,6 +46,9 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\FeatureCollection.cs" />
+    <Compile Include="Features\FeatureValue.cs" />
+    <Compile Include="Features\IFeatureCollection.cs" />
     <Compile Include="Pipeline\ContextPool.cs" />
     <Compile Include="Pipeline\ApplicationDelegate.cs" />
     <Compile Include="Pipeline\Builder\IApplication.cs" />

@@ -1,6 +1,6 @@
 # Compression
 
-Provides deflate algorithm described in RFC 1951 compression methods built for TinyCLR OS.
+Provides DEFLATE compression methods built for TinyCLR OS.
 
 ## Simple Example
 ```CSharp
@@ -76,3 +76,6 @@ Install release package from [NuGet](https://www.nuget.org/packagesq=bytewizer.t
 ```powershell
 PM> Install-Package Bytewizer.TinyCLR.Compression
 ```
+
+## RFC - Related Request for Comments 
+- [RFC 2616 - DEFLATE Compressed Data Format Specification](https://tools.ietf.org/html/rfc1951)
