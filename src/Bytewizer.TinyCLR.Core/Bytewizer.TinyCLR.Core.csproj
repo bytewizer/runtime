@@ -53,8 +53,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Activator.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Hosting\IServerService.cs" />
     <Compile Include="System\IServiceProvider.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="System\Threading\ThreadPool.cs" />
+    <Compile Include="System\Threading\ThreadPoolItem.cs" />
+    <Compile Include="System\Threading\ThreadPoolThread.cs" />
+    <Compile Include="System\Threading\UnhandledThreadPoolExceptionDelegate.cs" />
+    <Compile Include="System\Threading\WaitCallback.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GHIElectronics.TinyCLR.Core">

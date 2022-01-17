@@ -46,6 +46,7 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\DiagnosticsLoggerExtensions.cs" />
     <Compile Include="Logging\EventId.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\ILoggerFactory.cs" />
