@@ -1,13 +1,15 @@
-# Runtime libraries for TinyCLR OS
+# Runtime libraries for TinyCLR and nanoFramework
 
-[![NuGet Status](http://img.shields.io/nuget/v/Bytewizer.TinyCLR.Core.svg?style=flat&logo=nuget)](https://www.nuget.org/packages?q=bytewizer.tinyclr)
+[![NuGet Status](http://img.shields.io/nuget/v/Bytewizer.TinyCLR.Core.svg?style=flat&logo=nuget)](https://www.nuget.org/packages?q=bytewizer)
 [![Release](https://github.com/bytewizer/runtime/actions/workflows/release.yml/badge.svg)](https://github.com/bytewizer/runtime/actions/workflows/release.yml)
 [![Build](https://github.com/bytewizer/runtime/actions/workflows/actions.yml/badge.svg)](https://github.com/bytewizer/runtime/actions/workflows/actions.yml)
 
-This repo contains several runtime libraries built for TinyCLR OS. These libraries provide implementations for many general and app-specific types, algorithms, and utility functionality.  Be sure to follow this project on our [YouTube](https://www.youtube.com/channel/UCfFRHPY9XEsfIC0pLTSJ8kw) channel. 
+This repo contains several runtime libraries built for [GHI Electronics TinyCLR OS](https://www.ghielectronics.com/) and [.NET nanoFramework](https://www.nanoFramework.net). These libraries provide implementations for many general and app-specific types, algorithms, and utility functionality.  Be sure to follow this project on our [YouTube](https://www.youtube.com/channel/UCfFRHPY9XEsfIC0pLTSJ8kw) channel. 
 
 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Core">Runtime Core</a>
+## TinyCLR OS libraries
+
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/core/Bytewizer.TinyCLR.Core">Runtime Core</a>
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Stopwatch">Time Measurement</a>
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Assertions">Testing Framework</a> 
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Logging">Logging Framework</a> 
@@ -15,23 +17,27 @@ This repo contains several runtime libraries built for TinyCLR OS. These librari
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Identity">Identity Management</a>
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.DependencyInjection">Dependency Injection (DI)</a> 
 
-## Requirements
+## .NET nanoFramework libraries
 
-<a href="https://visualstudio.microsoft.com/downloads/">Visual Studio 2019</a> and <a href="https://www.ghielectronics.com/">GHI Electronics TinyCLR OS 2.1</a> or higher.  
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/core/Bytewizer.NanoCLR.Core">Runtime Core</a>
 
 ## Give a Star! :star:
 
 If you like or are using this project to start your solution, please give it a star. Thanks!
 
-## Getting Started
+## Requirements
 
-We encourage users to play with the samples and test programs. See the working [Samples](https://github.com/bytewizer/microserver/tree/master/samples) for an example of how to use packages. The [Playground](https://github.com/bytewizer/microserver/tree/master/playground) also includes many working examples.
+Software: <a href="https://visualstudio.microsoft.com/downloads/">Visual Studio 2019/2022</a> and <a href="https://www.ghielectronics.com/">GHI Electronics TinyCLR OS</a> or <a href="https://www.nanoFramework.net/">.NET nanoFramework OS</a>.  
+
+## Nuget Packages
+
+Install releases package from [NuGet](https://www.nuget.org/packages?q=bytewizer). Development build packages are available as [Github Packages](https://github.com/bytewizer?tab=packages).
 
 ## Continuous Integration
 
-**main** :: This is the branch containing the latest release build. No contributions should be made directly to this branch. The development branch will periodically be merged to the main branch, and be released to [NuGet](https://www.nuget.org/packages?q=bytewizer.tinyclr).
+**main** :: This is the branch containing the latest release build. No contributions should be made directly to this branch. The development branch will periodically be merged to the main branch, and be released to [NuGet](https://www.nuget.org/packages?q=bytewizer).
 
-**develop** :: This is the development branch to which contributions should be proposed by contributors as pull requests. Development build packages are available as attached artifacts on successful build [workflows](https://github.com/bytewizer/microserver/actions/workflows/actions.yml).
+**develop** :: This is the development branch to which contributions should be proposed by contributors as pull requests. Development build packages are available as [Github Packages](https://github.com/bytewizer?tab=packages).
 
 ## Contributions
 

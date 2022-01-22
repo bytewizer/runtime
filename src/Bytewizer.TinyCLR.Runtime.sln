@@ -3,43 +3,43 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Core", "Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj", "{70392D1D-6B78-46C8-9531-C02915742A46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Core", "core\Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj", "{70392D1D-6B78-46C8-9531-C02915742A46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.DependencyInjection", "Bytewizer.TinyCLR.DependencyInjection\Bytewizer.TinyCLR.DependencyInjection.csproj", "{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.DependencyInjection", "di\Bytewizer.TinyCLR.DependencyInjection\Bytewizer.TinyCLR.DependencyInjection.csproj", "{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging", "Bytewizer.TinyCLR.Logging\Bytewizer.TinyCLR.Logging.csproj", "{D6D13310-C4A1-4409-B0E3-10F29F7FF262}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging", "logging\Bytewizer.TinyCLR.Logging\Bytewizer.TinyCLR.Logging.csproj", "{D6D13310-C4A1-4409-B0E3-10F29F7FF262}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging.Abstractions", "Bytewizer.TinyCLR.Logging.Abstractions\Bytewizer.TinyCLR.Logging.Abstractions.csproj", "{598D7917-49D1-4E76-BFF4-23221BAD7072}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging.Abstractions", "logging\Bytewizer.TinyCLR.Logging.Abstractions\Bytewizer.TinyCLR.Logging.Abstractions.csproj", "{598D7917-49D1-4E76-BFF4-23221BAD7072}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging.Debug", "Bytewizer.TinyCLR.Logging.Debug\Bytewizer.TinyCLR.Logging.Debug.csproj", "{BE75C9F4-A4E1-4083-881D-AF55266EC7A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging.Debug", "logging\Bytewizer.TinyCLR.Logging.Debug\Bytewizer.TinyCLR.Logging.Debug.csproj", "{BE75C9F4-A4E1-4083-881D-AF55266EC7A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging.Extensions", "Bytewizer.TinyCLR.Logging.Extensions\Bytewizer.TinyCLR.Logging.Extensions.csproj", "{8F34C225-AC0F-47E5-8DD9-B92547A239BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging.Extensions", "logging\Bytewizer.TinyCLR.Logging.Extensions\Bytewizer.TinyCLR.Logging.Extensions.csproj", "{8F34C225-AC0F-47E5-8DD9-B92547A239BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging.Serial", "Bytewizer.TinyCLR.Logging.Serial\Bytewizer.TinyCLR.Logging.Serial.csproj", "{86FC7114-6D76-4E8F-8D9A-E22260B1704C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Logging.Serial", "logging\Bytewizer.TinyCLR.Logging.Serial\Bytewizer.TinyCLR.Logging.Serial.csproj", "{86FC7114-6D76-4E8F-8D9A-E22260B1704C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Pipeline", "Bytewizer.TinyCLR.Pipeline\Bytewizer.TinyCLR.Pipeline.csproj", "{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Pipeline", "pipeline\Bytewizer.TinyCLR.Pipeline\Bytewizer.TinyCLR.Pipeline.csproj", "{8470EE70-1C41-45E4-8EDF-0D20CFEBFFD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.DependencyInjection.Abstractions", "Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstractions.csproj", "{F5997E37-7348-4FA6-9103-990D9906DA4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.DependencyInjection.Abstractions", "di\Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstractions.csproj", "{F5997E37-7348-4FA6-9103-990D9906DA4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Assertions", "Bytewizer.TinyCLR.Assertions\Bytewizer.TinyCLR.Assertions.csproj", "{F3BC40E6-C04D-44AB-81AA-92DBB7BD33A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Assertions", "assertions\Bytewizer.TinyCLR.Assertions\Bytewizer.TinyCLR.Assertions.csproj", "{F3BC40E6-C04D-44AB-81AA-92DBB7BD33A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Stopwatch", "Bytewizer.TinyCLR.Stopwatch\Bytewizer.TinyCLR.Stopwatch.csproj", "{504AD0B8-A412-4383-AD36-68DF1FEFF449}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Stopwatch", "stopwatch\Bytewizer.TinyCLR.Stopwatch\Bytewizer.TinyCLR.Stopwatch.csproj", "{504AD0B8-A412-4383-AD36-68DF1FEFF449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Identity.Abstractions", "Bytewizer.TinyCLR.Identity.Abstractions\Bytewizer.TinyCLR.Identity.Abstractions.csproj", "{6FD1BF73-3383-4DA1-8F85-93D880DA9827}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Identity.Abstractions", "identity\Bytewizer.TinyCLR.Identity.Abstractions\Bytewizer.TinyCLR.Identity.Abstractions.csproj", "{6FD1BF73-3383-4DA1-8F85-93D880DA9827}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Identity", "Bytewizer.TinyCLR.Identity\Bytewizer.TinyCLR.Identity.csproj", "{6FD1BF73-3383-4DA1-8F85-94D880DA9827}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Identity", "identity\Bytewizer.TinyCLR.Identity\Bytewizer.TinyCLR.Identity.csproj", "{6FD1BF73-3383-4DA1-8F85-94D880DA9827}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Utilities", "Bytewizer.TinyCLR.Utilities\Bytewizer.TinyCLR.Utilities.csproj", "{504AC0A8-A412-4383-AD36-68DF1FEFF449}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Utilities", "utilities\Bytewizer.TinyCLR.Utilities\Bytewizer.TinyCLR.Utilities.csproj", "{504AC0A8-A412-4383-AD36-68DF1FEFF449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Cryptography", "Bytewizer.TinyCLR.Cryptography\Bytewizer.TinyCLR.Cryptography.csproj", "{70392D1D-6B78-46C8-9531-C02915442A46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Cryptography", "cryptography\Bytewizer.TinyCLR.Cryptography\Bytewizer.TinyCLR.Cryptography.csproj", "{70392D1D-6B78-46C8-9531-C02915442A46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Numerics", "Bytewizer.TinyCLR.Numerics\Bytewizer.TinyCLR.Numerics.csproj", "{70392D1D-6B78-46C8-9531-C12915442A46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Numerics", "numerics\Bytewizer.TinyCLR.Numerics\Bytewizer.TinyCLR.Numerics.csproj", "{70392D1D-6B78-46C8-9531-C12915442A46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Compression", "Bytewizer.TinyCLR.Compression\Bytewizer.TinyCLR.Compression.csproj", "{504AD0B8-A412-4383-AD36-68DF2FEFF449}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Compression", "compression\Bytewizer.TinyCLR.Compression\Bytewizer.TinyCLR.Compression.csproj", "{504AD0B8-A412-4383-AD36-68DF2FEFF449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Compression.Zip", "Bytewizer.TinyCLR.Compression.Zip\Bytewizer.TinyCLR.Compression.Zip.csproj", "{504AD0B8-A412-4383-AD36-67DF2FEFF449}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Compression.Zip", "compression\Bytewizer.TinyCLR.Compression.Zip\Bytewizer.TinyCLR.Compression.Zip.csproj", "{504AD0B8-A412-4383-AD36-67DF2FEFF449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Compression.GZip", "Bytewizer.TinyCLR.Compression.GZip\Bytewizer.TinyCLR.Compression.GZip.csproj", "{504AD0B8-A412-3383-AD36-67DF2FEFF449}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Compression.GZip", "compression\Bytewizer.TinyCLR.Compression.GZip\Bytewizer.TinyCLR.Compression.GZip.csproj", "{504AD0B8-A412-3383-AD36-67DF2FEFF449}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

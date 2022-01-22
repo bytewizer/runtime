@@ -13,7 +13,7 @@
       </AssemblyAttributes>
       <AssemblyAttributes Include="AssemblyProduct">
         <_Parameter1_TypeName>System.String</_Parameter1_TypeName>
-        <_Parameter1>TinyCLR OS</_Parameter1>
+        <_Parameter1>$(AssemblyProduct)</_Parameter1>
       </AssemblyAttributes>
       <AssemblyAttributes Include="AssemblyDescription">
         <_Parameter1_TypeName>System.String</_Parameter1_TypeName>
