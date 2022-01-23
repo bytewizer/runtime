@@ -1,6 +1,6 @@
 # Testing Assertions
 
-Provides a testing framework built for TinyCLR OS.
+Provides a testing framework built for TinyCLR OS and .NET nanoFramework.
 
 ## Simple Unit Test Example
 ```CSharp
@@ -29,4 +29,10 @@ public class UnitTests : TestFixture
 Install release package from [NuGet](https://www.nuget.org/packagesq=bytewizer.tinyclr) or using the Package Manager Console :
 ```powershell
 PM> Install-Package Bytewizer.TinyCLR.Assertions
+```
+
+## .NET nanoFramework Packages
+Install release package from [NuGet](https://www.nuget.org/packages?q=bytewizer.nanoclr) or using the Package Manager Console :
+```powershell
+PM> Install-Package Bytewizer.NanoCLR.Assertions
 ```

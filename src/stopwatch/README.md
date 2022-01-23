@@ -1,6 +1,6 @@
 # Stopwatch
 
-Provides time managment methods built for TinyCLR OS.
+Provides time managment methods built for TinyCLR OS and .NET nanoFramework.
 
 ## Simple Example
 ```CSharp
@@ -29,4 +29,10 @@ class Program
 Install release package from [NuGet](https://www.nuget.org/packagesq=bytewizer.tinyclr) or using the Package Manager Console :
 ```powershell
 PM> Install-Package Bytewizer.TinyCLR.Stopwatch
+```
+
+## .NET nanoFramework Packages
+Install release package from [NuGet](https://www.nuget.org/packages?q=bytewizer.nanoclr) or using the Package Manager Console :
+```powershell
+PM> Install-Package Bytewizer.NanoCLR.Core
 ```

@@ -6,25 +6,24 @@
 
 This repo contains several runtime libraries built for [GHI Electronics TinyCLR OS](https://www.ghielectronics.com/) and [.NET nanoFramework](https://www.nanoFramework.net). These libraries provide implementations for many general and app-specific types, algorithms, and utility functionality.
 
-
 ## TinyCLR OS libraries
 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/core/Bytewizer.TinyCLR.Core">Runtime Core</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/stopwatch/Bytewizer.TinyCLR.Stopwatch">Time Measurement</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/assertions/Bytewizer.TinyCLR.Assertions">Testing Framework</a> 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/logging/Bytewizer.TinyCLR.Logging">Logging Framework</a> 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/pipeline/Bytewizer.TinyCLR.Pipeline">Middleware Pipeline</a> 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/identity/Bytewizer.TinyCLR.Identity">Identity Management</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/di/Bytewizer.TinyCLR.DependencyInjection">Dependency Injection (DI)</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/compression/Bytewizer.TinyCLR.Compression">Defalate (Zip, Gzip) Compression</a>  
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/core">Runtime Core</a>
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/stopwatch">Time Measurement</a>
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/assertions">Testing Framework</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/logging">Logging Framework</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/pipeline">Middleware Pipeline</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/identity">Identity Management</a>
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/di">Dependency Injection (DI)</a>
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/compression">Defalate (Zip, Gzip) Compression</a>  
 
 ## .NET nanoFramework libraries
 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/core/Bytewizer.NanoCLR.Core">Runtime Core</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/stopwatch/Bytewizer.NanoCLR.Stopwatch">Time Measurement</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/assertions/Bytewizer.NanoCLR.Assertions">Testing Framework</a> 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/pipeline/Bytewizer.NanoCLR.Pipeline">Middleware Pipeline</a> 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/compression/Bytewizer.NanoCLR.Compression">Defalate Compression</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/core">Runtime Core</a>
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/stopwatch">Time Measurement</a>
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/assertions">Testing Framework</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/pipeline">Middleware Pipeline</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/compression">Defalate Compression</a> 
 
 Note: Incompatible api footprints are bing researched between the two platforms. Other libraries will be ported as incompatibilities are worked around.  
 

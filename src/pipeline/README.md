@@ -1,6 +1,6 @@
 # Middleware Pipeline
 
-Provides a generic middleware pipeline built for TinyCLR OS.
+Provides a generic middleware pipeline built for TinyCLR OS and .NET nanoFramework.
 
 ## Simple Pipeline Example
 
@@ -111,4 +111,10 @@ Context: Finished
 Install release package from [NuGet](https://www.nuget.org/packages?q=bytewizer.tinyclr) or using the Package Manager Console :
 ```powershell
 PM> Install-Package Bytewizer.TinyCLR.Pipeline
+```
+
+## .NET nanoFramework Packages
+Install release package from [NuGet](https://www.nuget.org/packages?q=bytewizer.nanoclr) or using the Package Manager Console :
+```powershell
+PM> Install-Package Bytewizer.NanoCLR.Pipeline
 ```
