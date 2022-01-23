@@ -1,7 +1,13 @@
-﻿using Bytewizer.TinyCLR.Pipeline.Builder;
-using System;
+﻿using System;
+
+#if NanoCLR
+using Bytewizer.NanoCLR.Pipeline.Builder;
+namespace Bytewizer.NanoCLR.Pipeline
+#else
+using Bytewizer.TinyCLR.Pipeline.Builder;
 
 namespace Bytewizer.TinyCLR.Pipeline
+#endif
 {
     /// <summary>
     /// Represents a base implementation of the <see cref="Middleware"/> for creating an application request pipeline.

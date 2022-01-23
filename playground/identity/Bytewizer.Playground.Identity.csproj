@@ -48,19 +48,19 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Assertions\Bytewizer.TinyCLR.Assertions.csproj">
+    <ProjectReference Include="..\..\src\assertions\Bytewizer.TinyCLR.Assertions\Bytewizer.TinyCLR.Assertions.csproj">
       <Project>{F3BC40E6-C04D-44AB-81AA-92DBB7BD33A3}</Project>
       <Name>Bytewizer.TinyCLR.Assertions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj">
+    <ProjectReference Include="..\..\src\core\Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj">
       <Project>{70392D1D-6B78-46C8-9531-C02915742A46}</Project>
       <Name>Bytewizer.TinyCLR.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Identity.Abstractions\Bytewizer.TinyCLR.Identity.Abstractions.csproj">
+    <ProjectReference Include="..\..\src\identity\Bytewizer.TinyCLR.Identity.Abstractions\Bytewizer.TinyCLR.Identity.Abstractions.csproj">
       <Project>{6FD1BF73-3383-4DA1-8F85-93D880DA9827}</Project>
       <Name>Bytewizer.TinyCLR.Identity.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Identity\Bytewizer.TinyCLR.Identity.csproj">
+    <ProjectReference Include="..\..\src\identity\Bytewizer.TinyCLR.Identity\Bytewizer.TinyCLR.Identity.csproj">
       <Project>{6FD1BF73-3383-4DA1-8F85-94D880DA9827}</Project>
       <Name>Bytewizer.TinyCLR.Identity</Name>
     </ProjectReference>

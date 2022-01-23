@@ -4,7 +4,11 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Assertions
+#else
 namespace Bytewizer.TinyCLR.Assertions
+#endif
 {
     /// <summary>
     /// The Assert class contains a collection of static methods that implement the most common assertions.

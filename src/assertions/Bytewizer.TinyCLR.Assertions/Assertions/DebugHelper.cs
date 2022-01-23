@@ -1,6 +1,10 @@
 ﻿using System.Diagnostics;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Assertions
+#else
 namespace Bytewizer.TinyCLR.Assertions
+#endif
 {
     /// <summary>
     /// This class provides static helper methods used for debugging 

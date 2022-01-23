@@ -3,7 +3,11 @@
 
 using System.Collections;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.DependencyInjection
+#else
 namespace Bytewizer.TinyCLR.DependencyInjection
+#endif
 {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 

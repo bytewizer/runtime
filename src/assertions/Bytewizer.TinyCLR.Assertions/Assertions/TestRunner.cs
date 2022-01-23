@@ -4,7 +4,11 @@ using System.Reflection;
 using System.Collections;
 using System.Diagnostics;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Assertions
+#else
 namespace Bytewizer.TinyCLR.Assertions
+#endif
 {
     /// <summary>
     /// A class provider that builds tests from an assembly.
@@ -20,6 +24,7 @@ namespace Bytewizer.TinyCLR.Assertions
 
         private Stopwatch _timer;
 
+#if !NanoCLR
         /// <summary>
         /// Initializes an instance of the <see cref="TestRunner" /> class with assemblies from current domain.
         /// </summary>
@@ -27,7 +32,7 @@ namespace Bytewizer.TinyCLR.Assertions
         {
             GetAssemblies(AppDomain.CurrentDomain.GetAssemblies());
         }
-
+#endif
         /// <summary>
         /// Initializes an instance of the <see cref="TestRunner" /> class.
         /// </summary>
@@ -53,20 +58,22 @@ namespace Bytewizer.TinyCLR.Assertions
         {
             _timer = Stopwatch.StartNew();
 
-            foreach(Type type in _constructors)
+            foreach (Type type in _constructors)
             {
                 try
                 {
-                    Activator.CreateInstance(type);
-                }
-                catch 
+                    var instance = Activator.CreateInstance(type);
+                    GC.ReRegisterForFinalize(instance);
+                    GC.WaitForPendingFinalizers();
+                } 
+                catch
                 {
                     throw;
                 }
             }
 
             foreach (MethodInfo method in _actions)
-            {
+            {                                                                                                                                                                                                                                                                                                                                                                                               
                 var action = new TestResult(method.DeclaringType, method);
 
                 try
@@ -96,7 +103,7 @@ namespace Bytewizer.TinyCLR.Assertions
         public string Results()
         {
             var sb = new StringBuilder();
-            
+
             sb.AppendLine($"[TEST] :: Count {TestResults.Count}");
 
             foreach (DictionaryEntry result in TestResults)
@@ -159,9 +166,8 @@ namespace Bytewizer.TinyCLR.Assertions
 
         private void MapConstructors(Type type)
         {
-            ConstructorInfo constructor = type.GetConstructors()[0];
-            ParameterInfo[] constructorParameters = constructor.GetParameters();
-            if (constructorParameters.Length == 0)
+            ConstructorInfo constructor = type.GetConstructor(new Type[] { });
+            if (constructor != null)
             {
                 _constructors.Add(type);
             }

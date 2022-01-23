@@ -1,4 +1,8 @@
-﻿namespace Bytewizer.TinyCLR.Pipeline.Builder
+﻿#if NanoCLR
+namespace Bytewizer.NanoCLR.Pipeline.Builder
+#else
+namespace Bytewizer.TinyCLR.Pipeline.Builder
+#endif
 {
     /// <summary>
     /// An interface for <see cref="ApplicationBuilder"/>.

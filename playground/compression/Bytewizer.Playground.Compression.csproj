@@ -40,15 +40,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Compression.GZip\Bytewizer.TinyCLR.Compression.GZip.csproj">
+    <ProjectReference Include="..\..\src\compression\Bytewizer.TinyCLR.Compression.GZip\Bytewizer.TinyCLR.Compression.GZip.csproj">
       <Project>{504AD0B8-A412-3383-AD36-67DF2FEFF449}</Project>
       <Name>Bytewizer.TinyCLR.Compression.GZip</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Compression.Zip\Bytewizer.TinyCLR.Compression.Zip.csproj">
+    <ProjectReference Include="..\..\src\compression\Bytewizer.TinyCLR.Compression.Zip\Bytewizer.TinyCLR.Compression.Zip.csproj">
       <Project>{504AD0B8-A412-4383-AD36-67DF2FEFF449}</Project>
       <Name>Bytewizer.TinyCLR.Compression.Zip</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Compression\Bytewizer.TinyCLR.Compression.csproj">
+    <ProjectReference Include="..\..\src\compression\Bytewizer.TinyCLR.Compression\Bytewizer.TinyCLR.Compression.csproj">
       <Project>{504AD0B8-A412-4383-AD36-68DF2FEFF449}</Project>
       <Name>Bytewizer.TinyCLR.Compression</Name>
     </ProjectReference>

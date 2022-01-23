@@ -4,7 +4,11 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Assertions
+#else
 namespace Bytewizer.TinyCLR.Assertions
+#endif
 {
     /// <summary>
     /// A set of Assert methods operating on one or more collections

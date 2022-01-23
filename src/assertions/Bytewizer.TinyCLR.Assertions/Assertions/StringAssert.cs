@@ -3,7 +3,11 @@
 using System;
 using System.ComponentModel;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Assertions
+#else
 namespace Bytewizer.TinyCLR.Assertions
+#endif
 {
     /// <summary>
     /// Basic Asserts on strings.

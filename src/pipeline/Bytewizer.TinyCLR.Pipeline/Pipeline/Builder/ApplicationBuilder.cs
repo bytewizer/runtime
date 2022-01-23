@@ -2,7 +2,11 @@
 using System.Collections;
 using System.Diagnostics;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Pipeline.Builder
+#else
 namespace Bytewizer.TinyCLR.Pipeline.Builder
+#endif
 {
     /// <summary>
     /// Represents an implementation of the <see cref="ApplicationBuilder"/> for creating application request pipelines.

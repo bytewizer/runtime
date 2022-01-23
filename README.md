@@ -4,22 +4,29 @@
 [![Release](https://github.com/bytewizer/runtime/actions/workflows/release.yml/badge.svg)](https://github.com/bytewizer/runtime/actions/workflows/release.yml)
 [![Build](https://github.com/bytewizer/runtime/actions/workflows/actions.yml/badge.svg)](https://github.com/bytewizer/runtime/actions/workflows/actions.yml)
 
-This repo contains several runtime libraries built for [GHI Electronics TinyCLR OS](https://www.ghielectronics.com/) and [.NET nanoFramework](https://www.nanoFramework.net). These libraries provide implementations for many general and app-specific types, algorithms, and utility functionality.  Be sure to follow this project on our [YouTube](https://www.youtube.com/channel/UCfFRHPY9XEsfIC0pLTSJ8kw) channel. 
+This repo contains several runtime libraries built for [GHI Electronics TinyCLR OS](https://www.ghielectronics.com/) and [.NET nanoFramework](https://www.nanoFramework.net). These libraries provide implementations for many general and app-specific types, algorithms, and utility functionality.
 
 
 ## TinyCLR OS libraries
 
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/core/Bytewizer.TinyCLR.Core">Runtime Core</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Stopwatch">Time Measurement</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Assertions">Testing Framework</a> 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Logging">Logging Framework</a> 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Pipeline">Middleware Pipeline</a> 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.Identity">Identity Management</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/Bytewizer.TinyCLR.DependencyInjection">Dependency Injection (DI)</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/stopwatch/Bytewizer.TinyCLR.Stopwatch">Time Measurement</a>
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/assertions/Bytewizer.TinyCLR.Assertions">Testing Framework</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/logging/Bytewizer.TinyCLR.Logging">Logging Framework</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/pipeline/Bytewizer.TinyCLR.Pipeline">Middleware Pipeline</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/identity/Bytewizer.TinyCLR.Identity">Identity Management</a>
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/di/Bytewizer.TinyCLR.DependencyInjection">Dependency Injection (DI)</a>
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/compression/Bytewizer.TinyCLR.Compression">Defalate (Zip, Gzip) Compression</a>  
 
 ## .NET nanoFramework libraries
 
 * <a href="https://github.com/bytewizer/runtime/tree/develop/src/core/Bytewizer.NanoCLR.Core">Runtime Core</a>
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/stopwatch/Bytewizer.NanoCLR.Stopwatch">Time Measurement</a>
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/assertions/Bytewizer.NanoCLR.Assertions">Testing Framework</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/pipeline/Bytewizer.NanoCLR.Pipeline">Middleware Pipeline</a> 
+* <a href="https://github.com/bytewizer/runtime/tree/develop/src/compression/Bytewizer.NanoCLR.Compression">Defalate Compression</a> 
+
+Note: Incompatible api footprints are bing researched between the two platforms. Other libraries will be ported as incompatibilities are worked around.  
 
 ## Give a Star! :star:
 

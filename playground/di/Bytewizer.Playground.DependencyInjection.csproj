@@ -40,27 +40,27 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstractions.csproj">
+    <ProjectReference Include="..\..\src\di\Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstractions.csproj">
       <Project>{F5997E37-7348-4FA6-9103-990D9906DA4F}</Project>
       <Name>Bytewizer.TinyCLR.DependencyInjection.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.DependencyInjection\Bytewizer.TinyCLR.DependencyInjection.csproj">
+    <ProjectReference Include="..\..\src\di\Bytewizer.TinyCLR.DependencyInjection\Bytewizer.TinyCLR.DependencyInjection.csproj">
       <Project>{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}</Project>
       <Name>Bytewizer.TinyCLR.DependencyInjection</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Logging.Abstractions\Bytewizer.TinyCLR.Logging.Abstractions.csproj">
+    <ProjectReference Include="..\..\src\logging\Bytewizer.TinyCLR.Logging.Abstractions\Bytewizer.TinyCLR.Logging.Abstractions.csproj">
       <Project>{598D7917-49D1-4E76-BFF4-23221BAD7072}</Project>
       <Name>Bytewizer.TinyCLR.Logging.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Logging.Debug\Bytewizer.TinyCLR.Logging.Debug.csproj">
+    <ProjectReference Include="..\..\src\logging\Bytewizer.TinyCLR.Logging.Debug\Bytewizer.TinyCLR.Logging.Debug.csproj">
       <Project>{BE75C9F4-A4E1-4083-881D-AF55266EC7A7}</Project>
       <Name>Bytewizer.TinyCLR.Logging.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Logging.Extensions\Bytewizer.TinyCLR.Logging.Extensions.csproj">
+    <ProjectReference Include="..\..\src\logging\Bytewizer.TinyCLR.Logging.Extensions\Bytewizer.TinyCLR.Logging.Extensions.csproj">
       <Project>{8F34C225-AC0F-47E5-8DD9-B92547A239BD}</Project>
       <Name>Bytewizer.TinyCLR.Logging.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Logging\Bytewizer.TinyCLR.Logging.csproj">
+    <ProjectReference Include="..\..\src\logging\Bytewizer.TinyCLR.Logging\Bytewizer.TinyCLR.Logging.csproj">
       <Project>{D6D13310-C4A1-4409-B0E3-10F29F7FF262}</Project>
       <Name>Bytewizer.TinyCLR.Logging</Name>
     </ProjectReference>

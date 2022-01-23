@@ -3,7 +3,11 @@
 
 using System;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.DependencyInjection
+#else
 namespace Bytewizer.TinyCLR.DependencyInjection
+#endif
 {
     /// <summary>
     /// Extension methods for building a <see cref="ServiceProvider"/> from an <see cref="IServiceCollection"/>.

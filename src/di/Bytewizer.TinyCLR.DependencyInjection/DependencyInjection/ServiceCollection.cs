@@ -3,7 +3,11 @@
 
 using System.Collections;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.DependencyInjection
+#else
 namespace Bytewizer.TinyCLR.DependencyInjection
+#endif
 {
     /// <summary>
     /// Default implementation of <see cref="IServiceCollection"/>.

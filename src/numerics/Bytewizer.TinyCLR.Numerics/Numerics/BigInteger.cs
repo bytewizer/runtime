@@ -3,7 +3,11 @@
 
 using System;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Numerics
+#else
 namespace Bytewizer.TinyCLR.Numerics
+#endif
 {
     public struct BigInteger : IComparable
     {
@@ -127,7 +131,7 @@ namespace Bytewizer.TinyCLR.Numerics
         public BigInteger(double value)
         {
             if (double.IsNaN(value) || Double.IsInfinity(value))
-                throw new OverflowException();
+                throw new Exception("Overflow");
 
             byte[] bytes = BitConverter.GetBytes(value);
             ulong mantissa = Mantissa(bytes);
@@ -435,19 +439,19 @@ namespace Bytewizer.TinyCLR.Numerics
             if (value.data == null)
                 return 0;
             if (value.data.Length > 1)
-                throw new OverflowException();
+                throw new Exception("Overflow"); 
             uint data = value.data[0];
 
             if (value.sign == 1)
             {
                 if (data > (uint)int.MaxValue)
-                    throw new OverflowException();
+                    throw new Exception("Overflow");
                 return (int)data;
             }
             else if (value.sign == -1)
             {
                 if (data > 0x80000000u)
-                    throw new OverflowException();
+                    throw new Exception("Overflow");
                 return -(int)data;
             }
 
@@ -459,7 +463,7 @@ namespace Bytewizer.TinyCLR.Numerics
             if (value.data == null)
                 return 0;
             if (value.data.Length > 1 || value.sign == -1)
-                throw new OverflowException();
+                throw new Exception("Overflow");
             return value.data[0];
         }
 
@@ -467,7 +471,7 @@ namespace Bytewizer.TinyCLR.Numerics
         {
             int val = (int)value;
             if (val < short.MinValue || val > short.MaxValue)
-                throw new OverflowException();
+                throw new Exception("Overflow");
             return (short)val;
         }
 
@@ -475,7 +479,7 @@ namespace Bytewizer.TinyCLR.Numerics
         {
             uint val = (uint)value;
             if (val > ushort.MaxValue)
-                throw new OverflowException();
+                throw new Exception("Overflow");
             return (ushort)val;
         }
 
@@ -483,7 +487,7 @@ namespace Bytewizer.TinyCLR.Numerics
         {
             uint val = (uint)value;
             if (val > byte.MaxValue)
-                throw new OverflowException();
+                throw new Exception("Overflow");
             return (byte)val;
         }
 
@@ -491,7 +495,7 @@ namespace Bytewizer.TinyCLR.Numerics
         {
             int val = (int)value;
             if (val < sbyte.MinValue || val > sbyte.MaxValue)
-                throw new OverflowException();
+                throw new Exception("Overflow");
             return (sbyte)val;
         }
 
@@ -502,7 +506,7 @@ namespace Bytewizer.TinyCLR.Numerics
                 return 0;
 
             if (value.data.Length > 2)
-                throw new OverflowException();
+                throw new Exception("Overflow");
 
             uint low = value.data[0];
 
@@ -519,7 +523,7 @@ namespace Bytewizer.TinyCLR.Numerics
             if (value.sign == 1)
             {
                 if (high >= 0x80000000u)
-                    throw new OverflowException();
+                    throw new Exception("Overflow");
                 return (((long)high) << 32) | low;
             }
 
@@ -535,7 +539,7 @@ namespace Bytewizer.TinyCLR.Numerics
 
             long result = -((((long)high) << 32) | (long)low);
             if (result > 0)
-                throw new OverflowException();
+                throw new Exception("Overflow");
             return result;
         }
 
@@ -544,7 +548,7 @@ namespace Bytewizer.TinyCLR.Numerics
             if (value.data == null)
                 return 0;
             if (value.data.Length > 2 || value.sign == -1)
-                throw new OverflowException();
+                throw new Exception("Overflow"); 
 
             uint low = value.data[0];
             if (value.data.Length == 1)

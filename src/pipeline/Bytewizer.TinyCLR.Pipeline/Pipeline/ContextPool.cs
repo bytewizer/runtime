@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Pipeline
+#else
 namespace Bytewizer.TinyCLR.Pipeline
+#endif
 {
     /// <summary>
     /// Context pool for reusing context objects.

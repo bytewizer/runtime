@@ -50,15 +50,15 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Assertions\Bytewizer.TinyCLR.Assertions.csproj">
+    <ProjectReference Include="..\..\src\assertions\Bytewizer.TinyCLR.Assertions\Bytewizer.TinyCLR.Assertions.csproj">
       <Project>{F3BC40E6-C04D-44AB-81AA-92DBB7BD33A3}</Project>
       <Name>Bytewizer.TinyCLR.Assertions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj">
+    <ProjectReference Include="..\..\src\core\Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj">
       <Project>{70392D1D-6B78-46C8-9531-C02915742A46}</Project>
       <Name>Bytewizer.TinyCLR.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Bytewizer.TinyCLR.Cryptography\Bytewizer.TinyCLR.Cryptography.csproj">
+    <ProjectReference Include="..\..\src\cryptography\Bytewizer.TinyCLR.Cryptography\Bytewizer.TinyCLR.Cryptography.csproj">
       <Project>{70392D1D-6B78-46C8-9531-C02915442A46}</Project>
       <Name>Bytewizer.TinyCLR.Numerics</Name>
     </ProjectReference>

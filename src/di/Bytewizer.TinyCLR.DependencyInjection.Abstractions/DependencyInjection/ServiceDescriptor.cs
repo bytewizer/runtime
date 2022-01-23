@@ -4,7 +4,11 @@
 using System;
 using System.Diagnostics;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.DependencyInjection
+#else
 namespace Bytewizer.TinyCLR.DependencyInjection
+#endif
 {
     /// <summary>
     /// Describes a service with its service type, implementation, and lifetime.

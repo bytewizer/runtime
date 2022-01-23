@@ -5,7 +5,11 @@ using System;
 using System.Collections;
 using System.Reflection;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.DependencyInjection
+#else
 namespace Bytewizer.TinyCLR.DependencyInjection
+#endif
 {
     /// <summary>
     /// The default IServiceProvider.
@@ -105,8 +109,8 @@ namespace Bytewizer.TinyCLR.DependencyInjection
 
         private object Resolve(Type implementationType)
         {
-            ConstructorInfo constructor = implementationType.GetConstructors()[0];
-            ParameterInfo[] constructorParameters = constructor.GetParameters();
+            ConstructorInfo constructor = implementationType.GetConstructors()[0];  // No GetConstructors
+            ParameterInfo[] constructorParameters = constructor.GetParameters(); // No Paramterinfo
 
             object instance;
 

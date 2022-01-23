@@ -2,7 +2,11 @@
 
 using System;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Assertions
+#else
 namespace Bytewizer.TinyCLR.Assertions
+#endif
 {
     public abstract partial class Assert
     {

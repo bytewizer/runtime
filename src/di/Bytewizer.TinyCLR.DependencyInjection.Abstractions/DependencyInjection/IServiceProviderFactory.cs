@@ -3,7 +3,11 @@
 
 using System;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.DependencyInjection
+#else
 namespace Bytewizer.TinyCLR.DependencyInjection
+#endif
 {
     /// <summary>
     /// Provides an extension point for creating a container specific builder and an <see cref="IServiceProvider"/>.

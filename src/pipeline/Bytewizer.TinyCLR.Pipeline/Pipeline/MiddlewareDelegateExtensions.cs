@@ -1,4 +1,8 @@
-﻿namespace Bytewizer.TinyCLR.Pipeline
+﻿#if NanoCLR
+namespace Bytewizer.NanoCLR.Pipeline
+#else
+namespace Bytewizer.TinyCLR.Pipeline
+#endif
 {
     /// <summary>
     /// Contains extension methods for <see cref="MiddlewareDelegate"/>.

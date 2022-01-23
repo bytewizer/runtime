@@ -1,4 +1,8 @@
-﻿namespace Bytewizer.TinyCLR.Pipeline
+﻿#if NanoCLR
+namespace Bytewizer.NanoCLR.Pipeline
+#else
+namespace Bytewizer.TinyCLR.Pipeline
+#endif
 {
     /// <summary>
     /// Represents an implementation of the <see cref="InlineMiddleware"/> for creating inline application pipeline request.

@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Reflection;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Assertions
+#else
 namespace Bytewizer.TinyCLR.Assertions
+#endif
 {
     /// <summary>
     ///  Represents a test result from each test action.

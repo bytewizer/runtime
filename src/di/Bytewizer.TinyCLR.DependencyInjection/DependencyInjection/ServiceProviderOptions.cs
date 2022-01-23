@@ -3,7 +3,11 @@
 
 using System;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.DependencyInjection
+#else
 namespace Bytewizer.TinyCLR.DependencyInjection
+#endif
 {
     /// <summary>
     /// Options for configuring various behaviors of the default <see cref="IServiceProvider"/> implementation.
