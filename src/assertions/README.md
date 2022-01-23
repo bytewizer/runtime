@@ -1,6 +1,6 @@
 # Testing Assertions
 
-Provides a testing framework built for TinyCLR OS and .NET nanoFramework.
+Provides a testing framework built for TinyCLR OS and .NET nanoFramework. This includes a full set of asserts including comparisons, conditions, equality, exceptions, types, collections, and strings.
 
 ## Simple Unit Test Example
 ```CSharp
@@ -8,7 +8,9 @@ class Program
 {
     static void Main()
     {
-        var testRunner = new TestRunner();
+        Assembly[] assemblies = new Assembly[] { Assembly.GetExecutingAssembly() };
+
+        var testRunner = new TestRunner(assemblies);
         testRunner.Run();
         Debug.WriteLine(testRunner.Results());
     }
@@ -20,7 +22,7 @@ public class UnitTests : TestFixture
     // Test method must be public and void
     public void IsTrueTestCase()
     {
-        Assert.True(3 > 4);
+        Assert.True(5 > 4);
     }
 }
 ```

@@ -33,6 +33,7 @@ class Program
     public class Context : IContext
     {
         public string Message { get; set; }
+        public void Clear() { }
     }
 
     public class Middleware1 : Middleware

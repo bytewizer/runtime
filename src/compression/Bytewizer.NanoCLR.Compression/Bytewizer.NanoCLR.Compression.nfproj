@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Bytewizer.NanoCLR.Compression.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
