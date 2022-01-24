@@ -1,6 +1,6 @@
 # Compression
 
-Provides Deflate, GZip, and Zip compression methods built for TinyCLR OS and nanoFramework.
+Provides deflate, gzip, and zip compression methods built for TinyCLR OS and .NET nanoFramework.
 
 ```CSharp
 static void Main()

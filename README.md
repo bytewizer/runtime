@@ -6,26 +6,19 @@
 
 This repo contains several runtime libraries built for [GHI Electronics TinyCLR OS](https://www.ghielectronics.com/) and [.NET nanoFramework](https://www.nanoFramework.net). These libraries provide implementations for many general and app-specific types, algorithms, and utility functionality.
 
-## TinyCLR OS libraries
+## TinyCLR OS and .NET nanoFramework
 
 * [Runtime Core](https://github.com/bytewizer/runtime/tree/develop/src/core)
 * [Time Measurement](https://github.com/bytewizer/runtime/tree/develop/src/stopwatch)
 * [Testing Framework](https://github.com/bytewizer/runtime/tree/develop/src/assertions) 
 * [Logging Framework](https://github.com/bytewizer/runtime/tree/develop/src/logging) 
 * [Middleware Pipeline](https://github.com/bytewizer/runtime/tree/develop/src/pipeline) 
-* [Identity Management](https://github.com/bytewizer/runtime/tree/develop/src/identity)
-* [Dependency Injection (DI)](https://github.com/bytewizer/runtime/tree/develop/src/di)
-* [Defalate (Zip, Gzip) Compression](https://github.com/bytewizer/runtime/tree/develop/src/compression)  
+* [Deflate, Zip, Gzip Compression](https://github.com/bytewizer/runtime/tree/develop/src/compression)  
+* [Identity Management - TinyCLR Only](https://github.com/bytewizer/runtime/tree/develop/src/identity)
+* [Dependency Injection (DI) - TinyCLR Only](https://github.com/bytewizer/runtime/tree/develop/src/di)
 
-## .NET nanoFramework libraries
 
-* [Runtime Core](https://github.com/bytewizer/runtime/tree/develop/src/core)
-* [Time Measurement](https://github.com/bytewizer/runtime/tree/develop/src/stopwatch)
-* [Testing Framework](https://github.com/bytewizer/runtime/tree/develop/src/assertions) 
-* [Logging Framework](https://github.com/bytewizer/runtime/tree/develop/src/logging) 
-* [Middleware Pipeline](https://github.com/bytewizer/runtime/tree/develop/src/pipeline)
-* [Defalate Compression](https://github.com/bytewizer/runtime/tree/develop/src/compression)  
-
+ 
 Note: Incompatible api footprints are bing researched between the two platforms. Other libraries will be updated as incompatibilities are worked around.  
 
 ## Give a Star! :star:

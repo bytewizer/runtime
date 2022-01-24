@@ -1,6 +1,6 @@
 # Identity Management
 
-Enables an extendable identity service to manages users, password hashing and profile data.
+Provides an extendable identity service to manages users, password hashing and profile data.
 
 ## Identity Password Hashing
 Implements a salted HMAC-SHA256 password hashing.
