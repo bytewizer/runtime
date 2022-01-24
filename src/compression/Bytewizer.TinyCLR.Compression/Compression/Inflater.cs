@@ -1,11 +1,17 @@
 using System;
 
+#if NanoCLR
+using Bytewizer.NanoCLR.Checksums;
+using Bytewizer.NanoCLR.IO.Compression.Streams;
+
+namespace Bytewizer.NanoCLR.IO.Compression
+#else
 using Bytewizer.TinyCLR.Checksums;
 using Bytewizer.TinyCLR.IO.Compression.Streams;
 
 namespace Bytewizer.TinyCLR.IO.Compression
+#endif
 {
-
     /// <summary>
     /// Inflater is used to decompress data that has been compressed according
     /// to the "deflate" standard described in rfc1950.

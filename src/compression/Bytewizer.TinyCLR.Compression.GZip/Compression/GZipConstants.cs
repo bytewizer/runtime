@@ -1,4 +1,8 @@
+#if NanoCLR
+namespace Bytewizer.NanoCLR.IO.GZip
+#else
 namespace Bytewizer.TinyCLR.IO.GZip
+#endif
 {
 	/// <summary>
 	/// This class contains constants used for gzip.

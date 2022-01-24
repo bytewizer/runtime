@@ -1,9 +1,15 @@
 using System;
 using System.IO;
 
+#if NanoCLR
+using Bytewizer.NanoCLR.Checksums;
+
+namespace Bytewizer.NanoCLR.IO.Compression.Streams
+#else
 using Bytewizer.TinyCLR.Checksums;
 
 namespace Bytewizer.TinyCLR.IO.Compression.Streams
+#endif
 {
 
     /// <summary>

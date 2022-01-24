@@ -1,11 +1,18 @@
 using System;
 using System.IO;
 
+#if NanoCLR
+using Bytewizer.NanoCLR.Checksums;
+using Bytewizer.NanoCLR.IO.Compression;
+using Bytewizer.NanoCLR.IO.Compression.Streams;
+namespace Bytewizer.NanoCLR.IO.Zip
+#else
 using Bytewizer.TinyCLR.Checksums;
 using Bytewizer.TinyCLR.IO.Compression;
 using Bytewizer.TinyCLR.IO.Compression.Streams;
 
 namespace Bytewizer.TinyCLR.IO.Zip
+#endif
 {
     /// <summary>
     /// This is a FilterInputStream that reads the files baseInputStream an zip archive

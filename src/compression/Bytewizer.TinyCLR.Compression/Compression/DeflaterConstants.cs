@@ -1,6 +1,10 @@
 using System;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.IO.Compression
+#else
 namespace Bytewizer.TinyCLR.IO.Compression
+#endif
 {
     /// <summary>
     /// This class contains constants used for the deflater.

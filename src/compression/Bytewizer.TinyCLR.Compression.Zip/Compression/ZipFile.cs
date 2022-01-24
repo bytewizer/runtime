@@ -2,10 +2,16 @@ using System;
 using System.IO;
 using System.Collections;
 
+#if NanoCLR
+using Bytewizer.NanoCLR.IO.Compression;
+using Bytewizer.NanoCLR.IO.Compression.Streams;
+namespace Bytewizer.NanoCLR.IO.Zip
+#else
 using Bytewizer.TinyCLR.IO.Compression;
 using Bytewizer.TinyCLR.IO.Compression.Streams;
 
 namespace Bytewizer.TinyCLR.IO.Zip
+#endif
 {
     /// <summary>
     /// This class represents a Zip archive.  You can ask for the contained
@@ -50,6 +56,8 @@ namespace Bytewizer.TinyCLR.IO.Zip
         Stream baseStream;
         ZipEntry[] entries;
 
+#if !NanoCLR
+
         /// <summary>
         /// Opens a Zip file with the given name for reading.
         /// </summary>
@@ -63,6 +71,7 @@ namespace Bytewizer.TinyCLR.IO.Zip
             : this(File.OpenRead(name))
         {
         }
+#endif
 
         /// <summary>
         /// Opens a Zip file reading the given FileStream

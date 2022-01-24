@@ -1,13 +1,16 @@
 # Compression
 
-Provides DEFLATE compression methods built for TinyCLR OS and nanoFramework.
+Provides Deflate, GZip, and Zip compression methods built for TinyCLR OS and nanoFramework.
 
 ```CSharp
 static void Main()
 {
-    var message = "Effect if in up no depend seemed. Ecstatic elegance gay but disposed. We me rent been part what. An concluded sportsman " +
-        "offending so provision mr education. Bed uncommonly his discovered for estimating far. Equally he minutes my hastily. Up hung mr we" +
-        " give rest half. Painful so he an comfort is manners.";
+    var message = "ZVCArOoMrdsyWqsIIKuabQLezxmQAyTTeGvyEBzRflhBawSGqcUgioZBMKxhJNXvWOLTWfADSnbz" + 
+    "ZSMuOKbaApXvkWIBfmtveNhcrwEgdrMypxajucTAvQIrnXLSYiOjezNMcnpMCddwhbLNBZgIFUSHBEKVgpEsMQxqcI" + 
+    "jweZxgOEOWRIyuoqzrMIBFUevWHeHuBpdRLacOSQYHxYRCrJuljsXFSJXLZGUhaVSMXqkaejuAsGNlYFjyZKMiUvMd" + 
+    "ORrEjYrTDMVLdEJDbGihHJZCDbgDZKnHZxlJZECVXxwAJOsfLTpWNJtLnvOPHzrPMtHmUARQVuecpfICYHnJDWrLhG" + 
+    "FKzFRqzRLVVbBWHEukqVtaWSZzMTRNlQgjbpYctlBRAMKPwrscGHGkFCNRKKjUWTxVMfArEWGzCQtscyCVJCtHFUJK" +
+    "GoHRsPDddYPACxufiOOaykKnqqIMhFFoIGAbmDNUFNNCUZaTDCAhdvAqjQmLWlTt";
 
     
     var bytes = Compress(Encoding.UTF8.GetBytes(message));
@@ -71,11 +74,15 @@ public static byte[] Uncompress(byte[] input)
 Install release package from [NuGet](https://www.nuget.org/packagesq=bytewizer.tinyclr) or using the Package Manager Console :
 ```powershell
 PM> Install-Package Bytewizer.TinyCLR.Compression
+PM> Install-Package Bytewizer.TinyCLR.Compression.Zip
+PM> Install-Package Bytewizer.TinyCLR.Compression.GZip
 ```
 ## .NET nanoFramework Packages
 Install release package from [NuGet](https://www.nuget.org/packages?q=bytewizer.nanoclr) or using the Package Manager Console :
 ```powershell
 PM> Install-Package Bytewizer.NanoCLR.Compression
+PM> Install-Package Bytewizer.NanoCLR.Compression.Zip
+PM> Install-Package Bytewizer.NanoCLR.Compression.GZip
 ```
 
 ## RFC - Related Request for Comments 

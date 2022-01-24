@@ -14,6 +14,7 @@ This repo contains several runtime libraries built for [GHI Electronics TinyCLR 
 * [Logging Framework](https://github.com/bytewizer/runtime/tree/develop/src/logging) 
 * [Middleware Pipeline](https://github.com/bytewizer/runtime/tree/develop/src/pipeline) 
 * [Identity Management](https://github.com/bytewizer/runtime/tree/develop/src/identity)
+* [Dependency Injection (DI)](https://github.com/bytewizer/runtime/tree/develop/src/di)
 * [Defalate (Zip, Gzip) Compression](https://github.com/bytewizer/runtime/tree/develop/src/compression)  
 
 ## .NET nanoFramework libraries
@@ -23,8 +24,7 @@ This repo contains several runtime libraries built for [GHI Electronics TinyCLR 
 * [Testing Framework](https://github.com/bytewizer/runtime/tree/develop/src/assertions) 
 * [Logging Framework](https://github.com/bytewizer/runtime/tree/develop/src/logging) 
 * [Middleware Pipeline](https://github.com/bytewizer/runtime/tree/develop/src/pipeline)
-* [Dependency Injection (DI)](https://github.com/bytewizer/runtime/tree/develop/src/di)
-* [Defalate (Zip, Gzip) Compression](https://github.com/bytewizer/runtime/tree/develop/src/compression)  
+* [Defalate Compression](https://github.com/bytewizer/runtime/tree/develop/src/compression)  
 
 Note: Incompatible api footprints are bing researched between the two platforms. Other libraries will be updated as incompatibilities are worked around.  
 

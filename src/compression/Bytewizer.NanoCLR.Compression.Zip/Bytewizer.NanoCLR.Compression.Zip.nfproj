@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <NanoFrameworkProjectSystemPath>$(MSBuildExtensionsPath)\nanoFramework\v1.0\</NanoFrameworkProjectSystemPath>
+  </PropertyGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.Default.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{11A8DD76-328B-46DF-9F39-F559912D0360};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{E945410D-B90A-469F-9D5B-24074BA3ECE9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>Bytewizer.NanoCLR.Compression.GZip</RootNamespace>
+    <AssemblyName>Bytewizer.NanoCLR.Compression.GZip</AssemblyName>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefineConstants>NanoCLR</DefineConstants>
+    <AssemblyProduct>NanoCLR</AssemblyProduct>
+    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
+  <ItemGroup>
+    <Compile Include="..\Bytewizer.TinyCLR.Compression.Zip\Compression\ZipConstants.cs">
+      <Link>Compression\ZipConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Compression.Zip\Compression\ZipEntry.cs">
+      <Link>Compression\ZipEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Compression.Zip\Compression\ZipFile.cs">
+      <Link>Compression\ZipFile.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Compression.Zip\Compression\ZipInputStream.cs">
+      <Link>Compression\ZipInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Compression.Zip\Compression\ZipOutputStream.cs">
+      <Link>Compression\ZipOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib, Version=1.11.7.2, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.11.7\lib\mscorlib.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="nanoFramework.Runtime.Events">
+      <HintPath>..\..\packages\nanoFramework.Runtime.Events.1.9.2\lib\nanoFramework.Runtime.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="nanoFramework.System.Text">
+      <HintPath>..\..\packages\nanoFramework.System.Text.1.1.2\lib\nanoFramework.System.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem">
+      <HintPath>..\..\packages\nanoFramework.System.IO.FileSystem.1.0.2\lib\System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Math">
+      <HintPath>..\..\packages\nanoFramework.System.Math.1.4.3\lib\System.Math.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Bytewizer.NanoCLR.Compression.Zip.nuspec" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Compression\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bytewizer.NanoCLR.Compression\Bytewizer.NanoCLR.Compression.nfproj" />
+  </ItemGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
+  <ProjectExtensions>
+    <ProjectCapabilities>
+      <ProjectConfigurationsDeclaredAsItems />
+    </ProjectCapabilities>
+  </ProjectExtensions>
+  <Target Name="Pack" DependsOnTargets="Build;">
+    <PropertyGroup>
+      <NuGetExePath Condition="'$(NuGetExePath)' == ''">nuget.exe</NuGetExePath>
+      <NuspecPath>$([System.IO.Path]::Combine($(BaseDir), "$(ProjectName).nuspec"))</NuspecPath>
+    </PropertyGroup>
+    <Exec WorkingDirectory="$(BaseDir)" Command="$(NuGetExePath) pack $(NuspecPath) -OutputDirectory $(PackageOutputPath) -Version $(Version) -Properties id=$(AssemblyName);configuration=$(Configuration) -Symbols -SymbolPackageFormat snupkg" />
+  </Target>
+</Project>

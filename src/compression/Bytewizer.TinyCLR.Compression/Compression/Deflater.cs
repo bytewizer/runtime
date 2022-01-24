@@ -1,8 +1,11 @@
 using System;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.IO.Compression
+#else
 namespace Bytewizer.TinyCLR.IO.Compression
+#endif
 {
-
     /// <summary>
     /// This is the Deflater class.  The deflater class compresses input
     /// with the deflate algorithm described in RFC 1951.  It has several

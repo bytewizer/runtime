@@ -1,6 +1,10 @@
 using System.Text;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.IO.Zip
+#else
 namespace Bytewizer.TinyCLR.IO.Zip
+#endif
 {
 	/// <summary>
 	/// This class contains constants used for zip.

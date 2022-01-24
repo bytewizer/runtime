@@ -1,6 +1,10 @@
 using System;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Checksums
+#else
 namespace Bytewizer.TinyCLR.Checksums
+#endif
 {
 
     /// <summary>

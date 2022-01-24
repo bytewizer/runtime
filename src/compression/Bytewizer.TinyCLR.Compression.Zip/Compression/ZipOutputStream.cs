@@ -2,11 +2,18 @@ using System;
 using System.IO;
 using System.Collections;
 
+#if NanoCLR
+using Bytewizer.NanoCLR.Checksums;
+using Bytewizer.NanoCLR.IO.Compression;
+using Bytewizer.NanoCLR.IO.Compression.Streams;
+namespace Bytewizer.NanoCLR.IO.Zip
+#else
 using Bytewizer.TinyCLR.Checksums;
 using Bytewizer.TinyCLR.IO.Compression;
 using Bytewizer.TinyCLR.IO.Compression.Streams;
 
-namespace Bytewizer.TinyCLR.IO.Zip 
+namespace Bytewizer.TinyCLR.IO.Zip
+#endif
 {
 	/// <summary>
 	/// This is a FilterOutputStream that writes the files into a zip

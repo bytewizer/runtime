@@ -1,6 +1,10 @@
 using System;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.IO.Compression
+#else
 namespace Bytewizer.TinyCLR.IO.Compression
+#endif
 {
     /// <summary>
     /// This class is general purpose class for writing data to a buffer.

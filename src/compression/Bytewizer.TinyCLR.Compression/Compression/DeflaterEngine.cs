@@ -1,8 +1,12 @@
 using System;
 
+#if NanoCLR
+using Bytewizer.NanoCLR.Checksums;
+namespace Bytewizer.NanoCLR.IO.Compression
+#else
 using Bytewizer.TinyCLR.Checksums;
-
 namespace Bytewizer.TinyCLR.IO.Compression
+#endif
 {
     /// <summary>
     /// Strategies for deflater

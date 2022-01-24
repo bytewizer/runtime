@@ -1,8 +1,14 @@
 using System;
 
+#if NanoCLR
+using Bytewizer.NanoCLR.IO.Compression.Streams;
+
+namespace Bytewizer.NanoCLR.IO.Compression
+#else
 using Bytewizer.TinyCLR.IO.Compression.Streams;
 
 namespace Bytewizer.TinyCLR.IO.Compression
+#endif
 {
 
     /// <summary>

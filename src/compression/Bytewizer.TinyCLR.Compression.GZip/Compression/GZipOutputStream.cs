@@ -1,11 +1,18 @@
 using System;
 using System.IO;
 
+#if NanoCLR
+using Bytewizer.NanoCLR.Checksums;
+using Bytewizer.NanoCLR.IO.Compression;
+using Bytewizer.NanoCLR.IO.Compression.Streams;
+namespace Bytewizer.NanoCLR.IO.GZip
+#else
 using Bytewizer.TinyCLR.Checksums;
 using Bytewizer.TinyCLR.IO.Compression;
 using Bytewizer.TinyCLR.IO.Compression.Streams;
 
 namespace Bytewizer.TinyCLR.IO.GZip
+#endif
 {
 
     /// <summary>
@@ -71,7 +78,7 @@ namespace Bytewizer.TinyCLR.IO.GZip
 
         void WriteHeader()
         {
-            int mod_time = (int)(DateTime.Now.Ticks / 10000L);  // Ticks give back 100ns intervals
+            int mod_time = (int)(DateTime.UtcNow.Ticks / 10000L);  // Ticks give back 100ns intervals
             byte[] gzipHeader = {
 				/* The two magic bytes */
 				(byte) (GZipConstants.GZIP_MAGIC >> 8), (byte) GZipConstants.GZIP_MAGIC,

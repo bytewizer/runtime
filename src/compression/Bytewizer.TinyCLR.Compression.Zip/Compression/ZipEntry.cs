@@ -1,7 +1,11 @@
 using System;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.IO.Zip
+#else
 namespace Bytewizer.TinyCLR.IO.Zip
-{	
+#endif
+{
 	public enum CompressionMethod
 	{
 		Stored   = 0,
@@ -102,7 +106,7 @@ namespace Bytewizer.TinyCLR.IO.Zip
 			if (name == null)  {
 				throw new System.ArgumentNullException("name");
 			}
-			this.DateTime  = System.DateTime.Now;
+			this.DateTime  = System.DateTime.UtcNow;
 			this.name = name;
 		}
 		
@@ -324,7 +328,7 @@ namespace Bytewizer.TinyCLR.IO.Zip
 									(extra[pos+3] & 0xff) << 16 |
 									(extra[pos+4] & 0xff) << 24);
 								
-								DateTime = (new DateTime ( 1970, 1, 1, 0, 0, 0 ) + new TimeSpan ( 0, 0, 0, iTime, 0 )).ToLocalTime ();
+								DateTime = new DateTime ( 1970, 1, 1, 0, 0, 0 ) + new TimeSpan ( 0, 0, 0, iTime, 0 );
 								known |= (ushort)KNOWN_TIME;
 							}
 						}

@@ -1,6 +1,10 @@
 using System;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Checksums
+#else
 namespace Bytewizer.TinyCLR.Checksums
+#endif
 {
 
     /// <summary>
@@ -47,8 +51,6 @@ namespace Bytewizer.TinyCLR.Checksums
     ///    checked separately. (Any sequence of zeroes has a Fletcher
     ///    checksum of zero.)"
     /// </summary>
-    /// <see cref="Bytewizer.TinyCLR.IO.Compression.Streams.InflaterInputStream"/>
-    /// <see cref="Bytewizer.TinyCLR.IO.Compression.Streams.DeflaterOutputStream"/>
     public sealed class Adler32 : IChecksum
     {
         /// <summary>

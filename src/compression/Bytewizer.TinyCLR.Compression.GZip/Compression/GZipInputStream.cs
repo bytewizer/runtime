@@ -1,11 +1,18 @@
 using System;
 using System.IO;
 
+#if NanoCLR
+using Bytewizer.NanoCLR.Checksums;
+using Bytewizer.NanoCLR.IO.Compression;
+using Bytewizer.NanoCLR.IO.Compression.Streams;
+namespace Bytewizer.NanoCLR.IO.GZip
+#else
 using Bytewizer.TinyCLR.Checksums;
 using Bytewizer.TinyCLR.IO.Compression;
 using Bytewizer.TinyCLR.IO.Compression.Streams;
 
 namespace Bytewizer.TinyCLR.IO.GZip
+#endif
 {
     /// <summary>
     /// This filter stream is used to decompress a "GZIP" format stream.
