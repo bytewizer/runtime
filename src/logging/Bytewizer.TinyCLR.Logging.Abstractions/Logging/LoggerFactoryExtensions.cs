@@ -3,7 +3,11 @@
 
 using System;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Logging
+#else
 namespace Bytewizer.TinyCLR.Logging
+#endif
 {
     /// <summary>
     /// ILoggerFactory extension methods for common scenarios.

@@ -73,13 +73,13 @@ namespace Bytewizer.TinyCLR
 
 
         /// <summary>
-        /// Reads the bytes from the current stream and writes them to another stream. The default buffer size is 1024.
+        /// Reads the bytes from the current stream and writes them to another stream. The default buffer size is 8192.
         /// </summary>
         /// <param name="source">The source <see cref="Stream"/> to read from.</param>
         /// <param name="destination">The <see cref="Stream"/> to which the contents of the current stream will be copied.</param>
         public static void CopyTo(this Stream source, Stream destination)
         {
-            CopyTo(source, destination, 1024);
+            CopyTo(source, destination, 8192);
         }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Bytewizer.TinyCLR
                 throw new ArgumentNullException(nameof(destination));
             }
 
-            int size = (source.CanSeek) ? Math.Min((int)(source.Length - source.Position), 8 * bufferSize) : 8 * bufferSize;
+            int size = (source.CanSeek) ? Math.Min((int)(source.Length - source.Position), bufferSize) : bufferSize;
 
             var buffer = new byte[size];
 

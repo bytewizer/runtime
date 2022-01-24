@@ -3,7 +3,11 @@
 
 using System.Collections;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Logging
+#else
 namespace Bytewizer.TinyCLR.Logging
+#endif
 {
     /// <summary>
     /// Produces instances of <see cref="ILogger"/> classes based on the given providers.

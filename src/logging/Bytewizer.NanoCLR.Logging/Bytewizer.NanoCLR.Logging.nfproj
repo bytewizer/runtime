@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <NanoFrameworkProjectSystemPath>$(MSBuildExtensionsPath)\nanoFramework\v1.0\</NanoFrameworkProjectSystemPath>
+  </PropertyGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.Default.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{11A8DD76-328B-46DF-9F39-F559912D0360};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{704E8F21-C61E-4E41-920D-FA88D876985C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>Bytewizer.NanoCLR.Logging</RootNamespace>
+    <AssemblyName>Bytewizer.NanoCLR.Logging</AssemblyName>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefineConstants>NanoCLR</DefineConstants>
+    <AssemblyProduct>NanoCLR</AssemblyProduct>
+    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
+  <ItemGroup>
+    <Compile Include="..\Bytewizer.TinyCLR.Logging\Logging\Logger.cs">
+      <Link>Logging\Logger.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Logging\Logging\LoggerFactory.cs">
+      <Link>Logging\LoggerFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Logging\Logging\LoggerFilterOptions.cs">
+      <Link>Logging\LoggerFilterOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Logging\Logging\LoggerInformation.cs">
+      <Link>Logging\LoggerInformation.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Logging\Logging\LogLevelString.cs">
+      <Link>Logging\LogLevelString.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Logging\Logging\MessageLogger.cs">
+      <Link>Logging\MessageLogger.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib, Version=1.11.7.2, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.11.7\lib\mscorlib.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="nanoFramework.System.Collections">
+      <HintPath>..\..\packages\nanoFramework.System.Collections.1.3.0\lib\nanoFramework.System.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="nanoFramework.System.Text">
+      <HintPath>..\..\packages\nanoFramework.System.Text.1.1.2\lib\nanoFramework.System.Text.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Bytewizer.NanoCLR.Logging.nuspec" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Logging\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bytewizer.NanoCLR.Logging.Abstractions\Bytewizer.NanoCLR.Logging.Abstractions.nfproj" />
+  </ItemGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
+  <ProjectExtensions>
+    <ProjectCapabilities>
+      <ProjectConfigurationsDeclaredAsItems />
+    </ProjectCapabilities>
+  </ProjectExtensions>
+  <Target Name="Pack" DependsOnTargets="Build;">
+    <PropertyGroup>
+      <NuGetExePath Condition="'$(NuGetExePath)' == ''">nuget.exe</NuGetExePath>
+      <NuspecPath>$([System.IO.Path]::Combine($(BaseDir), "$(ProjectName).nuspec"))</NuspecPath>
+    </PropertyGroup>
+    <Exec WorkingDirectory="$(BaseDir)" Command="$(NuGetExePath) pack $(NuspecPath) -OutputDirectory $(PackageOutputPath) -Version $(Version) -Properties id=$(AssemblyName);configuration=$(Configuration) -Symbols -SymbolPackageFormat snupkg" />
+  </Target>
+</Project>

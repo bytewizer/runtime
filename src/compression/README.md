@@ -5,9 +5,6 @@ Provides DEFLATE compression methods built for TinyCLR OS and nanoFramework.
 ```CSharp
 static void Main()
 {
-    var sd = StorageController.FromName(SC20260.StorageController.SdCard);
-    var drive = FileSystem.Mount(sd.Hdc);
-
     var message = "Effect if in up no depend seemed. Ecstatic elegance gay but disposed. We me rent been part what. An concluded sportsman " +
         "offending so provision mr education. Bed uncommonly his discovered for estimating far. Equally he minutes my hastily. Up hung mr we" +
         " give rest half. Painful so he an comfort is manners.";
@@ -69,8 +66,6 @@ public static byte[] Uncompress(byte[] input)
     return bos.ToArray();
 }
 ```
-
-
 
 ## TinyCLR Packages
 Install release package from [NuGet](https://www.nuget.org/packagesq=bytewizer.tinyclr) or using the Package Manager Console :

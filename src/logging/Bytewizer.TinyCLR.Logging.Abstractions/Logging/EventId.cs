@@ -1,7 +1,11 @@
 ﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Logging
+#else
 namespace Bytewizer.TinyCLR.Logging
+#endif
 {
     /// <summary>
     /// Identifies a logging event. The primary identifier is the "Id" property, with the "Name" property providing a short description of this type of event.

@@ -1,6 +1,10 @@
 ﻿using System;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Logging
+#else
 namespace Bytewizer.TinyCLR.Logging
+#endif
 {
     public static class DiagnosticsLoggerExtensions
     {

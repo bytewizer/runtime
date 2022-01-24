@@ -5,7 +5,11 @@ using System;
 using System.Collections;
 using System.Text;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Logging
+#else
 namespace Bytewizer.TinyCLR.Logging
+#endif
 {
     internal class Logger : ILogger
     {

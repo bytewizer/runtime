@@ -6,7 +6,11 @@
 // the call to Debug.WriteLine will not be in the release binary
 #define DEBUG
 
-namespace Bytewizer.TinyCLR.Logging.Debug
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Logging
+#else
+namespace Bytewizer.TinyCLR.Logging
+#endif
 {
     internal partial class DebugLogger
     {

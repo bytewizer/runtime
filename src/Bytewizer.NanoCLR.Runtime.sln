@@ -15,6 +15,14 @@ Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Bytewizer.NanoCLR.Numerics"
 EndProject
 Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Bytewizer.NanoCLR.Compression", "compression\Bytewizer.NanoCLR.Compression\Bytewizer.NanoCLR.Compression.nfproj", "{EF05A461-F910-451D-897A-C15DF875A5D0}"
 EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Bytewizer.NanoCLR.Logging.Abstractions", "logging\Bytewizer.NanoCLR.Logging.Abstractions\Bytewizer.NanoCLR.Logging.Abstractions.nfproj", "{E6EDBF3E-77E6-4545-ADBD-D8DC17D24A5F}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Bytewizer.NanoCLR.Logging", "logging\Bytewizer.NanoCLR.Logging\Bytewizer.NanoCLR.Logging.nfproj", "{704E8F21-C61E-4E41-920D-FA88D876985C}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Bytewizer.NanoCLR.Logging.Debug", "logging\Bytewizer.NanoCLR.Logging.Debug\Bytewizer.NanoCLR.Logging.Debug.nfproj", "{6E8DEE5A-438C-4233-A1C1-D1AB703D680D}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Bytewizer.NanoCLR.Logging.Extensions", "logging\Bytewizer.NanoCLR.Logging.Extensions\Bytewizer.NanoCLR.Logging.Extensions.nfproj", "{093CA1A1-99D6-4428-B352-E6F02647C868}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +65,30 @@ Global
 		{EF05A461-F910-451D-897A-C15DF875A5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF05A461-F910-451D-897A-C15DF875A5D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EF05A461-F910-451D-897A-C15DF875A5D0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E6EDBF3E-77E6-4545-ADBD-D8DC17D24A5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6EDBF3E-77E6-4545-ADBD-D8DC17D24A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6EDBF3E-77E6-4545-ADBD-D8DC17D24A5F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E6EDBF3E-77E6-4545-ADBD-D8DC17D24A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6EDBF3E-77E6-4545-ADBD-D8DC17D24A5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6EDBF3E-77E6-4545-ADBD-D8DC17D24A5F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{704E8F21-C61E-4E41-920D-FA88D876985C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{704E8F21-C61E-4E41-920D-FA88D876985C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{704E8F21-C61E-4E41-920D-FA88D876985C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{704E8F21-C61E-4E41-920D-FA88D876985C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{704E8F21-C61E-4E41-920D-FA88D876985C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{704E8F21-C61E-4E41-920D-FA88D876985C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6E8DEE5A-438C-4233-A1C1-D1AB703D680D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E8DEE5A-438C-4233-A1C1-D1AB703D680D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E8DEE5A-438C-4233-A1C1-D1AB703D680D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6E8DEE5A-438C-4233-A1C1-D1AB703D680D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E8DEE5A-438C-4233-A1C1-D1AB703D680D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E8DEE5A-438C-4233-A1C1-D1AB703D680D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{093CA1A1-99D6-4428-B352-E6F02647C868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{093CA1A1-99D6-4428-B352-E6F02647C868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{093CA1A1-99D6-4428-B352-E6F02647C868}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{093CA1A1-99D6-4428-B352-E6F02647C868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{093CA1A1-99D6-4428-B352-E6F02647C868}.Release|Any CPU.Build.0 = Release|Any CPU
+		{093CA1A1-99D6-4428-B352-E6F02647C868}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

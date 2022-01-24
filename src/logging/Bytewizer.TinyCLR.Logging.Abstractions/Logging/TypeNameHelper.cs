@@ -2,9 +2,12 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using System;
-using System.Text;
 
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Logging
+#else
 namespace Bytewizer.TinyCLR.Logging
+#endif
 {
     internal static class TypeNameHelper
     {
@@ -20,12 +23,7 @@ namespace Bytewizer.TinyCLR.Logging
         /// <param name="fullName"><c>true</c> to print a fully qualified name.</param>
         public static string GetTypeDisplayName(Type type, bool fullName = true)
         {
-            var builder = new StringBuilder();
-
-            var name = fullName ? type.FullName : type.Name;
-            builder.Append(name);
-
-            return builder.ToString();
+            return fullName ? type.FullName : type.Name; ;
         }
     }
 }

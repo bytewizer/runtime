@@ -1,6 +1,6 @@
 # Core
 
-Provides implementations for general and app-specific types, algorithms, and utility functionality.
+Provides implementations for general and app-specific types, algorithms, and utility functionality built for TinyCLR OS and .NET nanoFramework.
 
 ## TinyCLR Packages
 Install release package from [NuGet](https://www.nuget.org/packages?q=bytewizer.tinyclr) or using the Package Manager Console :

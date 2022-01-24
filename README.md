@@ -8,24 +8,25 @@ This repo contains several runtime libraries built for [GHI Electronics TinyCLR 
 
 ## TinyCLR OS libraries
 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/core">Runtime Core</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/stopwatch">Time Measurement</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/assertions">Testing Framework</a> 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/logging">Logging Framework</a> 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/pipeline">Middleware Pipeline</a> 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/identity">Identity Management</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/di">Dependency Injection (DI)</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/compression">Defalate (Zip, Gzip) Compression</a>  
+* [Runtime Core](https://github.com/bytewizer/runtime/tree/develop/src/core)
+* [Time Measurement](https://github.com/bytewizer/runtime/tree/develop/src/stopwatch)
+* [Testing Framework](https://github.com/bytewizer/runtime/tree/develop/src/assertions) 
+* [Logging Framework](https://github.com/bytewizer/runtime/tree/develop/src/logging) 
+* [Middleware Pipeline](https://github.com/bytewizer/runtime/tree/develop/src/pipeline) 
+* [Identity Management](https://github.com/bytewizer/runtime/tree/develop/src/identity)
+* [Defalate (Zip, Gzip) Compression](https://github.com/bytewizer/runtime/tree/develop/src/compression)  
 
 ## .NET nanoFramework libraries
 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/core">Runtime Core</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/stopwatch">Time Measurement</a>
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/assertions">Testing Framework</a> 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/pipeline">Middleware Pipeline</a> 
-* <a href="https://github.com/bytewizer/runtime/tree/develop/src/compression">Defalate Compression</a> 
+* [Runtime Core](https://github.com/bytewizer/runtime/tree/develop/src/core)
+* [Time Measurement](https://github.com/bytewizer/runtime/tree/develop/src/stopwatch)
+* [Testing Framework](https://github.com/bytewizer/runtime/tree/develop/src/assertions) 
+* [Logging Framework](https://github.com/bytewizer/runtime/tree/develop/src/logging) 
+* [Middleware Pipeline](https://github.com/bytewizer/runtime/tree/develop/src/pipeline)
+* [Dependency Injection (DI)](https://github.com/bytewizer/runtime/tree/develop/src/di)
+* [Defalate (Zip, Gzip) Compression](https://github.com/bytewizer/runtime/tree/develop/src/compression)  
 
-Note: Incompatible api footprints are bing researched between the two platforms. Other libraries will be ported as incompatibilities are worked around.  
+Note: Incompatible api footprints are bing researched between the two platforms. Other libraries will be updated as incompatibilities are worked around.  
 
 ## Give a Star! :star:
 

@@ -5,7 +5,11 @@ using System;
 using System.Diagnostics;
 using System.Text;
 
-namespace Bytewizer.TinyCLR.Logging.Debug
+#if NanoCLR
+namespace Bytewizer.NanoCLR.Logging
+#else
+namespace Bytewizer.TinyCLR.Logging
+#endif
 {
     /// <summary>
     /// A logger that writes messages in the debug output window only when a debugger is attached.
