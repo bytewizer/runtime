@@ -11,8 +11,8 @@
     <icon>images\package-logo.png</icon>
     <tags>nanoframework nanoclr iot</tags>
     <dependencies>    
-      <dependency id="nanoFramework.CoreLibrary" version="1.11.7" />
-      <dependency id="nanoFramework.System.Math" version="1.4.3" />
+      <dependency id="nanoFramework.CoreLibrary" version="1.12.0-preview.5" />
+      <dependency id="nanoFramework.System.Math" version="1.4.4-preview.11" />
     </dependencies>
   </metadata>
   <files>

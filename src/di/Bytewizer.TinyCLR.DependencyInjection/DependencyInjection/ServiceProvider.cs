@@ -31,10 +31,10 @@ namespace Bytewizer.TinyCLR.DependencyInjection
                     {
                         ValidateService(serviceDescriptor);
                     }
-                    catch (Exception e)
+                    catch (Exception ex)
                     {
                         exceptions = exceptions ?? new ArrayList();
-                        exceptions.Add(e);
+                        exceptions.Add(ex);
                     }
                 }
 
@@ -109,8 +109,8 @@ namespace Bytewizer.TinyCLR.DependencyInjection
 
         private object Resolve(Type implementationType)
         {
-            ConstructorInfo constructor = implementationType.GetConstructors()[0];  // No GetConstructors
-            ParameterInfo[] constructorParameters = constructor.GetParameters(); // No Paramterinfo
+            ConstructorInfo constructor = implementationType.GetConstructors()[0];  
+            ParameterInfo[] constructorParameters = constructor.GetParameters();
 
             object instance;
 

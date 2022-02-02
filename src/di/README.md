@@ -1,6 +1,6 @@
 # Dependency Injection (DI)
 
-Provides dependency injection for Inversion of Control (IoC) between classes and their dependencies built for TinyCLR OS.
+Provides dependency injection for Inversion of Control (IoC) between classes and their dependencies built for TinyCLR OS and .NET nanoFramework.
 
 ## Simple Dependency Injection Example
 ```CSharp
@@ -76,4 +76,10 @@ public class FooService : IFooService
 Install release package from [NuGet](https://www.nuget.org/packages?q=bytewizer.tinyclr) or using the Package Manager Console :
 ```powershell
 PM> Install-Package Bytewizer.TinyCLR.Dependencyinjection
+```
+
+## .NET nanoFramework Packages
+Install release package from [NuGet](https://www.nuget.org/packages?q=bytewizer.nanoclr) or using the Package Manager Console :
+```powershell
+PM> Install-Package Bytewizer.NanoCLR.Dependencyinjection
 ```
