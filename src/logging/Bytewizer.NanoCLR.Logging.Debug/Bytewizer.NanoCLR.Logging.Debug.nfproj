@@ -42,7 +42,7 @@
       <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.12.0-preview.5\lib\mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.System.Text">
-      <HintPath>..\..\..\..\di-nano\Bytewizer.DependencyInjection\packages\nanoFramework.System.Text.1.1.3-preview.11\lib\nanoFramework.System.Text.dll</HintPath>
+      <HintPath>..\..\packages\nanoFramework.System.Text.1.1.3-preview.11\lib\nanoFramework.System.Text.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
