@@ -44,7 +44,6 @@
     <Folder Include="DependencyInjection\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\core\Bytewizer.NanoCLR.Core\Bytewizer.NanoCLR.Core.nfproj" />
     <ProjectReference Include="..\Bytewizer.NanoCLR.DependencyInjection.Abstractions\Bytewizer.NanoCLR.DependencyInjection.Abstractions.nfproj" />
   </ItemGroup>
   <ItemGroup>

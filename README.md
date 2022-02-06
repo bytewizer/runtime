@@ -13,9 +13,9 @@ This repo contains several runtime libraries built for [GHI Electronics TinyCLR 
 * [Testing Framework](https://github.com/bytewizer/runtime/tree/develop/src/assertions) 
 * [Logging Framework](https://github.com/bytewizer/runtime/tree/develop/src/logging) 
 * [Middleware Pipeline](https://github.com/bytewizer/runtime/tree/develop/src/pipeline) 
+* [Dependency Injection (DI)](https://github.com/bytewizer/runtime/tree/develop/src/di)
 * [Deflate, Zip, Gzip Compression](https://github.com/bytewizer/runtime/tree/develop/src/compression)  
 * [Identity Management - TinyCLR Only**](https://github.com/bytewizer/runtime/tree/develop/src/identity)
-* [Dependency Injection (DI)](https://github.com/bytewizer/runtime/tree/develop/src/di)
 
 **Note: Incompatible api footprints are bing researched between the two platforms. Other libraries will be updated as incompatibilities are worked around.  
 

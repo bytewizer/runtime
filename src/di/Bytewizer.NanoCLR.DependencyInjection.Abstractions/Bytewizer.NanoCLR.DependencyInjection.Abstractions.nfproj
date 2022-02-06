@@ -50,9 +50,6 @@
     <Folder Include="DependencyInjection\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\core\Bytewizer.NanoCLR.Core\Bytewizer.NanoCLR.Core.nfproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="mscorlib">
       <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.12.0-preview.5\lib\mscorlib.dll</HintPath>
     </Reference>

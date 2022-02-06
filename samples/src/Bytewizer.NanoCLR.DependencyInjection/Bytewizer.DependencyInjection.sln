@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Bytewizer.DependencyInjection", "Bytewizer.DependencyInjection\Bytewizer.DependencyInjection.nfproj", "{375F2C37-EDCD-44FA-8BC7-72AED0A1C0DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{375F2C37-EDCD-44FA-8BC7-72AED0A1C0DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{375F2C37-EDCD-44FA-8BC7-72AED0A1C0DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{375F2C37-EDCD-44FA-8BC7-72AED0A1C0DF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{375F2C37-EDCD-44FA-8BC7-72AED0A1C0DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{375F2C37-EDCD-44FA-8BC7-72AED0A1C0DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{375F2C37-EDCD-44FA-8BC7-72AED0A1C0DF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ABCA1850-E875-490C-AC83-3DBCC630ACB9}
+	EndGlobalSection
+EndGlobal

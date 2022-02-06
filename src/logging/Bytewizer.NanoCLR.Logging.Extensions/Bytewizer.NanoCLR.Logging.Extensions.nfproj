@@ -36,10 +36,6 @@
     <Folder Include="Logging\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bytewizer.NanoCLR.Logging.Abstractions\Bytewizer.NanoCLR.Logging.Abstractions.nfproj" />
-    <ProjectReference Include="..\Bytewizer.NanoCLR.Logging\Bytewizer.NanoCLR.Logging.nfproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="mscorlib">
       <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.12.0-preview.5\lib\mscorlib.dll</HintPath>
     </Reference>
