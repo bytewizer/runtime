@@ -17,8 +17,8 @@
       <dependency id="nanoFramework.Runtime.Events" version="1.10.0-preview.6" />
       <dependency id="nanoFramework.System.Collections" version="1.4.0-preview.14" />
       <dependency id="nanoFramework.System.IO.FileSystem" version="1.0.3-preview.9" />
-	    <dependency id="Bytewizer.NanoCLR.Core" version="2.1.8" />
-	    <dependency id="Bytewizer.NanoCLR.DependencyInjection.Abstractions" version="2.1.8" />
+	  <dependency id="Bytewizer.NanoCLR.Core" version="2.1.8" />
+	  <dependency id="Bytewizer.NanoCLR.DependencyInjection.Abstractions" version="2.1.9" />
     </dependencies>
   </metadata>
   <files>

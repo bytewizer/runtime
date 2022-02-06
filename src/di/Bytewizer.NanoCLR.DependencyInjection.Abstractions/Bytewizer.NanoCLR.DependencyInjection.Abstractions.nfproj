@@ -58,6 +58,9 @@
     <None Include="Bytewizer.NanoCLR.DependencyInjection.Abstractions.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\Bytewizer.NanoCLR.Core\Bytewizer.NanoCLR.Core.nfproj" />
+  </ItemGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
   <ProjectExtensions>
     <ProjectCapabilities>

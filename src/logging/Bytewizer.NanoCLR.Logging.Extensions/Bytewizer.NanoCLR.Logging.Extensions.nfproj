@@ -40,6 +40,9 @@
       <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.12.0-preview.5\lib\mscorlib.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bytewizer.NanoCLR.Logging.Abstractions\Bytewizer.NanoCLR.Logging.Abstractions.nfproj" />
+  </ItemGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
   <ProjectExtensions>
     <ProjectCapabilities>
