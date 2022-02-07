@@ -23,25 +23,25 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Bytewizer.NanoCLR.Core">
-      <HintPath>..\packages\Bytewizer.NanoCLR.Core.2.1.8\lib\Bytewizer.NanoCLR.Core.dll</HintPath>
+      <HintPath>..\packages\Bytewizer.NanoCLR.Core.2.1.9\lib\Bytewizer.NanoCLR.Core.dll</HintPath>
     </Reference>
     <Reference Include="Bytewizer.NanoCLR.DependencyInjection">
-      <HintPath>..\packages\Bytewizer.NanoCLR.DependencyInjection.2.1.8\lib\Bytewizer.NanoCLR.DependencyInjection.dll</HintPath>
+      <HintPath>..\packages\Bytewizer.NanoCLR.DependencyInjection.2.1.9\lib\Bytewizer.NanoCLR.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="Bytewizer.NanoCLR.DependencyInjection.Abstractions">
-      <HintPath>..\packages\Bytewizer.NanoCLR.DependencyInjection.Abstractions.2.1.8\lib\Bytewizer.NanoCLR.DependencyInjection.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Bytewizer.NanoCLR.DependencyInjection.Abstractions.2.1.9\lib\Bytewizer.NanoCLR.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Bytewizer.NanoCLR.Logging">
-      <HintPath>..\packages\Bytewizer.NanoCLR.Logging.2.1.8\lib\Bytewizer.NanoCLR.Logging.dll</HintPath>
+      <HintPath>..\packages\Bytewizer.NanoCLR.Logging.2.1.9\lib\Bytewizer.NanoCLR.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Bytewizer.NanoCLR.Logging.Abstractions">
-      <HintPath>..\packages\Bytewizer.NanoCLR.Logging.Abstractions.2.1.8\lib\Bytewizer.NanoCLR.Logging.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Bytewizer.NanoCLR.Logging.Abstractions.2.1.9\lib\Bytewizer.NanoCLR.Logging.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Bytewizer.NanoCLR.Logging.Debug">
-      <HintPath>..\packages\Bytewizer.NanoCLR.Logging.Debug.2.1.8\lib\Bytewizer.NanoCLR.Logging.Debug.dll</HintPath>
+      <HintPath>..\packages\Bytewizer.NanoCLR.Logging.Debug.2.1.9\lib\Bytewizer.NanoCLR.Logging.Debug.dll</HintPath>
     </Reference>
     <Reference Include="Bytewizer.NanoCLR.Logging.Extensions">
-      <HintPath>..\packages\Bytewizer.NanoCLR.Logging.Extensions.2.1.8\lib\Bytewizer.NanoCLR.Logging.Extensions.dll</HintPath>
+      <HintPath>..\packages\Bytewizer.NanoCLR.Logging.Extensions.2.1.9\lib\Bytewizer.NanoCLR.Logging.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>..\packages\nanoFramework.CoreLibrary.1.12.0-preview.5\lib\mscorlib.dll</HintPath>

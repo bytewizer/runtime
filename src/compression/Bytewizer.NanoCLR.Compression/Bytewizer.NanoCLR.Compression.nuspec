@@ -4,7 +4,7 @@
     <id>$id$</id>
     <version>$version$</version>
     <authors>Microcompiler</authors>
-    <description>Deflate compression library built for TinyCLR IoT devices.</description>
+    <description>Deflate compression library built for .NET nanoFramework IoT devices.</description>
     <repository type="git" url="https://github.com/bytewizer/runtime.git"/>
     <copyright>Bytewizer. All rights reserved.</copyright>
     <license type="file">LICENSE.md</license>
