@@ -61,7 +61,7 @@ jobs:
     - name: Restore NanoCLR project
       working-directory: src
       run: >- 
-        nuget restore Bytewizer.NanoCLR.Runtime.sln -verbosity ${env:VERBOSITY} 
+        nuget restore Bytewizer.NanoCLR.Runtime.sln -PackagesDirectory ./packages -verbosity ${env:VERBOSITY} 
 
     - name: Release build and pack TinyCLR libraries
       working-directory: src
