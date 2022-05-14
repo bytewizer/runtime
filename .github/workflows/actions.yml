@@ -47,8 +47,6 @@ jobs:
 
     - name: Setup nanoFramework
       uses: nanoframework/nanobuild@v1
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
 
     - name: Restore TinyCLR project
       working-directory: src
@@ -59,6 +57,12 @@ jobs:
       working-directory: src
       run: >- 
         nuget restore Bytewizer.NanoCLR.Runtime.sln -verbosity ${env:VERBOSITY} 
+
+    - name: Update NanoCLR dependencies
+      uses: nanoframework/nanodu@v1
+      with:
+        solutionsToCheck: 'Bytewizer.NanoCLR.Runtime.sln'
+        stablePackages: true
 
     - name: Build and pack TinyCLR libraries
       working-directory: src

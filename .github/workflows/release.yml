@@ -44,12 +44,14 @@ jobs:
     
     - name: Setup msbuild
       uses: microsoft/setup-msbuild@v1.1
+      with:
+        msbuild-architecture: x64
     
     - name: Setup nuget
       uses: nuget/setup-nuget@v1.0.5
 
     - name: Setup nanoFramework
-      uses: nanoframework/nanobuild@v1.4
+      uses: nanoframework/nanobuild@v1
     
     - name: Restore TinyCLR project
       working-directory: src
