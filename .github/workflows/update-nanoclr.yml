@@ -22,7 +22,7 @@ jobs:
       
       - name: Update dependencies
         uses: nanoframework/nanodu@v1
-      with:
-        stablePackages: true
-        branchToPr: 'develop'
-        solutionsToCheck: './src/Bytewizer.NanoCLR.Runtime.sln'
+        with:
+          stablePackages: true
+          branchToPr: 'develop'
+          solutionsToCheck: './src/Bytewizer.NanoCLR.Runtime.sln'
