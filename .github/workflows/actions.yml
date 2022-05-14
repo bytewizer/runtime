@@ -60,10 +60,9 @@ jobs:
         nuget restore Bytewizer.NanoCLR.Runtime.sln -verbosity ${env:VERBOSITY} 
 
     - name: Update NanoCLR dependencies
-      working-directory: src
       uses: nanoframework/nanodu@v1
       with:
-        solutionsToCheck: 'Bytewizer.NanoCLR.Runtime.sln'
+        solutionsToCheck: '.src/Bytewizer.NanoCLR.Runtime.sln'
         branchToPr: 'develop'
         stablePackages: true
 
