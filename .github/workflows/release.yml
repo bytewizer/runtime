@@ -10,6 +10,7 @@ env:
   VERBOSITY:  'Normal'
   CONFIGURATION: 'Release'
   ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+  GITHUB_TOKEN: ${{ github.token }}
   
 jobs:
   Release:
