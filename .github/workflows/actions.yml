@@ -44,7 +44,9 @@ jobs:
       uses: nuget/setup-nuget@v1.0.5
 
     - name: Setup nanoFramework
-      uses: nanoframework/nanobuild@v1.4
+      uses: nanoframework/nanobuild@v1
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
 
     - name: Restore TinyCLR project
       working-directory: src
