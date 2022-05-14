@@ -39,6 +39,8 @@ jobs:
     
     - name: Setup msbuild
       uses: microsoft/setup-msbuild@v1.1
+      with:
+        msbuild-architecture: x64
     
     - name: Setup nuget
       uses: nuget/setup-nuget@v1.0.5
@@ -51,7 +53,7 @@ jobs:
     - name: Restore TinyCLR project
       working-directory: src
       run: >- 
-        nuget restore Bytewizer.TinyCLR.Runtime.sln -verbosity ${env:VERBOSITY}
+        nuget restore Bytewizer.TinyCLR.Runtime.sln  -PackagesDirectory ./packages -verbosity ${env:VERBOSITY}
 
     - name: Restore NanoCLR project
       working-directory: src
