@@ -129,6 +129,13 @@ namespace Bytewizer.TinyCLR.IO.Compression.Streams
             return baseOutputStream.Read(b, off, len);
         }
 
+#if NanoCLR
+        public override int Read(SpanByte buffer)
+        {
+            throw new NotImplementedException();
+        }
+#endif
+
         /// <summary>
         /// Deflates everything in the def's input buffers.  This will call
         /// <code>def.deflate()</code> until all bytes from the input buffers

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Text;
-using System.Threading;
+﻿using System.Text;
 
 namespace Bytewizer.TinyCLR.Utilities.Extensions
 {
-    
-    
     /// <summary>
     /// Provides a set of static (Shared in Visual Basic) methods for <see cref="byte"/> array instances.
     /// </summary>

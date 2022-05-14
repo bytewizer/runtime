@@ -7,9 +7,9 @@
 #define DEBUG
 
 #if NanoCLR
-namespace Bytewizer.NanoCLR.Logging
+namespace Bytewizer.NanoCLR.Logging.Debug
 #else
-namespace Bytewizer.TinyCLR.Logging
+namespace Bytewizer.TinyCLR.Logging.Debug
 #endif
 {
     internal partial class DebugLogger

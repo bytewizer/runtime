@@ -322,6 +322,13 @@ namespace Bytewizer.TinyCLR.IO.Compression.Streams
             }
         }
 
+#if NanoCLR
+        public override int Read(SpanByte buffer)
+        {
+            throw new NotImplementedException();
+        }
+#endif
+
         /// <summary>
         /// Skip specified number of bytes of uncompressed data
         /// </summary>
@@ -382,6 +389,7 @@ namespace Bytewizer.TinyCLR.IO.Compression.Streams
             keys[1] = keys[1] * 134775813 + 1;
             keys[2] = Crc32.ComputeCrc32(keys[2], (byte)(keys[1] >> 24));
         }
+
         #endregion
     }
 }

@@ -2,9 +2,9 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 #if NanoCLR
-namespace Bytewizer.NanoCLR.Logging
+namespace Bytewizer.NanoCLR.Logging.Debug
 #else
-namespace Bytewizer.TinyCLR.Logging
+namespace Bytewizer.TinyCLR.Logging.Debug
 #endif
 {
     /// <summary>

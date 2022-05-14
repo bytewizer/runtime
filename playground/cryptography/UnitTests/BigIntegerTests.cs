@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Text;
 using System.Diagnostics;
 
-using Bytewizer.TinyCLR.Numerics;
 using Bytewizer.TinyCLR.Assertions;
 using Bytewizer.TinyCLR.Security.Algorithms;
 using Bytewizer.TinyCLR.Security.Cryptography;
-using System.Text;
+
 using GHIElectronics.TinyCLR.Cryptography;
 
 namespace Bytewizer.Playground.Cryptography
@@ -56,10 +56,6 @@ namespace Bytewizer.Playground.Cryptography
             }
 
             Debug.WriteLine("Decrypted: " + Encoding.UTF8.GetString(decryptedData));
-
-
-
-
         }
 
         public void AES()
