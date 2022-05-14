@@ -52,19 +52,12 @@ jobs:
     - name: Restore TinyCLR project
       working-directory: src
       run: >- 
-        nuget restore Bytewizer.TinyCLR.Runtime.sln  -PackagesDirectory ./packages -verbosity ${env:VERBOSITY}
+        nuget restore Bytewizer.TinyCLR.Runtime.sln -PackagesDirectory ./packages -verbosity ${env:VERBOSITY}
 
     - name: Restore NanoCLR project
       working-directory: src
       run: >- 
         nuget restore Bytewizer.NanoCLR.Runtime.sln -verbosity ${env:VERBOSITY} 
-
-    - name: Update NanoCLR dependencies
-      uses: nanoframework/nanodu@v1
-      with:
-        solutionsToCheck: '.src/Bytewizer.NanoCLR.Runtime.sln'
-        branchToPr: 'develop'
-        stablePackages: true
 
     - name: Build and pack TinyCLR libraries
       working-directory: src
