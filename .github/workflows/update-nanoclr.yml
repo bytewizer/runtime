@@ -1,6 +1,13 @@
-name: Update NanoCLR Dependencies Daily
+# Copyright (c) .NET Foundation and Contributors
+# See LICENSE file in the project root for full license information.
+
+# This workflow will periodically check .NET nanoFramework dependencies and updates them in the repository it's running.
+
+name: Daily update dependencies
+
 on:
   schedule:
+  # At 00:00 UTC every day.
   - cron:  '00 00 * * *'
   repository_dispatch:
     types: update-dependencies
@@ -10,8 +17,8 @@ defaults:
     shell: pwsh
 
 jobs:
-  Update:
-    name: Update NanoCLR dependencies
+  update-dotnet-preview:
+    name: Update .NET nanoFramework dependencies
     timeout-minutes: 15
     runs-on: windows-latest
     env:
@@ -19,10 +26,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
       - name: Update dependencies
         uses: nanoframework/nanodu@v1
         with:
-          stablePackages: true
           branchToPr: 'develop'
-          solutionsToCheck: './src/Bytewizer.NanoCLR.Runtime.sln'
+          solutionsToCheck: '/src/Bytewizer.NanoCLR.Runtime.sln'
