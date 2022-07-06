@@ -33,20 +33,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         /// <returns>The <see cref="ServiceProvider"/>.</returns>
         public static ServiceProvider BuildServiceProvider(this IServiceCollection services, ServiceProviderOptions options)
         {
-            if (services == null)
-            {
-                throw new ArgumentNullException(nameof(services));
-            }
-
-            if (options == null)
-            {
-                throw new ArgumentNullException(nameof(options));
-            }
-
-            var serviceProvider = new ServiceProvider(services, options);
-            services.AddSingleton(typeof(IServiceProvider), serviceProvider);
-
-            return serviceProvider;
+            return new ServiceProvider(services, options);
         }
     }
 }

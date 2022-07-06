@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Compressi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Compression.GZip", "compression\Bytewizer.TinyCLR.Compression.GZip\Bytewizer.TinyCLR.Compression.GZip.csproj", "{504AD0B8-A412-3383-AD36-67DF2FEFF449}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Hosting", "hosting\Bytewizer.TinyCLR.Hosting\Bytewizer.TinyCLR.Hosting.csproj", "{70492D2D-6B78-46C8-9531-C02915742A46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{504AD0B8-A412-3383-AD36-67DF2FEFF449}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{504AD0B8-A412-3383-AD36-67DF2FEFF449}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{504AD0B8-A412-3383-AD36-67DF2FEFF449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70492D2D-6B78-46C8-9531-C02915742A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70492D2D-6B78-46C8-9531-C02915742A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70492D2D-6B78-46C8-9531-C02915742A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70492D2D-6B78-46C8-9531-C02915742A46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

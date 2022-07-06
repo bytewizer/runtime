@@ -8,7 +8,7 @@ namespace System
     public interface IServiceProvider
     {
         /// <summary>
-        /// Gets the service object of type <paramref name="serviceType"/>.
+        /// Gets the service object of the specified type.
         /// </summary>
         /// <param name="serviceType">An object that specifies the type of service object to get.</param>
         /// <returns>
@@ -16,14 +16,13 @@ namespace System
         /// </returns>
         object GetService(Type serviceType);
 
-
         /// <summary>
-        /// Get an enumeration of service objects of type <paramref name="serviceType"/>.
+        /// Gets the service objects of the specified type.
         /// </summary>
-        /// <param name="serviceType">An object that specifies the type of service object to get.</param>
+        /// <param name="serviceType">An array object that specifies the type of service object to get.</param>
         /// <returns>
-        /// An enumeration of services of type <paramref name="serviceType"/>.
+        /// A service object array of type <paramref name="serviceType"/>. -or- array empty if there is no service object of type <paramref name="serviceType"/>.
         /// </returns>
-        IEnumerable GetServices(Type serviceType);
+        object[] GetService(Type[] serviceType);
     }
 }

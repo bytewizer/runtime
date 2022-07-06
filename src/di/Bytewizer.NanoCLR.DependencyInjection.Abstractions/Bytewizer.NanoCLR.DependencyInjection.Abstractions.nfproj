@@ -29,9 +29,6 @@
     <Compile Include="..\Bytewizer.TinyCLR.DependencyInjection.Abstractions\DependencyInjection\IServiceProviderFactory.cs">
       <Link>DependencyInjection\IServiceProviderFactory.cs</Link>
     </Compile>
-    <Compile Include="..\Bytewizer.TinyCLR.DependencyInjection.Abstractions\DependencyInjection\IServiceScope.cs">
-      <Link>DependencyInjection\IServiceScope.cs</Link>
-    </Compile>
     <Compile Include="..\Bytewizer.TinyCLR.DependencyInjection.Abstractions\DependencyInjection\ServiceCollectionServiceExtensions.cs">
       <Link>DependencyInjection\ServiceCollectionServiceExtensions.cs</Link>
     </Compile>

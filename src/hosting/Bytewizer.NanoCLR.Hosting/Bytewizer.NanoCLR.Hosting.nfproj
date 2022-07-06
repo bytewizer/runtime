@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <NanoFrameworkProjectSystemPath>$(MSBuildExtensionsPath)\nanoFramework\v1.0\</NanoFrameworkProjectSystemPath>
+  </PropertyGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.Default.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{11A8DD76-328B-46DF-9F39-F559912D0360};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{1B73CEDB-EC47-4CDD-9C2C-AB490A266442}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>Bytewizer.NanoCLR.Hosting</RootNamespace>
+    <AssemblyName>Bytewizer.NanoCLR.Hosting</AssemblyName>
+    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefineConstants>NanoCLR</DefineConstants>
+    <AssemblyProduct>NanoCLR</AssemblyProduct>
+    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
+  <ItemGroup>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\BackgroundService.cs">
+      <Link>Hosting\BackgroundService.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\Host.cs">
+      <Link>Hosting\Host.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\HostBuilder.cs">
+      <Link>Hosting\HostBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\HostBuilderContext.cs">
+      <Link>Hosting\HostBuilderContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\HostingAbstractionsHostExtensions.cs">
+      <Link>Hosting\HostingAbstractionsHostExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\HostingHostBuilderExtensions.cs">
+      <Link>Hosting\HostingHostBuilderExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\IHost.cs">
+      <Link>Hosting\IHost.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\IHostBuilder.cs">
+      <Link>Hosting\IHostBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\IHostedService.cs">
+      <Link>Hosting\IHostedService.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\Internal.Host.cs">
+      <Link>Hosting\Internal.Host.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\ProviderAction.cs">
+      <Link>Hosting\ProviderAction.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\ProviderContextDelegate.cs">
+      <Link>Hosting\ProviderContextDelegate.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\SchedulerService.cs">
+      <Link>Hosting\SchedulerService.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\ServiceAction.cs">
+      <Link>Hosting\ServiceAction.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\ServiceCollectionHostedServiceExtensions.cs">
+      <Link>Hosting\ServiceCollectionHostedServiceExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\ServiceContextDelegate.cs">
+      <Link>Hosting\ServiceContextDelegate.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Bytewizer.NanoCLR.Hosting.nuspec" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <HintPath>..\..\packages\nanoFramework.CoreLibrary.1.12.0\lib\mscorlib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Hosting\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\Bytewizer.NanoCLR.Core\Bytewizer.NanoCLR.Core.nfproj" />
+    <ProjectReference Include="..\..\di\Bytewizer.NanoCLR.DependencyInjection.Abstractions\Bytewizer.NanoCLR.DependencyInjection.Abstractions.nfproj" />
+    <ProjectReference Include="..\..\di\Bytewizer.NanoCLR.DependencyInjection\Bytewizer.NanoCLR.DependencyInjection.nfproj" />
+  </ItemGroup>
+  <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />
+  <ProjectExtensions>
+    <ProjectCapabilities>
+      <ProjectConfigurationsDeclaredAsItems />
+    </ProjectCapabilities>
+  </ProjectExtensions>
+  <Target Name="Pack" DependsOnTargets="Build;">
+    <PropertyGroup>
+      <NuGetExePath Condition="'$(NuGetExePath)' == ''">nuget.exe</NuGetExePath>
+      <NuspecPath>$([System.IO.Path]::Combine($(BaseDir), "$(ProjectName).nuspec"))</NuspecPath>
+    </PropertyGroup>
+    <Exec WorkingDirectory="$(BaseDir)" Command="$(NuGetExePath) pack $(NuspecPath) -OutputDirectory $(PackageOutputPath) -Version $(Version) -Properties id=$(AssemblyName);configuration=$(Configuration) -Symbols -SymbolPackageFormat snupkg" />
+  </Target>
+</Project>

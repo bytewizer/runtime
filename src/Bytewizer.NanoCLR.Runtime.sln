@@ -27,9 +27,11 @@ Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Bytewizer.NanoCLR.Compressi
 EndProject
 Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Bytewizer.NanoCLR.Compression.Zip", "compression\Bytewizer.NanoCLR.Compression.Zip\Bytewizer.NanoCLR.Compression.Zip.nfproj", "{E945410D-B90A-469F-9D5B-24074BA3ECE9}"
 EndProject
-Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Bytewizer.NanoCLR.DependencyInjection.Abstractions", "di\Bytewizer.NanoCLR.DependencyInjection.Abstractions\Bytewizer.NanoCLR.DependencyInjection.Abstractions.nfproj", "{3587E97C-37DC-4F64-8C01-9F4C8878D651}"
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Bytewizer.NanoCLR.DependencyInjection.Abstractions", "di\Bytewizer.NanoCLR.DependencyInjection.Abstractions\Bytewizer.NanoCLR.DependencyInjection.Abstractions.nfproj", "{3587E97C-37DC-4F64-8C01-9F4C8868D651}"
 EndProject
 Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Bytewizer.NanoCLR.DependencyInjection", "di\Bytewizer.NanoCLR.DependencyInjection\Bytewizer.NanoCLR.DependencyInjection.nfproj", "{63E90A00-3EB9-4573-B604-CCD025D88C8C}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "Bytewizer.NanoCLR.Hosting", "hosting\Bytewizer.NanoCLR.Hosting\Bytewizer.NanoCLR.Hosting.nfproj", "{1B73CEDB-EC47-4CDD-9C2C-AB490A266442}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,18 +111,24 @@ Global
 		{E945410D-B90A-469F-9D5B-24074BA3ECE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E945410D-B90A-469F-9D5B-24074BA3ECE9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E945410D-B90A-469F-9D5B-24074BA3ECE9}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{3587E97C-37DC-4F64-8C01-9F4C8878D651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3587E97C-37DC-4F64-8C01-9F4C8878D651}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3587E97C-37DC-4F64-8C01-9F4C8878D651}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{3587E97C-37DC-4F64-8C01-9F4C8878D651}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3587E97C-37DC-4F64-8C01-9F4C8878D651}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3587E97C-37DC-4F64-8C01-9F4C8878D651}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3587E97C-37DC-4F64-8C01-9F4C8868D651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3587E97C-37DC-4F64-8C01-9F4C8868D651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3587E97C-37DC-4F64-8C01-9F4C8868D651}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3587E97C-37DC-4F64-8C01-9F4C8868D651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3587E97C-37DC-4F64-8C01-9F4C8868D651}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3587E97C-37DC-4F64-8C01-9F4C8868D651}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{63E90A00-3EB9-4573-B604-CCD025D88C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{63E90A00-3EB9-4573-B604-CCD025D88C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63E90A00-3EB9-4573-B604-CCD025D88C8C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{63E90A00-3EB9-4573-B604-CCD025D88C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63E90A00-3EB9-4573-B604-CCD025D88C8C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{63E90A00-3EB9-4573-B604-CCD025D88C8C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1B73CEDB-EC47-4CDD-9C2C-AB490A266442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B73CEDB-EC47-4CDD-9C2C-AB490A266442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B73CEDB-EC47-4CDD-9C2C-AB490A266442}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1B73CEDB-EC47-4CDD-9C2C-AB490A266442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B73CEDB-EC47-4CDD-9C2C-AB490A266442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B73CEDB-EC47-4CDD-9C2C-AB490A266442}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

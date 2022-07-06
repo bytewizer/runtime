@@ -18,8 +18,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         internal static readonly ServiceProviderOptions Default = new ServiceProviderOptions();
 
         /// <summary>
-        /// <c>true</c> to perform check verifying that all services can be created during <c>BuildServiceProvider</c> call; otherwise <c>false</c>. Defaults to <c>false</c>.
-        /// NOTE: this check doesn't verify open generics services.
+        /// <see langword="true"/> to perform check verifying that all services can be created during BuildServiceProvider call; otherwise <see langword="false"/>. Defaults to <see langword="false"/>.
         /// </summary>
         public bool ValidateOnBuild { get; set; }
     }

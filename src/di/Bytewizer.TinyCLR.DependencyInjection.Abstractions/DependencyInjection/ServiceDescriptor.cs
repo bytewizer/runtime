@@ -22,17 +22,24 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         /// <param name="serviceType">The <see cref="Type"/> of the service.</param>
         /// <param name="implementationType">The <see cref="Type"/> implementing the service.</param>
         /// <param name="lifetime">The <see cref="ServiceLifetime"/> of the service.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="serviceType"/> or <paramref name="implementationType"/> can't be null</exception>
+        /// <exception cref="ArgumentException">Implementation type cannot be an abstract or interface class.</exception>
         public ServiceDescriptor(Type serviceType, Type implementationType, ServiceLifetime lifetime)
             : this(serviceType, lifetime)
         {
             if (serviceType == null)
             {
-                throw new ArgumentNullException(nameof(serviceType));
+                throw new ArgumentNullException();
             }
 
             if (implementationType == null)
             {
-                throw new ArgumentNullException(nameof(implementationType));
+                throw new ArgumentNullException();
+            }
+
+            if (implementationType.IsAbstract || implementationType.IsInterface)
+            {
+                throw new ArgumentException();
             }
 
             ImplementationType = implementationType;
@@ -44,17 +51,18 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         /// </summary>
         /// <param name="serviceType">The <see cref="Type"/> of the service.</param>
         /// <param name="instance">The instance implementing the service.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="serviceType"/> or <paramref name="instance"/> can't be <see langword="null"/></exception>
         public ServiceDescriptor(Type serviceType, object instance)
             : this(serviceType, ServiceLifetime.Singleton)
         {
             if (serviceType == null)
             {
-                throw new ArgumentNullException(nameof(serviceType));
+                throw new ArgumentNullException();
             }
 
             if (instance == null)
             {
-                throw new ArgumentNullException(nameof(instance));
+                throw new ArgumentNullException();
             }
 
             ImplementationInstance = instance;
@@ -67,19 +75,29 @@ namespace Bytewizer.TinyCLR.DependencyInjection
             Lifetime = lifetime;
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// The <see cref="ServiceLifetime"/> of the service.
+        /// </summary>
         public ServiceLifetime Lifetime { get; }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// The <see cref="Type"/> of the service.
+        /// </summary>
         public Type ServiceType { get; }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// The <see cref="Type"/> implementing the service.
+        /// </summary>
         public Type ImplementationType { get; }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// The instance of the implementation.
+        /// </summary>
         public object ImplementationInstance { get; set; }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
         public override string ToString()
         {
             string lifetime = $"{nameof(ServiceType)}: {ServiceType} {nameof(Lifetime)}: {Lifetime} ";
@@ -92,7 +110,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
             return lifetime + $"{nameof(ImplementationInstance)}: {ImplementationInstance}";
         }
 
-        internal Type GetImplementationType()
+        public Type GetImplementationType()
         {
             if (ImplementationType != null)
             {
@@ -104,55 +122,9 @@ namespace Bytewizer.TinyCLR.DependencyInjection
             }
 
             Debug.Assert(false, "ImplementationType, ImplementationInstance or ImplementationFactory must be non null");
+
             return null;
         }
-
-        /// <summary>
-        /// Creates an instance of <see cref="ServiceDescriptor"/> with the specified
-        /// <paramref name="service"/> and <paramref name="implementationType"/>
-        /// and the <see cref="ServiceLifetime.Transient"/> lifetime.
-        /// </summary>
-        /// <param name="service">The type of the service.</param>
-        /// <param name="implementationType">The type of the implementation.</param>
-        /// <returns>A new instance of <see cref="ServiceDescriptor"/>.</returns>
-        public static ServiceDescriptor Transient(Type service, Type implementationType)
-        {
-            if (service == null)
-            {
-                throw new ArgumentNullException(nameof(service));
-            }
-
-            if (implementationType == null)
-            {
-                throw new ArgumentNullException(nameof(implementationType));
-            }
-
-            return Describe(service, implementationType, ServiceLifetime.Transient);
-        }
-
-        /// <summary>
-        /// Creates an instance of <see cref="ServiceDescriptor"/> with the specified
-        /// <paramref name="service"/> and <paramref name="implementationType"/>
-        /// and the <see cref="ServiceLifetime.Singleton"/> lifetime.
-        /// </summary>
-        /// <param name="service">The type of the service.</param>
-        /// <param name="implementationType">The type of the implementation.</param>
-        /// <returns>A new instance of <see cref="ServiceDescriptor"/>.</returns>
-        public static ServiceDescriptor Singleton(Type service, Type implementationType)
-        {
-            if (service == null)
-            {
-                throw new ArgumentNullException(nameof(service));
-            }
-
-            if (implementationType == null)
-            {
-                throw new ArgumentNullException(nameof(implementationType));
-            }
-
-            return Describe(service, implementationType, ServiceLifetime.Singleton);
-        }
-
 
         /// <summary>
         /// Creates an instance of <see cref="ServiceDescriptor"/> with the specified

@@ -12,136 +12,74 @@ namespace Bytewizer.TinyCLR.DependencyInjection
 #endif
 {
     /// <summary>
-    /// The default IServiceProvider.
+    /// The default <see cref="IServiceProvider"/>.
     /// </summary>
+    /// <exception cref="AggregateException">Some services are not able to be constructed.</exception>
     public sealed class ServiceProvider : IServiceProvider, IDisposable
     {
-        internal IServiceCollection _serviceDescriptors;
+        internal ServiceProviderEngine _engine;
 
-        internal ServiceProvider(IServiceCollection serviceDescriptors, ServiceProviderOptions options)
+        internal ServiceProvider(IServiceCollection services, ServiceProviderOptions options)
         {
-            _serviceDescriptors = serviceDescriptors;
+            if (services == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (options == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            _engine = GetEngine();
+            _engine.Services = services;
+            _engine.Services.Add(new ServiceDescriptor(typeof(IServiceProvider), this));
 
             if (options.ValidateOnBuild)
             {
                 ArrayList exceptions = null;
-                foreach (ServiceDescriptor serviceDescriptor in serviceDescriptors)
+
+                foreach (ServiceDescriptor descriptor in services)
                 {
                     try
                     {
-                        ValidateService(serviceDescriptor);
+                        _engine.ValidateService(descriptor);
                     }
                     catch (Exception ex)
                     {
-                        exceptions = exceptions ?? new ArrayList();
+                        exceptions ??= new ArrayList();
                         exceptions.Add(ex);
                     }
                 }
 
                 if (exceptions != null)
                 {
-                    //throw new AggregateException("Some services are not able to be constructed", exceptions.ToArray());
+                    throw new AggregateException(string.Empty, exceptions);
                 }
             }
-
-            _serviceDescriptors.Add(new ServiceDescriptor(typeof(IServiceProvider), this));
-
         }
 
-        /// <inheritdoc />
-        public IEnumerable GetServices(Type serviceType)
-        {
-            ArrayList services = new ArrayList();
-
-            foreach (ServiceDescriptor serviceDescriptor in _serviceDescriptors)
-            {
-                if (serviceDescriptor.ServiceType == serviceType)
-                {
-                    if (serviceDescriptor.Lifetime == ServiceLifetime.Singleton
-                      & serviceDescriptor.ImplementationInstance != null)
-                    {
-                        services.Add(serviceDescriptor.ImplementationInstance);
-                    }
-                    else
-                    {
-                        var instance = Resolve(serviceDescriptor.ImplementationType);
-                        {
-                            lock (_serviceDescriptors)
-                            {
-                                serviceDescriptor.ImplementationInstance = instance;
-                            }
-                        }
-
-                        services.Add(instance);
-                    }
-                }
-            }
-
-            return services;
-        }
-
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public object GetService(Type serviceType)
         {
-            // TODO: Performance enhancements
-            var services = (ArrayList)GetServices(serviceType);
-            if (services.Count == 0)
-            {
-                return null;
-            }
-
-            // returns the last added service of this type
-            return services[services.Count - 1];
+            return _engine.GetService(serviceType);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <inheritdoc/>
+        public object[] GetService(Type[] serviceType)
+        {
+            return _engine.GetService(serviceType);
+        }
+
+        /// <inheritdoc/>
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _engine.DisposeServices();
         }
 
-        private void ValidateService(ServiceDescriptor descriptor)
+        private ServiceProviderEngine GetEngine()
         {
-            throw new NotImplementedException();
-        }
-
-        private object Resolve(Type implementationType)
-        {
-            ConstructorInfo constructor = implementationType.GetConstructors()[0];  
-            ParameterInfo[] constructorParameters = constructor.GetParameters();
-
-            object instance;
-
-            if (constructorParameters.Length == 0)
-            {
-                instance = Activator.CreateInstance(implementationType);
-            }
-            else
-            {
-                Type[] types = new Type[constructorParameters.Length];
-                object[] parameters = new object[constructorParameters.Length];
-
-                for (int i = 0; i < constructorParameters.Length; i++)
-                {
-                    var parameterType = constructorParameters[i].ParameterType;
-
-                    var service = GetService(parameterType);
-                    if (service == null)
-                    {
-                        throw new InvalidOperationException(
-                            $"Unable to resolve service for type '{ parameterType }' while attempting to activate.");
-                    }
-
-                    parameters[i] = service;
-                    types[i] = parameterType;
-                }
-
-                instance = Activator.CreateInstance(implementationType, types, parameters);
-            }
-
-            return instance;
+            return ServiceProviderEngine.Instance;
         }
     }
 }

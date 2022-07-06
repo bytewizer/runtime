@@ -121,7 +121,7 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
                     $"Unable to resolve service for type '{ serviceType }' must be a subclass of Middleware to activate.");
             }
 
-            var instance = (IMiddleware)Activator.GetServiceOrCreateInstance(ApplicationServices, serviceType);
+            var instance = (IMiddleware)Activator.CreateInstance(serviceType);
 
             return Use(instance);
         }

@@ -4,15 +4,14 @@
     <id>$id$</id>
     <version>$version$</version>
     <authors>Microcompiler</authors>
-    <description>Dependency injection library built for .NET nanoFramework IoT devices.</description>
+    <description>Hosting library built for .NET nanoFramework IoT devices.</description>
     <repository type="git" url="https://github.com/bytewizer/runtime.git"/>
     <copyright>Bytewizer. All rights reserved.</copyright>
     <license type="file">LICENSE.md</license>
     <icon>images\package-logo.png</icon>
     <tags>nanoframework nanoclr iot</tags>
     <dependencies>    
-	    <dependency id="Bytewizer.NanoCLR.Core" version="2.1.10" />
-	    <dependency id="Bytewizer.NanoCLR.DependencyInjection.Abstractions" version="2.1.10" />
+      <dependency id="nanoFramework.CoreLibrary" version="1.12.0" />
     </dependencies>
   </metadata>
   <files>

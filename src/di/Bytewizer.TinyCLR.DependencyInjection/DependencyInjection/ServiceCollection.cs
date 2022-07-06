@@ -14,79 +14,123 @@ namespace Bytewizer.TinyCLR.DependencyInjection
     /// </summary>
     public class ServiceCollection : IServiceCollection
     {
+        private static readonly object _syncLock = new object();
         private readonly ArrayList _descriptors = new ArrayList();
 
-        /// <inheritdoc />
-        public int Count => _descriptors.Count;
-
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public bool IsReadOnly => false;
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
+        public int Count
+        {
+            get
+            {
+                lock (_syncLock)
+                {
+                    return _descriptors.Count;
+                }
+            }
+        }
+
+        /// <inheritdoc/>
         public ServiceDescriptor this[int index]
         {
             get
             {
-                return (ServiceDescriptor)_descriptors[index];
+                lock (_syncLock)
+                {
+                    return (ServiceDescriptor)_descriptors[index];
+                }
             }
+
             set
             {
-                _descriptors[index] = value;
+                lock (_syncLock)
+                {
+                    _descriptors[index] = value;
+                }
             }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public int Add(ServiceDescriptor item)
         {
-            return _descriptors.Add(item);
+            lock (_syncLock)
+            {
+                return _descriptors.Add(item);
+            }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public void Clear()
         {
-            _descriptors.Clear();
+            lock (_syncLock)
+            {
+                _descriptors.Clear();
+            }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public bool Contains(ServiceDescriptor item)
         {
-            return _descriptors.Contains(item);
+            lock (_syncLock)
+            {
+                return _descriptors.Contains(item);
+            }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public void CopyTo(ServiceDescriptor[] array, int arrayIndex)
         {
-            _descriptors.CopyTo(array, arrayIndex);
+            lock (_syncLock)
+            {
+                _descriptors.CopyTo(array, arrayIndex);
+            }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public void Remove(ServiceDescriptor item)
         {
-            _descriptors.Remove(item);
+            lock (_syncLock)
+            {
+                _descriptors.Remove(item);
+            }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public IEnumerator GetEnumerator()
         {
-            return _descriptors.GetEnumerator();
+            lock (_syncLock)
+            {
+                return _descriptors.GetEnumerator();
+            }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public int IndexOf(ServiceDescriptor item)
         {
-            return _descriptors.IndexOf(item);
+            lock (_syncLock)
+            {
+                return _descriptors.IndexOf(item);
+            }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public void Insert(int index, ServiceDescriptor item)
         {
-            _descriptors.Insert(index, item);
+            lock (_syncLock)
+            {
+                _descriptors.Insert(index, item);
+            }
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         public void RemoveAt(int index)
         {
-            _descriptors.RemoveAt(index);
+            lock (_syncLock)
+            {
+                _descriptors.RemoveAt(index);
+            }
         }
     }
 }

@@ -35,6 +35,9 @@
     <Compile Include="..\Bytewizer.TinyCLR.DependencyInjection\DependencyInjection\ServiceProvider.cs">
       <Link>DependencyInjection\ServiceProvider.cs</Link>
     </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.DependencyInjection\DependencyInjection\ServiceProviderEngine.cs">
+      <Link>DependencyInjection\ServiceProviderEngine.cs</Link>
+    </Compile>
     <Compile Include="..\Bytewizer.TinyCLR.DependencyInjection\DependencyInjection\ServiceProviderOptions.cs">
       <Link>DependencyInjection\ServiceProviderOptions.cs</Link>
     </Compile>
