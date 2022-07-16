@@ -12,12 +12,16 @@ This repo contains several runtime libraries built for [GHI Electronics TinyCLR 
 * [Time Measurement](https://github.com/bytewizer/runtime/tree/develop/src/stopwatch)
 * [Testing Framework](https://github.com/bytewizer/runtime/tree/develop/src/assertions) 
 * [Logging Framework](https://github.com/bytewizer/runtime/tree/develop/src/logging) 
-* [Middleware Pipeline](https://github.com/bytewizer/runtime/tree/develop/src/pipeline) 
+* [Middleware Pipeline](https://github.com/bytewizer/runtime/tree/develop/src/pipeline)
+* [Generic Host (Hosting)](https://github.com/bytewizer/runtime/tree/develop/src/hosting) 
 * [Dependency Injection (DI)](https://github.com/bytewizer/runtime/tree/develop/src/di)
 * [Deflate, Zip, Gzip Compression](https://github.com/bytewizer/runtime/tree/develop/src/compression)  
 * [Identity Management - TinyCLR Only**](https://github.com/bytewizer/runtime/tree/develop/src/identity)
 
 **Note: Incompatible api footprints are bing researched between the two platforms. Other libraries will be updated as incompatibilities are worked around.  
+
+## Networking libraries
+This [repo](https://github.com/bytewizer/microserver) contains several runtime libraries. These libraries provide implementations for networking, web and socket services.
 
 ## Give a Star! :star:
 
