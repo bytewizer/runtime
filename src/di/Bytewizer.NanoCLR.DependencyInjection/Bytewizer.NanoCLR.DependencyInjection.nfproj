@@ -41,6 +41,9 @@
     <Compile Include="..\Bytewizer.TinyCLR.DependencyInjection\DependencyInjection\ServiceProviderOptions.cs">
       <Link>DependencyInjection\ServiceProviderOptions.cs</Link>
     </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.DependencyInjection\DependencyInjection\TypeExtensions.cs">
+      <Link>DependencyInjection\TypeExtensions.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

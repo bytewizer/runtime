@@ -30,7 +30,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (services == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(services));
             }
 
             var descriptor = new ServiceDescriptor(serviceType, implementationType, ServiceLifetime.Singleton);
@@ -52,7 +52,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (services == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(services));
             }
 
             return services.AddSingleton(serviceType, serviceType);
@@ -73,7 +73,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (services == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(services));
             }
 
             var serviceDescriptor = new ServiceDescriptor(serviceType, implementationInstance);
@@ -97,7 +97,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (services == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(services));
             }
 
             var descriptor = new ServiceDescriptor(serviceType, implementationType, ServiceLifetime.Transient);
@@ -119,7 +119,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (services == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(services));
             }
 
             return services.AddTransient(serviceType, serviceType);
@@ -136,12 +136,12 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (collection == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(collection));
             }
 
             if (descriptor == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(descriptor));
             }
 
             int count = collection.Count;
@@ -181,12 +181,12 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (services == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(services));
             }
 
             if (descriptor == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(descriptor));
             }
 
             Type implementationType = descriptor.GetImplementationType();
@@ -236,12 +236,12 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (services == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(services));
             }
 
             if (descriptors == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(descriptors));
             }
 
             foreach (ServiceDescriptor descriptor in descriptors)
@@ -262,12 +262,12 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (collection == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(collection));
             }
 
             if (descriptor == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(descriptor));
             }
 
             // Remove existing
@@ -298,7 +298,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (serviceType == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(serviceType));
             }
 
             for (int index = collection.Count - 1; index >= 0; index--)

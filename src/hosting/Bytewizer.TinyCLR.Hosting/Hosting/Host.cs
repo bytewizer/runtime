@@ -18,8 +18,7 @@ namespace Bytewizer.TinyCLR.Hosting
         /// <returns>The initialized <see cref="IHostBuilder"/>.</returns>
         public static IHostBuilder CreateDefaultBuilder()
         {
-            var builder = new HostBuilder();
-            return builder;
+            return new HostBuilder();
         }
     }
 }

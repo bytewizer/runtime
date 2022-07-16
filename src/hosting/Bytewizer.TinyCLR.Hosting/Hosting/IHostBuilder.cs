@@ -21,7 +21,7 @@ namespace Bytewizer.TinyCLR.Hosting
         /// <summary>
         /// A central location for sharing state between components during the host building process.
         /// </summary>
-        object[] Properties { get; }
+        object[] Properties { get; set; }
 
         /// <summary>
         /// Adds services to the container. This can be called multiple times and the results will be additive.
@@ -43,6 +43,7 @@ namespace Bytewizer.TinyCLR.Hosting
         /// Run the given actions to initialize the host. This can only be called once.
         /// </summary>
         /// <returns>An initialized <see cref="IHost"/>.</returns>
+        /// <exception cref="InvalidOperationException">"Build can only be called once."</exception>
         IHost Build();
     }
 }

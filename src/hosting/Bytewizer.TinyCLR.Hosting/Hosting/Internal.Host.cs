@@ -14,15 +14,22 @@ using Bytewizer.TinyCLR.DependencyInjection;
 namespace Bytewizer.TinyCLR.Hosting.Internal
 #endif
 {
-    internal class Host : IHost, IDisposable
+    /// <summary>
+    /// Default implementation of <see cref="IHost"/>.
+    /// </summary>
+    internal class Host : IHost
     {
+        private bool _disposed;
         private object[] _hostedServices;
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="Host"/>.
+        /// </summary>
         public Host(IServiceProvider services)
         {
             if (services == null)
             {
-                throw new ArgumentNullException(nameof(services));
+                throw new ArgumentNullException();
             }
 
             Services = services;
@@ -37,14 +44,14 @@ namespace Bytewizer.TinyCLR.Hosting.Internal
             _hostedServices = Services.GetServices(typeof(IHostedService));
 
             ArrayList exceptions = null;
-            foreach (IHostedService hostedService in _hostedServices)
+
+            for (int index = 0; index < _hostedServices.Length; index++)
             {
                 try
                 {
-                    // TODO: Thead exceptions are not passed back to main thread. What to do?
-                    hostedService.StartAsync();
+                    ((IHostedService)_hostedServices[index]).Start();
 
-                    if (hostedService is BackgroundService backgroundService)
+                    if (_hostedServices[index] is BackgroundService backgroundService)
                     {
                         backgroundService.ExecuteThread().Start();
                     }
@@ -58,19 +65,25 @@ namespace Bytewizer.TinyCLR.Hosting.Internal
 
             if (exceptions != null)
             {
-                throw new AggregateException("One or more hosted services failed to start.", exceptions);
+                throw new AggregateException(string.Empty, exceptions);
             }
         }
 
         /// <inheritdoc />
         public void Stop()
         {
+            if (_hostedServices == null)
+            {
+                return;
+            }
+
             ArrayList exceptions = null;
-            foreach (IHostedService hostedService in _hostedServices)
+
+            for (int index = _hostedServices.Length - 1; index >= 0; index--)
             {
                 try
                 {
-                    hostedService.StopAsync();
+                    ((IHostedService)_hostedServices[index]).Stop();
                 }
                 catch (Exception ex)
                 {
@@ -79,15 +92,32 @@ namespace Bytewizer.TinyCLR.Hosting.Internal
                 }
             }
 
+            _hostedServices = null;
+
             if (exceptions != null)
             {
-                throw new AggregateException("One or more hosted services failed to stop.", exceptions); ;
+                throw new AggregateException(string.Empty, exceptions);
             }
         }
 
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    ((IDisposable)Services).Dispose();
+                }
+
+                _disposed = true;
+            }
+        }
+
+        /// <inheritdoc />
         public void Dispose()
         {
-            _hostedServices = null;
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }

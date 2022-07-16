@@ -12,9 +12,9 @@ namespace Bytewizer.TinyCLR.Hosting
 #endif
 {
     /// <summary>
-    /// Represents a function that can process a request.
+    /// Represents a function that can process a service.
     /// </summary>
-    /// <param name="context">The context for the request.</param>
+    /// <param name="context">The context for the host builder.</param>
     /// <param name="serviceCollection">Specifies the contract for a collection of service descriptors.</param>
     public delegate void ServiceContextDelegate(HostBuilderContext context, IServiceCollection serviceCollection);
 }

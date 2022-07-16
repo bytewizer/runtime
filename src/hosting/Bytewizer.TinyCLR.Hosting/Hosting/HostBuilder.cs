@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections;
+using System.Diagnostics;
 
 #if NanoCLR
 using Bytewizer.NanoCLR.DependencyInjection;
@@ -14,30 +15,64 @@ using Bytewizer.TinyCLR.DependencyInjection;
 namespace Bytewizer.TinyCLR.Hosting
 #endif
 {
+    /// <summary>
+    /// Default implementation of <see cref="IHostBuilder"/>.
+    /// </summary>
     public class HostBuilder : IHostBuilder
     {
         private bool _hostBuilt;
-        private IServiceProvider _appServices;
         private HostBuilderContext _hostBuilderContext;
-        private ServiceProviderOptions _providerOptions;
 
-        private readonly ArrayList _configureServicesActions = new ArrayList();
+        private readonly ServiceProviderOptions _providerOptions;
+        private readonly ArrayList _configureServicesActions;
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="HostBuilder"/>.
+        /// </summary>
+        public HostBuilder()
+        {
+            _configureServicesActions = new ArrayList();
+
+            if (Debugger.IsAttached)
+            {
+                // enables di validation as default when debugger is attached   
+                _providerOptions = new ServiceProviderOptions()
+                {
+                    ValidateOnBuild = true
+                };
+            }
+            else
+            {
+                _providerOptions = new ServiceProviderOptions();
+            }
+        }
 
         /// <inheritdoc />
-        public object[] Properties { get; } = new object[0];
+        public object[] Properties { get; set; } = new object[0];
 
         /// <inheritdoc />
         public IHostBuilder ConfigureServices(ServiceContextDelegate configureDelegate)
         {
-            _configureServicesActions.Add(configureDelegate ?? throw new ArgumentNullException(nameof(configureDelegate)));
+            if (configureDelegate == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            _configureServicesActions.Add(configureDelegate);
+
             return this;
         }
 
         /// <inheritdoc />
         public IHostBuilder UseDefaultServiceProvider(ProviderContextDelegate configureDelegate)
         {
-            _providerOptions = new ServiceProviderOptions();
+            if (configureDelegate == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             configureDelegate(_hostBuilderContext, _providerOptions);
+
             return this;
         }
 
@@ -46,7 +81,7 @@ namespace Bytewizer.TinyCLR.Hosting
         {
             if (_hostBuilt)
             {
-                throw new InvalidOperationException("Build can only be called once.");
+                throw new InvalidOperationException();
             }
             _hostBuilt = true;
 
@@ -64,18 +99,11 @@ namespace Bytewizer.TinyCLR.Hosting
                 configureServicesAction(_hostBuilderContext, services);
             }
 
-            if (_providerOptions == null)
-            {
-                _appServices = services.BuildServiceProvider();
-            }
-            else
-            {
-                _appServices = services.BuildServiceProvider(_providerOptions);
-            }
+            var _appServices = services.BuildServiceProvider(_providerOptions);
 
             if (_appServices == null)
             {
-                throw new InvalidOperationException($"The BuildServiceProvider returned a null ServiceProvider.");
+                throw new InvalidOperationException();
             }
 
             return (Internal.Host)_appServices.GetRequiredService(typeof(IHost));

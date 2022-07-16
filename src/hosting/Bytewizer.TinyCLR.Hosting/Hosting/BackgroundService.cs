@@ -13,14 +13,19 @@ namespace Bytewizer.TinyCLR.Hosting
     /// <summary>
     /// Base class for implementing a long running <see cref="IHostedService"/>.
     /// </summary>
-    public abstract class BackgroundService : IHostedService, IDisposable
+    public abstract class BackgroundService : IHostedService
     {
         private Thread _executeThread;
 
         /// <summary>
-        /// Gets whether cancellation has been requested for this service.
+        /// Gets or sets the amount of time to wait for the <see cref="ExecuteThread"/> to terminate.
         /// </summary>
-        protected bool IsCancellationRequested { get; private set; }
+        protected TimeSpan ShutdownTimeout { get; set; } = TimeSpan.FromSeconds(10);
+
+        /// <summary>
+        /// Gets or sets whether cancellation has been requested for this service.
+        /// </summary>
+        protected bool CancellationRequested { get; set; } = false;
 
         /// <summary>
         /// Gets the <see cref="Thread"/> that executes the background operation.
@@ -31,13 +36,12 @@ namespace Bytewizer.TinyCLR.Hosting
         public virtual Thread ExecuteThread() => _executeThread;
 
         /// <summary>
-        /// This method is called when the <see cref="IHostedService"/> starts. The implementation should return a thread that represents
-        /// the lifetime of the long running operation(s) being performed.
+        /// This method is called when the <see cref="IHostedService"/> starts.
         /// </summary>
         protected abstract void ExecuteAsync();
 
         /// <inheritdoc />
-        public virtual void StartAsync()
+        public virtual void Start()
         {
             // Store the thread we're executing
             _executeThread = new Thread(() =>
@@ -47,7 +51,7 @@ namespace Bytewizer.TinyCLR.Hosting
         }
 
         /// <inheritdoc />
-        public virtual void StopAsync()
+        public virtual void Stop()
         {
             if (_executeThread == null)
             {
@@ -55,14 +59,17 @@ namespace Bytewizer.TinyCLR.Hosting
             }
 
             // Signal cancellation to the executing method
-            IsCancellationRequested = true;
+            CancellationRequested = true;
 
-            // Wait for thread to exit
-            _executeThread.Join();
-            _executeThread = null;
+            try
+            {
+                // Wait for thread to exit
+                _executeThread.Join(ShutdownTimeout);
+            }
+            finally
+            {
+                _executeThread = null;
+            }
         }
-
-        /// <inheritdoc />
-        public virtual void Dispose() { }
     }
 }

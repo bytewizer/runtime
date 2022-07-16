@@ -19,11 +19,11 @@ namespace Bytewizer.TinyCLR.Hosting
         /// <summary>
         /// Triggered when the application host is ready to start the service.
         /// </summary>
-        void StartAsync();
+        void Start();
 
         /// <summary>
         /// Triggered when the application host is performing a graceful shutdown.
         /// </summary>
-        void StopAsync();
+        void Stop();
     }
 }

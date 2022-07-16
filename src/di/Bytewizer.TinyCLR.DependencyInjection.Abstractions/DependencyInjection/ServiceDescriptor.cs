@@ -29,17 +29,17 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (serviceType == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(serviceType));
             }
 
             if (implementationType == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(implementationType));
             }
 
             if (implementationType.IsAbstract || implementationType.IsInterface)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Implementation type cannot be an abstract or interface class.");
             }
 
             ImplementationType = implementationType;
@@ -57,12 +57,12 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (serviceType == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(serviceType));
             }
 
             if (instance == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(instance));
             }
 
             ImplementationInstance = instance;
@@ -121,7 +121,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
                 return ImplementationInstance.GetType();
             }
 
-            Debug.Assert(false, "ImplementationType, ImplementationInstance or ImplementationFactory must be non null");
+            Debug.Assert(false, "ImplementationType and ImplementationInstance must be non null");
 
             return null;
         }

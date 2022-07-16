@@ -9,42 +9,25 @@ namespace Bytewizer.Playground.DependencyInjection
     {     
         static void Main()
         {
-
-            var structInstance = typeof(StructFakeService).GetConstructor(new Type[] { typeof(FakeObject) }).Invoke(new object[] { new FakeObject() });
             var serviceProvider = new ServiceCollection()
-                //.AddSingleton(typeof(ILoggerProvider), typeof(DebugLoggerProvider))
+                .AddSingleton(typeof(ILoggerFactory), typeof(LoggerFactory))
                 .AddSingleton(typeof(IFooService), typeof(FooService))
                 .AddSingleton(typeof(IBarService), typeof(BarService))
                 .BuildServiceProvider();
 
-            var loggerProvider = (FooService)serviceProvider.GetService(typeof(IFooService));
-            //loggerFactory.AddDebug();
+            var loggerFactory = (ILoggerFactory)serviceProvider.GetService(typeof(ILoggerFactory));
+            loggerFactory.AddDebug();
 
-            //var logger = loggerFactory.CreateLogger(typeof(Program));
-            //logger.LogInformation("Starting application");
+            var logger = loggerFactory.CreateLogger(typeof(Program));
+            logger.LogInformation("Starting application");
 
-            ////do the actual work here
-            //var bar = (BarService)serviceProvider.GetService(typeof(IBarService));
-            //bar.DoSomeRealWork();
+            //do the actual work here
+            var bar = (BarService)serviceProvider.GetService(typeof(IBarService));
+            bar.DoSomeRealWork();
 
-            //logger.LogInformation("All done!");
+            logger.LogInformation("All done!");
         }
     }
-
-    public struct FakeObject
-    {
-    }
-
-    public struct StructFakeService
-    {
-        private readonly FakeObject _fakeObject;
-
-        public StructFakeService(FakeObject fakeObject)
-        {
-            _fakeObject = fakeObject;
-        }
-    }
-
 
     public interface IFooService
     {

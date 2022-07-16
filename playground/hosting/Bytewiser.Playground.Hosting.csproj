@@ -5,17 +5,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D2D43294-6EFA-49D3-A811-DF038915B4F9}</ProjectGuid>
+    <ProjectGuid>{B379B5BB-229B-495C-B38A-486EA45FDE6D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Bytewizer.Playground.Compression</RootNamespace>
-    <AssemblyName>Bytewizer.Playground.Compression</AssemblyName>
+    <RootNamespace>Bytewizer.Playground.Hosting</RootNamespace>
+    <AssemblyName>Bytewizer.Playground.Hosting</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <ProjectTypeGuids>{A1948822-69DD-4150-919B-F3F42EFB71CC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,35 +40,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\compression\Bytewizer.TinyCLR.Compression.GZip\Bytewizer.TinyCLR.Compression.GZip.csproj">
-      <Project>{504AD0B8-A412-3383-AD36-67DF2FEFF449}</Project>
-      <Name>Bytewizer.TinyCLR.Compression.GZip</Name>
+    <ProjectReference Include="..\..\src\core\Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj">
+      <Project>{70392D1D-6B78-46C8-9531-C02915742A46}</Project>
+      <Name>Bytewizer.TinyCLR.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\compression\Bytewizer.TinyCLR.Compression.Zip\Bytewizer.TinyCLR.Compression.Zip.csproj">
-      <Project>{504AD0B8-A412-4383-AD36-67DF2FEFF449}</Project>
-      <Name>Bytewizer.TinyCLR.Compression.Zip</Name>
+    <ProjectReference Include="..\..\src\di\Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstractions.csproj">
+      <Project>{F5997E37-7348-4FA6-9103-990D9906DA4F}</Project>
+      <Name>Bytewizer.TinyCLR.DependencyInjection.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\compression\Bytewizer.TinyCLR.Compression\Bytewizer.TinyCLR.Compression.csproj">
-      <Project>{504AD0B8-A412-4383-AD36-68DF2FEFF449}</Project>
-      <Name>Bytewizer.TinyCLR.Compression</Name>
+    <ProjectReference Include="..\..\src\di\Bytewizer.TinyCLR.DependencyInjection\Bytewizer.TinyCLR.DependencyInjection.csproj">
+      <Project>{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}</Project>
+      <Name>Bytewizer.TinyCLR.DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\hosting\Bytewizer.TinyCLR.Hosting\Bytewizer.TinyCLR.Hosting.csproj">
+      <Project>{70492D2D-6B78-46C8-9531-C02915742A46}</Project>
+      <Name>Bytewizer.TinyCLR.Hosting</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="GHIElectronics.TinyCLR.Devices.Storage, Version=2.2.0.4200, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GHIElectronics.TinyCLR.Devices.Storage.2.2.0.4200\lib\net452\GHIElectronics.TinyCLR.Devices.Storage.dll</HintPath>
-    </Reference>
-    <Reference Include="GHIElectronics.TinyCLR.IO, Version=2.2.0.4200, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GHIElectronics.TinyCLR.IO.2.2.0.4200\lib\net452\GHIElectronics.TinyCLR.IO.dll</HintPath>
-    </Reference>
-    <Reference Include="GHIElectronics.TinyCLR.Native, Version=2.2.0.4200, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GHIElectronics.TinyCLR.Native.2.2.0.4200\lib\net452\GHIElectronics.TinyCLR.Native.dll</HintPath>
-    </Reference>
-    <Reference Include="GHIElectronics.TinyCLR.Pins, Version=2.2.0.4200, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GHIElectronics.TinyCLR.Pins.2.2.0.4200\lib\net452\GHIElectronics.TinyCLR.Pins.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -12,10 +12,10 @@ namespace Bytewizer.NanoCLR.DependencyInjection
 #else
 namespace Bytewizer.TinyCLR.DependencyInjection
 #endif
-{ 
-/// <summary>
-/// Defines an engine for managing <see cref="IServiceCollection"/> services that provides custom support to other objects.
-/// </summary>
+{
+    /// <summary>
+    /// Defines an engine for managing <see cref="IServiceCollection"/> services that provides custom support to other objects.
+    /// </summary>
     internal sealed class ServiceProviderEngine
     {
         internal static ServiceProviderEngine Instance { get; } = new ServiceProviderEngine();
@@ -32,7 +32,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         /// </summary>
         internal void ValidateService(ServiceDescriptor descriptor)
         {
-            //GetService(descriptor.GetImplementationType());
+            GetService(descriptor.GetImplementationType());
         }
 
         /// <summary>
@@ -40,16 +40,11 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         /// </summary>
         internal void DisposeServices()
         {
-            foreach (ServiceDescriptor descriptor in Services)
+            for (int i = Services.Count - 1; i >= 0; i--)
             {
-                if (descriptor.ServiceType == typeof(IServiceProvider))
+                if (Services[i].ImplementationInstance is IDisposable disposable)
                 {
-                    continue;
-                }
-
-                if (descriptor.ImplementationInstance is IDisposable instance)
-                {
-                    instance.Dispose();
+                    disposable.Dispose();
                 }
             }
         }
@@ -81,12 +76,12 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (serviceType == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(serviceType));
             }
 
             if (serviceType.Length == 0)
             {
-                throw new ArgumentException();
+                throw new ArgumentException(nameof(serviceType));
             }
 
             // optimized for single item service type
@@ -169,7 +164,8 @@ namespace Bytewizer.TinyCLR.DependencyInjection
 
             if (constructorParameters == null)
             {
-                throw new InvalidOperationException();
+                throw new InvalidOperationException(
+                    $"A suitable constructor for type '{implementationType}' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.");
             }
 
             if (constructorParameters.Length == 0)
@@ -185,10 +181,10 @@ namespace Bytewizer.TinyCLR.DependencyInjection
                 {
                     var parameterType = constructorParameters[index].ParameterType;
 
-                    if (TryBindToPrimitive(parameterType, out object defaultType))
+                    if (parameterType.IsResolvable())
                     {
                         types[index] = parameterType;
-                        parameters[index] = defaultType;
+                        parameters[index] = GetResolvableDefault(parameterType);
                     }
                     else
                     {
@@ -196,7 +192,8 @@ namespace Bytewizer.TinyCLR.DependencyInjection
 
                         if (service == null)
                         {
-                            throw new InvalidOperationException();
+                            throw new InvalidOperationException(
+                                $"Unable to resolve service for type '{parameterType}' while attempting to activate.");
                         }
 
                         types[index] = parameterType;
@@ -229,17 +226,34 @@ namespace Bytewizer.TinyCLR.DependencyInjection
                 {
                     if (constructors[j].GetParameters().Length == constructors[j + 1].GetParameters().Length)
                     {
-                        throw new InvalidOperationException();
+                        throw new InvalidOperationException(
+                                       $"Multiple constructors accepting all given argument types have been found in type '{implementationType}'. There should only be one applicable constructor."
+                                 );
                     }
                 }
             }
 
-            // step 2: get the constructor with the most parameters
+            // step 2: get the constructor with the most resolvable parameters
             foreach (ConstructorInfo constructor in constructors)
             {
                 ParameterInfo[] parameters = constructor.GetParameters();
 
                 int length = parameters.Length;
+
+                foreach (ParameterInfo parameter in parameters)
+                {
+                    Type type = parameter.ParameterType;
+
+                    if (type.IsResolvable())
+                    {
+                        // check for simple binding first
+                    }
+                    else if (GetService(type) == null)
+                    {
+                        // binding could not be resolved ingore constructor
+                        length = -1;
+                    }
+                }
 
                 if (bestLength < length)
                 {
@@ -252,49 +266,29 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         }
 
         /// <summary>
-        /// Try and bind to a primitive type.
+        /// Get primitive default type.
         /// </summary>
-        private static bool TryBindToPrimitive(Type type, out object defaultType)
+        private static object GetResolvableDefault(Type type)
         {
-            defaultType = null;
-
-            // This list dosn't match the binding list below because 
+            // This list dosn't match the IsResolvable() because 
             // we only check for items we know are not null by default 
-            if (type == typeof(object)) defaultType = default;
-            if (type == typeof(int)) defaultType = default(int);
-            if (type == typeof(uint)) defaultType = default(uint);
-            if (type == typeof(bool)) defaultType = default(bool);
-            if (type == typeof(char)) defaultType = default(char);
-            if (type == typeof(byte)) defaultType = default(byte);
-            if (type == typeof(sbyte)) defaultType = default(sbyte);
-            if (type == typeof(short)) defaultType = default(short);
-            if (type == typeof(ushort)) defaultType = default(ushort);
-            if (type == typeof(long)) defaultType = default(long);
-            if (type == typeof(ulong)) defaultType = default(ulong);
-            if (type == typeof(double)) defaultType = default(double);
-            if (type == typeof(Guid)) defaultType = default(Guid);
-            if (type == typeof(DateTime)) defaultType = default(DateTime);
-            if (type == typeof(TimeSpan)) defaultType = default(TimeSpan);
+            if (type == typeof(object)) return default;
+            if (type == typeof(int)) return default(int);
+            if (type == typeof(uint)) return default(uint);
+            if (type == typeof(bool)) return default(bool);
+            if (type == typeof(char)) return default(char);
+            if (type == typeof(byte)) return default(byte);
+            if (type == typeof(sbyte)) return default(sbyte);
+            if (type == typeof(short)) return default(short);
+            if (type == typeof(ushort)) return default(ushort);
+            if (type == typeof(long)) return default(long);
+            if (type == typeof(ulong)) return default(ulong);
+            if (type == typeof(double)) return default(double);
+            if (type == typeof(Guid)) return default(Guid);
+            if (type == typeof(DateTime)) return default(DateTime);
+            if (type == typeof(TimeSpan)) return default(TimeSpan);
 
-            return type == typeof(object)
-                || type == typeof(string)
-                || type == typeof(int)
-                || type == typeof(uint)
-                || type == typeof(bool)
-                || type == typeof(char)
-                || type == typeof(byte)
-                || type == typeof(sbyte)
-                || type == typeof(short)
-                || type == typeof(ushort)
-                || type == typeof(long)
-                || type == typeof(ulong)
-                || type == typeof(double)
-                || type == typeof(Guid)
-                || type == typeof(DateTime)
-                || type == typeof(TimeSpan)
-                || type == typeof(Enum)
-                || type == typeof(Array)
-                || type == typeof(ArrayList);
+            return null;
         }
     }
 }

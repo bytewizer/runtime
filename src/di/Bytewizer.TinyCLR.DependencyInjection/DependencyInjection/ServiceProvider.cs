@@ -17,18 +17,19 @@ namespace Bytewizer.TinyCLR.DependencyInjection
     /// <exception cref="AggregateException">Some services are not able to be constructed.</exception>
     public sealed class ServiceProvider : IServiceProvider, IDisposable
     {
+        private bool _disposed;
         internal ServiceProviderEngine _engine;
 
         internal ServiceProvider(IServiceCollection services, ServiceProviderOptions options)
         {
             if (services == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(services));
             }
 
             if (options == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(options));
             }
 
             _engine = GetEngine();
@@ -62,18 +63,34 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         /// <inheritdoc/>
         public object GetService(Type serviceType)
         {
+            if (_disposed)
+            {
+                throw new ObjectDisposedException();
+            }
+
             return _engine.GetService(serviceType);
         }
 
         /// <inheritdoc/>
         public object[] GetService(Type[] serviceType)
         {
+            if (_disposed)
+            {
+                throw new ObjectDisposedException();
+            }
+
             return _engine.GetService(serviceType);
         }
 
         /// <inheritdoc/>
         public void Dispose()
         {
+            if (_disposed)
+            {
+                return;
+            }
+
+            _disposed = true;
             _engine.DisposeServices();
         }
 

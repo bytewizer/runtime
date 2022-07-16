@@ -24,7 +24,7 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (provider == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(provider));
             }
 
             return provider.GetService(new Type[] { serviceType });
@@ -41,12 +41,12 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (provider == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(provider));
             }
 
             if (serviceType == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(serviceType));
             }
 
             return provider.GetService(serviceType);
@@ -64,12 +64,12 @@ namespace Bytewizer.TinyCLR.DependencyInjection
         {
             if (provider == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(provider));
             }
 
             if (serviceType == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(serviceType));
             }
 
             object service = provider.GetService(serviceType);

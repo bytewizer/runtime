@@ -19,7 +19,12 @@ namespace Bytewizer.TinyCLR.Hosting
         /// </summary>
         public HostBuilderContext(object[] properties)
         {
-            Properties = properties ?? throw new ArgumentNullException(nameof(properties));
+            if (properties == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            Properties = properties;
         }
 
         /// <summary>

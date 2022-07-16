@@ -11,15 +11,13 @@ namespace nanoFramework.Hosting
 #else
 namespace Bytewizer.TinyCLR.Hosting
 #endif
-{ 
-/// <summary>
-/// Base class for implementing a scheduler <see cref="IHostedService"/>.
-/// </summary>
+{
+    /// <summary>
+    /// Base class timer service which calls an asynchronous action after the configured interval.
+    /// </summary>
     public abstract class SchedulerService : IHostedService, IDisposable
     {
-        private TimeSpan _time;
         private Timer _executeTimer;
-        private readonly TimeSpan _interval;
 
         /// <summary>
         /// Schedules the immediate execution of <see cref="ExecuteAsync"/> on the provided interval.
@@ -27,8 +25,8 @@ namespace Bytewizer.TinyCLR.Hosting
         /// <param name="interval">The <see cref="TimeSpan"/> interval scheduler will execute on.</param>
         protected SchedulerService(TimeSpan interval)
         {
-            _interval = interval;
-            _time = TimeSpan.Zero;
+            Interval = interval;
+            Time = TimeSpan.Zero;
         }
 
         /// <summary>
@@ -39,7 +37,7 @@ namespace Bytewizer.TinyCLR.Hosting
         /// <param name="interval">The <see cref="TimeSpan"/> interval scheduler will execute on.</param>
         protected SchedulerService(int hour, int min, TimeSpan interval)
         {
-            _interval = interval;
+            Interval = interval;
 
             DateTime now = DateTime.UtcNow;
             DateTime initialRun = new DateTime(now.Year, now.Month, now.Day, hour, min, 0, 0);
@@ -49,32 +47,49 @@ namespace Bytewizer.TinyCLR.Hosting
                 initialRun = initialRun.AddDays(1);
             }
 
-            _time = initialRun - now;
+            Time = initialRun - now;
 
-            if (_time <= TimeSpan.Zero)
+            if (Time <= TimeSpan.Zero)
             {
-                _time = TimeSpan.Zero;
+                Time = TimeSpan.Zero;
             }
         }
 
         /// <summary>
-        /// This method is called when the <see cref="IHostedService"/> starts. The implementation should return a thread that represents
-        /// the lifetime of the long running operation(s) being performed.
+        /// Gets the due time of the timer. 
         /// </summary>
-        /// <param name="state">An object containing information to be used by the callback method, or null.</param>
-        protected abstract void ExecuteAsync(object state);
+        protected TimeSpan Time { get; private set; }
+
+        /// <summary>
+        /// Gets the interval of the timer.
+        /// </summary>
+        protected TimeSpan Interval { get; private set; }
+
+        /// <summary>
+        /// Gets the <see cref="Timer"/> that executes the background operation.
+        /// </summary>
+        /// <remarks>
+        /// Will return <see langword="null"/> if the background operation hasn't started.
+        /// </remarks>
+        public virtual Timer ExecuteTimer() => _executeTimer;
+
+        /// <summary>
+        /// This method is called each time the timer elapses. 
+        /// </summary>
+        protected abstract void ExecuteAsync();
 
         /// <inheritdoc />
-        public virtual void StartAsync()
+        public virtual void Start()
         {
+            // Store the timer we're executing
             _executeTimer = new Timer(state =>
             {
-                ExecuteAsync(state);
-            }, _executeTimer, _time, _interval);
+                ExecuteAsync();
+            }, null, Time, Interval);
         }
 
         /// <inheritdoc />
-        public virtual void StopAsync()
+        public virtual void Stop()
         {
             if (_executeTimer == null)
             {

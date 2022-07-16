@@ -12,7 +12,7 @@ namespace Bytewizer.TinyCLR.Hosting
 #endif
 {
     /// <summary>
-    /// Represents a function that can process a request.
+    /// Represents a function that can process a service.
     /// </summary>
     /// <param name="serviceCollection">Specifies the contract for a collection of service descriptors.</param>
     public delegate void ServiceAction(IServiceCollection serviceCollection);

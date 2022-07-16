@@ -7,13 +7,15 @@ using Bytewizer.NanoCLR.DependencyInjection;
 
 namespace nanoFramework.Hosting
 #else
-using System;
 
 using Bytewizer.TinyCLR.DependencyInjection;
 
 namespace Bytewizer.TinyCLR.Hosting
 #endif
 {
+    /// <summary>
+    /// Extensions for <see cref="IHostBuilder"/>.
+    /// </summary>
     public static class HostingHostBuilderExtensions
     {
         /// <summary>
@@ -24,6 +26,11 @@ namespace Bytewizer.TinyCLR.Hosting
         /// <returns>The same instance of the <see cref="IHostBuilder"/> for chaining.</returns>
         public static IHostBuilder ConfigureServices(this IHostBuilder hostBuilder, ServiceAction configureDelegate)
         {
+            if (hostBuilder == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             return hostBuilder.ConfigureServices((context, collection) => configureDelegate(collection));
         }
 
@@ -34,7 +41,12 @@ namespace Bytewizer.TinyCLR.Hosting
         /// <param name="configureDelegate">The delegate for configuring the <see cref="ServiceProviderOptions"/>.</param>
         /// <returns>The same instance of the <see cref="IHostBuilder"/> for chaining.</returns>
         public static IHostBuilder UseDefaultServiceProvider(this IHostBuilder hostBuilder, ProviderAction configureDelegate)
-        { 
+        {
+            if (hostBuilder == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             return hostBuilder.UseDefaultServiceProvider((context, options) => configureDelegate(options));
         }
     }

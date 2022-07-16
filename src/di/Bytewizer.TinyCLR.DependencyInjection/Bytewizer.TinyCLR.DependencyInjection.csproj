@@ -44,8 +44,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DependencyInjection\ActivatorUtilities.cs" />
-    <Compile Include="DependencyInjection\DefaultServiceProviderFactory.cs" />
     <Compile Include="DependencyInjection\ServiceProviderEngine.cs" />
+    <Compile Include="DependencyInjection\TypeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DependencyInjection\ServiceCollection.cs" />
     <Compile Include="DependencyInjection\ServiceCollectionContainerBuilderExtensions.cs" />
@@ -54,10 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GHIElectronics.TinyCLR.Core">
-      <Version>2.2.0</Version>
+      <Version>2.2.0.4200</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
-      <Version>6.2.0</Version>
+      <Version>6.2.1</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
