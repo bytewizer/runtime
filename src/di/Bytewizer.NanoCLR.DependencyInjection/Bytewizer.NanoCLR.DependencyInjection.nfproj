@@ -23,9 +23,6 @@
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
-    <Compile Include="..\Bytewizer.TinyCLR.DependencyInjection\DependencyInjection\DefaultServiceProviderFactory.cs">
-      <Link>DependencyInjection\DefaultServiceProviderFactory.cs</Link>
-    </Compile>
     <Compile Include="..\Bytewizer.TinyCLR.DependencyInjection\DependencyInjection\ServiceCollection.cs">
       <Link>DependencyInjection\ServiceCollection.cs</Link>
     </Compile>
