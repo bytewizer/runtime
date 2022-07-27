@@ -62,6 +62,8 @@ namespace Bytewizer.TinyCLR.Hosting.Internal
                     exceptions.Add(ex);
                 }
             }
+            
+            _hostedServices = null;
 
             if (exceptions != null)
             {

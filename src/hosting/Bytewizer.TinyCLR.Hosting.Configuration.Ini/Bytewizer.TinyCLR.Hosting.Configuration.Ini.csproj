@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{70492D2D-6B78-46C8-9531-C02915742A46}</ProjectGuid>
+    <ProjectGuid>{72592D2D-6B78-46C8-9531-C02915742A46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bytewizer.TinyCLR.Hosting</RootNamespace>
-    <AssemblyName>Bytewizer.TinyCLR.Hosting</AssemblyName>
+    <RootNamespace>Bytewizer.TinyCLR.Hosting.Configuration.Ini</RootNamespace>
+    <AssemblyName>Bytewizer.TinyCLR.Hosting.Configuration.Ini</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A1948822-69DD-4150-919B-F3F42EFB71CC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -31,7 +31,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Bytewizer.TinyCLR.Hosting.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\Bytewizer.TinyCLR.Hosting.Configuration.Ini.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -40,30 +40,19 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Bytewizer.TinyCLR.Hosting.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\Bytewizer.TinyCLR.Hosting.Configuration.Ini.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Hosting\BackgroundService.cs" />
-    <Compile Include="Hosting\Host.cs" />
-    <Compile Include="Hosting\HostBuilder.cs" />
-    <Compile Include="Hosting\HostBuilderContext.cs" />
-    <Compile Include="Hosting\HostingAbstractionsHostExtensions.cs" />
-    <Compile Include="Hosting\HostingHostBuilderExtensions.cs" />
-    <Compile Include="Hosting\IConfiguration.cs" />
-    <Compile Include="Hosting\IHost.cs" />
-    <Compile Include="Hosting\IHostBuilder.cs" />
-    <Compile Include="Hosting\IHostedService.cs" />
-    <Compile Include="Hosting\Internal.Host.cs" />
-    <Compile Include="Hosting\ProviderAction.cs" />
-    <Compile Include="Hosting\ProviderContextDelegate.cs" />
-    <Compile Include="Hosting\SchedulerService.cs" />
-    <Compile Include="Hosting\ServiceAction.cs" />
-    <Compile Include="Hosting\ServiceCollectionHostedServiceExtensions.cs" />
-    <Compile Include="Hosting\ServiceContextDelegate.cs" />
+    <Compile Include="Configuration\IniConfigurationExtensions.cs" />
+    <Compile Include="Configuration\IniStreamConfigurationProvider.cs" />
+    <Compile Include="Configuration\IniStreamConfigurationSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GHIElectronics.TinyCLR.Core">
+      <Version>2.2.0.4200</Version>
+    </PackageReference>
+    <PackageReference Include="GHIElectronics.TinyCLR.IO">
       <Version>2.2.0.4200</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
@@ -85,6 +74,14 @@
     <ProjectReference Include="..\..\di\Bytewizer.TinyCLR.DependencyInjection\Bytewizer.TinyCLR.DependencyInjection.csproj">
       <Project>{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}</Project>
       <Name>Bytewizer.TinyCLR.DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bytewizer.TinyCLR.Hosting.Configuration\Bytewizer.TinyCLR.Hosting.Configuration.csproj">
+      <Project>{71492D2D-6B78-46C8-9531-C02915742A46}</Project>
+      <Name>Bytewizer.TinyCLR.Hosting.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bytewizer.TinyCLR.Hosting\Bytewizer.TinyCLR.Hosting.csproj">
+      <Project>{70492D2D-6B78-46C8-9531-C02915742A46}</Project>
+      <Name>Bytewizer.TinyCLR.Hosting</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

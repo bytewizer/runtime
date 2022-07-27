@@ -31,5 +31,10 @@ namespace Bytewizer.TinyCLR.Hosting
         /// A central location for sharing state between components during the host building process.
         /// </summary>
         public object[] Properties { get; }
+
+        /// <summary>
+        /// The <see cref="IConfiguration" /> containing the merged configuration of the application and the <see cref="IHost" />.
+        /// </summary>
+        public IConfiguration Configuration { get; set; } = null!;
     }
 }

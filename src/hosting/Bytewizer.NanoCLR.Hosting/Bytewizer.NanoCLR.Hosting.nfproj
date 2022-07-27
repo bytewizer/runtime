@@ -41,6 +41,9 @@
     <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\HostingHostBuilderExtensions.cs">
       <Link>Hosting\HostingHostBuilderExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\IConfiguration.cs">
+      <Link>Hosting\IConfiguration.cs</Link>
+    </Compile>
     <Compile Include="..\Bytewizer.TinyCLR.Hosting\Hosting\IHost.cs">
       <Link>Hosting\IHost.cs</Link>
     </Compile>

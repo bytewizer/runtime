@@ -24,6 +24,16 @@ namespace Bytewizer.TinyCLR.Hosting
         object[] Properties { get; set; }
 
         /// <summary>
+        /// Sets up the configuration for the remainder of the build process and application. This can be called multiple times and
+        /// the results will be additive. The results will be available at <see cref="HostBuilderContext.Configuration"/> for
+        /// subsequent operations, as well as in <see cref="IHost.Services"/>.
+        /// </summary>
+        /// <param name="configureDelegate">The delegate that will be used
+        /// to construct the <see cref="IConfiguration"/> for the application.</param>
+        /// <returns>The same instance of the <see cref="IHostBuilder"/> for chaining.</returns>
+        IHostBuilder ConfigureAppConfiguration(ServiceContextDelegate configureDelegate);
+
+        /// <summary>
         /// Adds services to the container. This can be called multiple times and the results will be additive.
         /// </summary>
         /// <param name="configureDelegate">The delegate for configuring the <see cref="IServiceCollection"/> that will be used

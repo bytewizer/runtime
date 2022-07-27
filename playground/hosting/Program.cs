@@ -1,10 +1,16 @@
 ﻿using System;
+using System.IO;
 using System.Threading;
 using System.Collections;
 using System.Diagnostics;
 
 using Bytewizer.TinyCLR.Hosting;
 using Bytewizer.TinyCLR.DependencyInjection;
+using Bytewizer.TinyCLR.Hosting.Configuration;
+using Bytewizer.TinyCLR.Hosting.Configuration.Json;
+using GHIElectronics.TinyCLR.IO;
+using GHIElectronics.TinyCLR.Devices.Storage;
+using GHIElectronics.TinyCLR.Pins;
 
 namespace TinyCLR.Hosting
 {
@@ -12,19 +18,55 @@ namespace TinyCLR.Hosting
     {
         public static void Main()
         {
+            var sd = StorageController.FromName(SC20100.StorageController.SdCard);
+            var drive = FileSystem.Mount(sd.Hdc);
+
             CreateHostBuilder().Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder() =>
             Host.CreateDefaultBuilder()
-                .ConfigureServices(services =>
+                .ConfigureServices((context, services) =>
                 {
+                    Debug.WriteLine(context.Configuration["person:emergencyContacts:0:phone"]);
+                    Debug.WriteLine(context.Configuration["object1:property2:1"]);
+                    Debug.WriteLine(context.Configuration["test:start"]);
+                    Debug.WriteLine(context.Configuration["test:stop"]);
+                    Debug.WriteLine(context.Configuration["DefaultConnection:ConnectionString"]);
+
+                    context.Configuration["person:emergencyContacts:0:phone"] = "NewValue1";
+
                     services.AddSingleton(typeof(BackgroundQueue));
                     services.AddHostedService(typeof(SensorService));
                     services.AddHostedService(typeof(DisplayService));
                     services.AddHostedService(typeof(MonitorService));
+                })
+                .ConfigureAppConfiguration((builder) =>
+                {
+                    var json = @"{""key1"":1,""key2"":""value2"",""object1"":{""property1"":""value1"",""property2"":[2,3,4,5,6,7]}}";
+                    
+                    builder.AddJsonStream(StringToStream(json));
+                    builder.AddJsonFile("test.json", false);
+                    builder.AddInMemoryCollection(new Hashtable()
+                    {
+                        { "test:start", "started" },
+                        { "test:stop", "stopped" }
+                    });
                 });
+
+        public static Stream StringToStream(string str)
+        {
+            var memStream = new MemoryStream();
+            var textWriter = new StreamWriter(memStream);
+            textWriter.Write(str);
+            textWriter.Flush();
+            memStream.Seek(0, SeekOrigin.Begin);
+
+            return memStream;
+        }
     }
+
+
     internal class BackgroundQueue
     {
         private readonly int _maxQueueCount = 500;
@@ -174,4 +216,5 @@ namespace TinyCLR.Hosting
             base.Stop();
         }
     }
+
 }
