@@ -43,7 +43,6 @@
     <DocumentationFile>bin\Release\Bytewizer.TinyCLR.Logging.Abstractions.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Extensions\DiagnosticsLoggerExtensions.cs" />
     <Compile Include="Logging\EventId.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\ILoggerFactory.cs" />
@@ -53,7 +52,7 @@
     <Compile Include="Logging\LogLevel.cs" />
     <Compile Include="Logging\NullLogger.cs" />
     <Compile Include="Logging\NullLoggerFactory.cs" />
-    <Compile Include="Logging\TypeNameHelper.cs" />
+    <Compile Include="Logging\NullLoggerProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,7 +60,7 @@
       <Version>2.2.0.4200</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
-      <Version>6.2.1</Version>
+      <Version>6.3.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

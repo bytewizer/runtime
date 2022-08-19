@@ -44,7 +44,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Execptions\AggregateException.cs" />
-    <Compile Include="Execptions\OperationCanceledException.cs" />
     <Compile Include="Extensions\ArrayExtensions.cs" />
     <Compile Include="Extensions\ByteArrayExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
@@ -55,18 +54,13 @@
     <Compile Include="Hosting\IServerService.cs" />
     <Compile Include="System\IServiceProvider.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
-    <Compile Include="System\Threading\ThreadPool.cs" />
-    <Compile Include="System\Threading\ThreadPoolItem.cs" />
-    <Compile Include="System\Threading\ThreadPoolThread.cs" />
-    <Compile Include="System\Threading\UnhandledThreadPoolExceptionDelegate.cs" />
-    <Compile Include="System\Threading\WaitCallback.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GHIElectronics.TinyCLR.Core">
       <Version>2.2.0.4200</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
-      <Version>6.2.1</Version>
+      <Version>6.3.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

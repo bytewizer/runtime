@@ -17,23 +17,20 @@ namespace Bytewizer.TinyCLR.Logging
 
         public MessageLogger[] MessageLoggers { get; set; }
 
-        public void Log(LogLevel logLevel, string message)
-        {
-            Log(logLevel, new EventId(), message, null);
-        }
-
         public void Log(LogLevel logLevel, EventId eventId, object state, Exception exception)
         {
             MessageLogger[] loggers = MessageLoggers;
-            if (loggers == null)
+
+            if (loggers.Length == 0)
             {
                 return;
             }
 
             ArrayList exceptions = null;
-            for (int i = 0; i < loggers.Length; i++)
+
+            for (int index = 0; index < loggers.Length; index++)
             {
-                ref readonly MessageLogger loggerInfo = ref loggers[i];
+                ref readonly MessageLogger loggerInfo = ref loggers[index];
                 if (!loggerInfo.IsEnabled(logLevel))
                 {
                     continue;
@@ -44,8 +41,42 @@ namespace Bytewizer.TinyCLR.Logging
 
             if (exceptions != null && exceptions.Count > 0)
             {
-                ThrowLoggingError(exceptions);
+                throw new AggregateException(string.Empty, exceptions);
             }
+        }
+
+        public bool IsEnabled(LogLevel logLevel)
+        {
+            MessageLogger[] loggers = MessageLoggers;
+
+            if (loggers == null)
+            {
+                return false;
+            }
+
+            ArrayList exceptions = null;
+
+            int index = 0;
+            for (; index < loggers.Length; index++)
+            {
+                ref readonly MessageLogger loggerInfo = ref loggers[index];
+                if (!loggerInfo.IsEnabled(logLevel))
+                {
+                    continue;
+                }
+
+                if (LoggerIsEnabled(logLevel, loggerInfo.Logger, ref exceptions))
+                {
+                    break;
+                }
+            }
+
+            if (exceptions != null && exceptions.Count > 0)
+            {
+                throw new AggregateException(string.Empty, exceptions);
+            }
+
+            return index < loggers.Length;
         }
 
         private static void LoggerLog(LogLevel logLevel, EventId eventId, ILogger logger, Exception exception, object state, ref ArrayList exceptions)
@@ -70,38 +101,6 @@ namespace Bytewizer.TinyCLR.Logging
             }
         }
 
-        public bool IsEnabled(LogLevel logLevel)
-        {
-            MessageLogger[] loggers = MessageLoggers;
-            if (loggers == null)
-            {
-                return false;
-            }
-
-            ArrayList exceptions = null;
-            int i = 0;
-            for (; i < loggers.Length; i++)
-            {
-                ref readonly MessageLogger loggerInfo = ref loggers[i];
-                if (!loggerInfo.IsEnabled(logLevel))
-                {
-                    continue;
-                }
-
-                if (LoggerIsEnabled(logLevel, loggerInfo.Logger, ref exceptions))
-                {
-                    break;
-                }
-            }
-
-            if (exceptions != null && exceptions.Count > 0)
-            {
-                ThrowLoggingError(exceptions);
-            }
-
-            return i < loggers.Length;
-        }
-
         private static bool LoggerIsEnabled(LogLevel logLevel, ILogger logger, ref ArrayList exceptions)
         {
             try
@@ -113,26 +112,11 @@ namespace Bytewizer.TinyCLR.Logging
             }
             catch (Exception ex)
             {
-                if (exceptions == null)
-                {
-                    exceptions = new ArrayList();
-                }
-
+                exceptions ??= new ArrayList();
                 exceptions.Add(ex);
             }
 
             return false;
-        }
-
-        private static void ThrowLoggingError(ArrayList exceptions)
-        {
-            var msg = new StringBuilder();
-            foreach (Exception execption in exceptions)
-            {
-                msg.AppendLine(execption.Message.ToString());
-            }
-
-            throw new InvalidOperationException($"An error occurred while writing to logger(s). Message(s): {msg}");
         }
     }
 }

@@ -62,7 +62,7 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
         /// Register a <see cref="IMiddleware"/> to the pipeline. Middleware are executed in the order added.
         /// </summary>
         /// <param name="middleware">The <see cref="InlineMiddleware"/> delegate to include in the application pipeline.</param>
-        IApplicationBuilder Use(InlineMiddlewareDelegate middleware);
+        IApplicationBuilder Use(InlineDelegate middleware);
 
         /// <summary>
         /// Gets or sets the <see cref="IServiceProvider"/> that provides access to the application's service container.

@@ -14,6 +14,8 @@ namespace Bytewizer.TinyCLR.Logging
     /// </summary>
     public static class LoggerExtensions
     {
+        private static readonly EventId _eventId = new EventId();
+
         //------------------------------------------DEBUG------------------------------------------//
 
         /// <summary>
@@ -347,7 +349,7 @@ namespace Bytewizer.TinyCLR.Logging
         /// <param name="args">An object array that contains zero or more objects to format.</param>
         public static void Log(this ILogger logger, LogLevel logLevel, string message, params object[] args)
         {
-            logger.Log(logLevel, 0, null, message, args);
+            logger.Log(logLevel, _eventId, null, message, args);
         }
 
         /// <summary>
@@ -373,7 +375,7 @@ namespace Bytewizer.TinyCLR.Logging
         /// <param name="args">An object array that contains zero or more objects to format.</param>
         public static void Log(this ILogger logger, LogLevel logLevel, Exception exception, string message, params object[] args)
         {
-            logger.Log(logLevel, 0, exception, message, args);
+            logger.Log(logLevel, _eventId, exception, message, args);
         }
 
         /// <summary>

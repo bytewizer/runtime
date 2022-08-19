@@ -9,12 +9,12 @@ namespace Bytewizer.TinyCLR.Pipeline
     /// </summary>
     public sealed class InlineMiddleware : Middleware
     {
-        readonly InlineMiddlewareDelegate _middlewareDelegate;
+        readonly InlineDelegate _middlewareDelegate;
 
         /// <summary>
         /// Initializes an instance of the <see cref="InlineMiddleware" /> class.
         /// </summary>
-        public InlineMiddleware(InlineMiddlewareDelegate middleware)
+        public InlineMiddleware(InlineDelegate middleware)
         {
             _middlewareDelegate = middleware;
         }

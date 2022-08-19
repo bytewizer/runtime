@@ -33,7 +33,7 @@ namespace Bytewizer.TinyCLR.Identity
         /// <returns>An <see cref="IdentityResult"/> indicating a failed identity operation, with a list of <paramref name="error"/> if applicable.</returns>
         public static IdentityResult Failed(string error)
         {
-            var errors = new ArrayList(1) { new Exception(error) };
+            var errors = new ArrayList() { new Exception(error) };
 
             return Failed(errors);
         }
@@ -45,7 +45,7 @@ namespace Bytewizer.TinyCLR.Identity
         /// <returns>An <see cref="IdentityResult"/> indicating a failed identity operation, with a list of <paramref name="error"/> if applicable.</returns>
         public static IdentityResult Failed(Exception error)
         {
-            var errors = new ArrayList(1) { error };
+            var errors = new ArrayList() { error };
 
             return Failed(errors);
         }
@@ -58,10 +58,10 @@ namespace Bytewizer.TinyCLR.Identity
         public static IdentityResult Failed(ArrayList errors)
         {
             var result = new IdentityResult { Succeeded = false };
-            
+
             if (errors != null)
             {
-               result.Errors  = errors;
+                result.Errors = errors;
             }
 
             return result;

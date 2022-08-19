@@ -1,11 +1,18 @@
 ﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
+
+using System;
 using System.Collections;
 
 #if NanoCLR
+
+using Bytewizer.NanoCLR.DependencyInjection;
+
 namespace Bytewizer.NanoCLR.Logging
 #else
+using Bytewizer.TinyCLR.DependencyInjection;
+
 namespace Bytewizer.TinyCLR.Logging
 #endif
 {
@@ -14,31 +21,27 @@ namespace Bytewizer.TinyCLR.Logging
     /// </summary>
     public class LoggerFactory : ILoggerFactory
     {
-        private readonly Hashtable _loggers = new Hashtable();
-        private readonly ArrayList _providerRegistrations = new ArrayList();
-
+        private readonly Hashtable _loggers;
+        private readonly ArrayList _providers;
         private readonly LoggerFilterOptions _filterOptions;
-        private readonly object _sync = new object();
+
         private bool _disposed;
+        private readonly object _syncLock = new object();
 
         /// <summary>
         /// Creates a new <see cref="LoggerFactory"/> instance.
         /// </summary>
-        public LoggerFactory()
-            : this(new ArrayList(), new LoggerFilterOptions())
-        {
-        }
-
-        /// <summary>
-        /// Creates a new <see cref="LoggerFactory"/> instance.
-        /// </summary>
-        /// <param name="providers">The providers to use in producing <see cref="ILogger"/> instances.</param>
+        /// <param name="service">The <see cref="IServiceProvider"/> use in producing <see cref="ILogger"/> instances.</param>
         /// <param name="filterOption">The filter option to use.</param>
-        public LoggerFactory(IEnumerable providers, LoggerFilterOptions filterOption)
+        public LoggerFactory(IServiceProvider service, LoggerFilterOptions filterOption)
         {
-            foreach (ILoggerProvider provider in providers)
+            _loggers = new Hashtable();
+            _providers = new ArrayList();
+
+            var services = service.GetServices(new Type[] { typeof(ILoggerProvider) });
+            foreach (var provider in services)
             {
-                _providerRegistrations.Add(provider);
+                _providers.Add(provider);
             }
 
             _filterOptions = filterOption;
@@ -50,7 +53,15 @@ namespace Bytewizer.TinyCLR.Logging
         /// <param name="provider">The <see cref="ILoggerProvider"/> to add.</param>
         public void AddProvider(ILoggerProvider provider)
         {
-            _providerRegistrations.Add(provider);
+            if (_disposed)
+            {
+                throw new ObjectDisposedException();
+            }
+
+            lock (_syncLock)
+            {
+                _providers.Add(provider);
+            }
         }
 
         /// <summary>
@@ -60,14 +71,19 @@ namespace Bytewizer.TinyCLR.Logging
         /// <returns>The <see cref="ILogger"/> that was created.</returns>
         public ILogger CreateLogger(string categoryName)
         {
-            lock (_sync)
+            if (_disposed)
+            {
+                throw new ObjectDisposedException();
+            }
+
+            lock (_syncLock)
             {
                 var logger = new Logger()
                 {
                     Loggers = CreateLoggers(categoryName)
                 };
-                logger.MessageLoggers = CreateMessageLoggers(logger.Loggers);
 
+                logger.MessageLoggers = CreateMessageLoggers(logger.Loggers);
                 _loggers[categoryName] = logger;
 
                 return logger;
@@ -77,17 +93,17 @@ namespace Bytewizer.TinyCLR.Logging
         private MessageLogger[] CreateMessageLoggers(LoggerInformation[] loggers)
         {
             var messageLoggers = new MessageLogger[loggers.Length];
-
             var minLevel = _filterOptions.MinLevel;
-            for (int i = 0; i < loggers.Length; i++)
+
+            for (int index = 0; index < loggers.Length; index++)
             {
                 if (minLevel > LogLevel.Critical)
                 {
                     continue;
                 }
 
-                messageLoggers[i] = new MessageLogger(
-                        loggers[i].Logger, loggers[i].Category, loggers[i].ProviderType.FullName, minLevel
+                messageLoggers[index] = new MessageLogger(
+                        loggers[index].Logger, loggers[index].Category, minLevel
                     );
             }
 
@@ -96,31 +112,31 @@ namespace Bytewizer.TinyCLR.Logging
 
         private LoggerInformation[] CreateLoggers(string categoryName)
         {
-            var loggers = new LoggerInformation[_providerRegistrations.Count];
-            for (var i = 0; i < _providerRegistrations.Count; i++)
+            var loggers = new LoggerInformation[_providers.Count];
+
+            for (var index = 0; index < _providers.Count; index++)
             {
-                loggers[i] = new LoggerInformation((ILoggerProvider)_providerRegistrations[i], categoryName);
+                loggers[index] = new LoggerInformation((ILoggerProvider)_providers[index], categoryName);
             }
+
             return loggers;
         }
 
         /// <inheritdoc/>
         public void Dispose()
         {
-            if (!_disposed)
+            if (_disposed)
             {
-                _disposed = true;
+                return;
+            }
 
-                foreach (ILoggerProvider registration in _providerRegistrations)
+            _disposed = true;
+
+            for (int index = _providers.Count - 1; index >= 0; index--)
+            {
+                if (_providers[index] is IDisposable disposable)
                 {
-                    try
-                    {
-                        registration.Dispose();
-                    }
-                    catch
-                    {
-                        // Swallow exceptions on dispose
-                    }
+                    disposable.Dispose();
                 }
             }
         }

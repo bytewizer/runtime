@@ -13,7 +13,7 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
         /// Add a <see cref="IMiddleware"/> delegate to the application pipeline. Middleware is executed in the order added.
         /// </summary>
         /// <param name="middleware">The <see cref="InlineMiddleware"/> delegate to include in the application pipeline.</param>
-        void Use(InlineMiddlewareDelegate middleware);
+        void Use(InlineDelegate middleware);
 
         /// <summary>
         /// Add a <see cref="IMiddleware"/> to the application pipeline. Middleware is executed in the order added.

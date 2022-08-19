@@ -24,7 +24,7 @@ namespace Bytewizer.TinyCLR.Pipeline
         protected abstract void Invoke(IContext context, RequestDelegate next);
 
         /// <inheritdoc/>
-        public void Use(InlineMiddlewareDelegate middleware)
+        public void Use(InlineDelegate middleware)
         {
             Use(new InlineMiddleware(middleware));
         }

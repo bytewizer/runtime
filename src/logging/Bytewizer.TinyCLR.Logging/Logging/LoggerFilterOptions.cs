@@ -13,12 +13,7 @@ namespace Bytewizer.TinyCLR.Logging
     public class LoggerFilterOptions
     {
         /// <summary>
-        /// Creates a new <see cref="LoggerFilterOptions"/> instance.
-        /// </summary>
-        public LoggerFilterOptions() { }
-
-        /// <summary>
-        /// Gets or sets the minimum level of log messages if none of the rules match.
+        /// Gets or sets the minimum level of log messages.
         /// </summary>
         public LogLevel MinLevel { get; set; }
     }

@@ -18,9 +18,6 @@ namespace Bytewizer.TinyCLR.Logging
         /// Returns the shared instance of <see cref="NullLogger"/>.
         /// </summary>
         public static NullLogger Instance { get; } = new NullLogger();
-        private NullLogger()
-        {
-        }
 
         /// <inheritdoc />
         public bool IsEnabled(LogLevel logLevel)

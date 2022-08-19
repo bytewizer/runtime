@@ -1,9 +1,14 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 
 #if NanoCLR
+using Bytewizer.NanoCLR.DependencyInjection;
+
 namespace Bytewizer.NanoCLR.Pipeline
 #else
+using Bytewizer.TinyCLR.DependencyInjection;
+
 namespace Bytewizer.TinyCLR.Pipeline
 #endif
 {
@@ -14,16 +19,18 @@ namespace Bytewizer.TinyCLR.Pipeline
     {
         private readonly ArrayList _used;
         private readonly ArrayList _available;
+        private readonly IServiceProvider _services;
 
         private readonly object _lock = new object();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ContextPool"/> class.
         /// </summary>
-        public ContextPool()
+        public ContextPool(IServiceProvider services)
         {
             _available = new ArrayList();
             _used = new ArrayList();
+            _services = services;
         }
 
         /// <summary>
@@ -31,8 +38,6 @@ namespace Bytewizer.TinyCLR.Pipeline
         /// </summary>
         public IContext GetContext(Type context)
         {
-            //Debug.Assert(_used.Count < _available.Count, $"Context pool used/available count:{_used.Count}/{_available.Count}");
-
             lock (_available)
             {
                 if (_available.Count > 0)
@@ -48,7 +53,7 @@ namespace Bytewizer.TinyCLR.Pipeline
                 }
                 else
                 {
-                    IContext ctx = Activator.CreateInstance(context) as IContext;
+                    IContext ctx = ActivatorUtilities.GetServiceOrCreateInstance(_services, context) as IContext;
                     lock (_lock)
                     {
                         _used.Add(ctx);
@@ -59,11 +64,11 @@ namespace Bytewizer.TinyCLR.Pipeline
         }
 
         /// <summary>
-        /// Returns a <see cref="IContext"/> object back to the pool and clears channel.
+        /// Returns a <see cref="IContext"/> object back to the pool and clears context.
         /// </summary>
         public void Release(IContext context)
         {
-            // Close connection and clears channel.
+            // Clears context for reuse.
             context.Clear();
 
             lock (_lock)

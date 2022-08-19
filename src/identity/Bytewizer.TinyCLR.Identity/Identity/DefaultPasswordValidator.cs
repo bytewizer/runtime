@@ -19,17 +19,18 @@ namespace Bytewizer.TinyCLR.Identity
         {
             if (manager == null)
             {
-                throw new ArgumentNullException(nameof(manager));
+                throw new ArgumentNullException();
             }
 
-            var errors = new ArrayList();
+            ArrayList errors = null;
 
             if (password.Length < 8)
             {
+                errors ??= new ArrayList();
                 errors.Add(new Exception("Password must be at least 8 characters long"));
             }
 
-            if (errors.Count > 0)
+            if (errors != null)
             {
                 return IdentityResult.Failed(errors);
             }

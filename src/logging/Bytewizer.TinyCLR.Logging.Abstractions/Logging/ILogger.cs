@@ -15,8 +15,6 @@ namespace Bytewizer.TinyCLR.Logging
     /// <remarks>Aggregates most logging patterns to a single method.</remarks>
     public interface ILogger
     {
-
-
         /// <summary>
         /// Writes a log entry.
         /// </summary>

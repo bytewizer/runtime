@@ -2,8 +2,12 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 #if NanoCLR
+using Bytewizer.NanoCLR.DependencyInjection;
+
 namespace Bytewizer.NanoCLR.Logging.Debug
 #else
+using Bytewizer.TinyCLR.DependencyInjection;
+
 namespace Bytewizer.TinyCLR.Logging.Debug
 #endif
 {
@@ -13,23 +17,18 @@ namespace Bytewizer.TinyCLR.Logging.Debug
     public static class DebugLoggerFactoryExtensions
     {
         /// <summary>
-        /// Adds a debug logger that is enabled for <see cref="LogLevel"/> Information or higher.
+        /// Adds a debug logger named 'Debug' to the factory.
         /// </summary>
-        /// <param name="factory">The extension method argument.</param>
-        public static ILoggerFactory AddDebug(this ILoggerFactory factory)
+        /// <param name="builder">The extension method argument.</param>
+        public static ILoggingBuilder AddDebug(this ILoggingBuilder builder)
         {
-            return AddDebug(factory, LogLevel.Information);
-        }
+            builder.Services.TryAdd(new ServiceDescriptor(
+                    typeof(ILoggerProvider),
+                    typeof(DebugLoggerProvider),
+                    ServiceLifetime.Singleton
+                ));
 
-        /// <summary>
-        /// Adds a debug logger that is enabled as defined by the filter function.
-        /// </summary>
-        /// <param name="factory">The extension method argument.</param>
-        /// <param name="minLevel">The minimum <see cref="LogLevel"/> to be logged</param>
-        public static ILoggerFactory AddDebug(this ILoggerFactory factory, LogLevel minLevel)
-        {
-            factory.AddProvider(new DebugLoggerProvider(minLevel));
-            return factory;
+            return builder;
         }
     }
 }

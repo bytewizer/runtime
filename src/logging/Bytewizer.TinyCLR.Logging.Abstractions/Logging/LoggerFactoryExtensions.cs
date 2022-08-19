@@ -24,15 +24,15 @@ namespace Bytewizer.TinyCLR.Logging
         {
             if (factory == null)
             {
-                throw new ArgumentNullException(nameof(factory));
+                throw new ArgumentNullException();
             }
 
             if (type == null)
             {
-                throw new ArgumentNullException(nameof(type));
+                throw new ArgumentNullException();
             }
 
-            return factory.CreateLogger(TypeNameHelper.GetTypeDisplayName(type));
+            return factory.CreateLogger(type.FullName);
         }
     }
 }

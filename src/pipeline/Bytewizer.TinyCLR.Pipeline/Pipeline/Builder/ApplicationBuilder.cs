@@ -3,8 +3,13 @@ using System.Collections;
 using System.Diagnostics;
 
 #if NanoCLR
+using Bytewizer.NanoCLR.DependencyInjection;
+
 namespace Bytewizer.NanoCLR.Pipeline.Builder
 #else
+
+using Bytewizer.TinyCLR.DependencyInjection;
+
 namespace Bytewizer.TinyCLR.Pipeline.Builder
 #endif
 {
@@ -15,22 +20,6 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
     {
         private Hashtable _properties;
         private MiddlewareDelegate[] _components = new MiddlewareDelegate[0];
-
-        /// <summary>
-        /// A central location for sharing state between components during the host building process.
-        /// </summary>
-        public Hashtable Properties
-        {
-            get
-            {
-                if (_properties == null)
-                {
-                    return new Hashtable();
-                }
-
-                return _properties;
-            }
-        }
 
         /// <summary>
         /// Initializes an instance of the <see cref="ApplicationBuilder" /> class.
@@ -46,6 +35,22 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
         public ApplicationBuilder(IServiceProvider serviceProvider)
         {
             ApplicationServices = serviceProvider;
+        }
+
+        /// <summary>
+        /// A central location for sharing state between components during the host building process.
+        /// </summary>
+        public Hashtable Properties
+        {
+            get
+            {
+                if (_properties == null)
+                {
+                    return new Hashtable();
+                }
+
+                return _properties;
+            }
         }
 
         /// <inheritdoc/>
@@ -93,7 +98,7 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
         }
 
         /// <inheritdoc/>
-        public IApplicationBuilder Use(InlineMiddlewareDelegate middleware)
+        public IApplicationBuilder Use(InlineDelegate middleware)
         {
             Use(new InlineMiddleware(middleware));
 
@@ -121,7 +126,7 @@ namespace Bytewizer.TinyCLR.Pipeline.Builder
                     $"Unable to resolve service for type '{ serviceType }' must be a subclass of Middleware to activate.");
             }
 
-            var instance = (IMiddleware)Activator.CreateInstance(serviceType);
+            var instance = (IMiddleware)ActivatorUtilities.GetServiceOrCreateInstance(ApplicationServices, serviceType);
 
             return Use(instance);
         }

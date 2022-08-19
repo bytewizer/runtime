@@ -6,6 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6FD1BF73-3383-4DA1-8F85-94D880DA9827}</ProjectGuid>
     <OutputType>Library</OutputType>
+    <LangVersion>9.0</LangVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Bytewizer.TinyCLR.Identity</RootNamespace>
     <AssemblyName>Bytewizer.TinyCLR.Identity</AssemblyName>
@@ -60,7 +61,7 @@
       <Version>2.2.0.4200</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
-      <Version>6.2.1</Version>
+      <Version>6.3.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

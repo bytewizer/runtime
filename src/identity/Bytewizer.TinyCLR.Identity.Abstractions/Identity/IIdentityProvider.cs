@@ -29,13 +29,6 @@
         /// </summary>
         /// <param name="user">The user whose password should be verified.</param>
         /// <param name="password">The password to verify.</param>
-        bool CheckPassword(IIdentityUser user, string password);
-
-        /// <summary>
-        /// Determines whether the password is valid for the user.
-        /// </summary>
-        /// <param name="user">The user whose password should be verified.</param>
-        /// <param name="password">The password to verify.</param>
         bool CheckPassword(IIdentityUser user, byte[] password);
 
         /// <summary>
@@ -43,13 +36,6 @@
         /// </summary>
         /// <param name="user">The user to delete.</param>
         IdentityResult Delete(IIdentityUser user);
-        
-        /// <summary>
-        /// Creates the specified <paramref name="user"/> in the user store with no password.
-        /// </summary>
-        /// <param name="user">The user to create.</param>
-        /// <param name="password">The password for the user to hash and store.</param>
-        IdentityResult Create(IIdentityUser user, string password);
 
         /// <summary>
         /// Creates the specified <paramref name="user"/> in the user store with no password.
@@ -63,22 +49,7 @@
         /// </summary>
         /// <param name="user">The user whose password should be verified.</param>
         /// <param name="password">The password to verify.</param>
-        IdentityResult VerifyPassword(IIdentityUser user, string password);
-        
-        /// <summary>
-        /// Returns a <see cref="IdentityResult"/> indicating the result of a password hash comparison.
-        /// </summary>
-        /// <param name="user">The user whose password should be verified.</param>
-        /// <param name="password">The password to verify.</param>
         IdentityResult VerifyPassword(IIdentityUser user, byte[] password);
-
-        /// <summary>
-        /// Updates a user's password hash.
-        /// </summary>
-        /// <param name="user">The user.</param>
-        /// <param name="newPassword">The new password.</param>
-        /// <returns>Whether the password has was successfully updated.</returns>
-        IdentityResult UpdatePassword(IIdentityUser user, string newPassword);
 
         /// <summary>
         /// Updates a user's password hash.

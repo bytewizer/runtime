@@ -9,6 +9,8 @@ namespace Bytewizer.TinyCLR.Identity
     /// </summary>
     public class PasswordHasher : IPasswordHasher
     {
+        private readonly Random _random = new Random();
+
         /// <summary>
         /// Returns a hashed representation of the supplied <paramref name="password"/> for the specified <paramref name="user"/>.
         /// </summary>
@@ -17,17 +19,15 @@ namespace Bytewizer.TinyCLR.Identity
         /// <returns>A hashed representation of the supplied <paramref name="password"/> for the specified <paramref name="user"/>.</returns>
         public byte[] HashPassword(IIdentityUser user, byte[] password)
         {
-            Random rnd = new Random();
+            var key = new byte[32];
+            _random.NextBytes(key);
 
-            var key  = new byte[32];
-            rnd.NextBytes(key);
-            
-            var bytes = new byte[key.Length + password.Length];
-            Array.Copy(key, 0, bytes, 0, key.Length);
-            Array.Copy(password, 0, bytes, key.Length, password.Length);
+            var salt = new byte[key.Length + password.Length];
+            Array.Copy(key, 0, salt, 0, key.Length);
+            Array.Copy(password, 0, salt, key.Length, password.Length);
 
-            user.PasswordSalt = bytes;
-            user.PasswordHash = new HMACSHA256(bytes).ComputeHash(password);
+            user.PasswordSalt = salt;
+            user.PasswordHash = new HMACSHA256(salt).ComputeHash(password);
 
             return user.PasswordHash;
         }
@@ -41,21 +41,6 @@ namespace Bytewizer.TinyCLR.Identity
         /// <returns>A <see cref="IdentityResult"/> indicating the result of a password hash comparison.</returns>
         public IdentityResult VerifyHashedPassword(IIdentityUser user, byte[] hashedPassword, byte[] providedPassword)
         {
-            if (user == null)
-            {
-                throw new ArgumentNullException(nameof(user));
-            }
-
-            if (hashedPassword == null)
-            {
-                throw new ArgumentNullException(nameof(hashedPassword));
-            }
-
-            if (providedPassword == null)
-            {
-                throw new ArgumentNullException(nameof(providedPassword));
-            }
-
             try
             {
                 var hashBytes = new HMACSHA256(user.PasswordSalt).ComputeHash(providedPassword);
@@ -79,31 +64,23 @@ namespace Bytewizer.TinyCLR.Identity
         {
             if (hashedPassword.Length < 1 || password.Length < 1)
             {
-                return false; // bad size
+                return false;
             }
 
-            return ByteArraysEqual(hashedPassword, password);
-        }
-
-        private static bool ByteArraysEqual(byte[] a, byte[] b)
-        {
-            if (a == null && b == null)
-            {
-                return true;
-            }
-
-            if (a == null || b == null || a.Length != b.Length)
+            if (hashedPassword.Length != password.Length)
             {
                 return false;
             }
 
-            var isSame = true;
-            for (var i = 0; i < a.Length; i++)
+            for (var index = 0; index < hashedPassword.Length; index++)
             {
-                isSame &= (a[i] == b[i]);
+                if (hashedPassword[index] != password[index])
+                {
+                    return false;
+                }
             }
 
-            return isSame;
+            return true;
         }
     }
 }

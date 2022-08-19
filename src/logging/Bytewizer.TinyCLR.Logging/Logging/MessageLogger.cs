@@ -9,11 +9,10 @@ namespace Bytewizer.TinyCLR.Logging
 {
     internal readonly struct MessageLogger
     {
-        public MessageLogger(ILogger logger, string category, string providerTypeFullName, LogLevel minLevel)
+        public MessageLogger(ILogger logger, string category, LogLevel minLevel)
         {
             Logger = logger;
             Category = category;
-            ProviderTypeFullName = providerTypeFullName;
             MinLevel = minLevel;
         }
 
@@ -21,10 +20,7 @@ namespace Bytewizer.TinyCLR.Logging
 
         public string Category { get; }
 
-        private string ProviderTypeFullName { get; }
-
         public LogLevel MinLevel { get; }
-
 
         public bool IsEnabled(LogLevel level)
         {

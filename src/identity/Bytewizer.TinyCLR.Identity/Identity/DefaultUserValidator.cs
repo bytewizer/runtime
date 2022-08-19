@@ -18,17 +18,18 @@ namespace Bytewizer.TinyCLR.Identity
         {
             if (manager == null)
             {
-                throw new ArgumentNullException(nameof(manager));
+                throw new ArgumentNullException();
             }
 
-            var errors = new ArrayList();
+            ArrayList errors = null;
 
             if (user.UserName.Length < 6)
             {
+                errors ??= new ArrayList();
                 errors.Add(new Exception("User name must be at least 6 characters long"));
             }
 
-            if (errors.Count > 0)
+            if (errors != null)
             {
                 return IdentityResult.Failed(errors);
             }

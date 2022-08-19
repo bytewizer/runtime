@@ -10,26 +10,29 @@ namespace Bytewizer.TinyCLR.Identity
     public class IdentityProvider : IIdentityProvider
     {
         private readonly UserStore _userStore;
-        private readonly object _lock = new object();
+        private readonly object _syncLock = new object();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityProvider"/> class.
         /// </summary>
         public IdentityProvider()
-            : this(new UserStore(), new PasswordHasher())
-        {
-        }
+            : this(new PasswordHasher())
+        { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentityProvider"/> class.
         /// </summary>
-        /// <param name="userStore">The password hashing implementation to use when saving passwords.</param>
         /// <param name="passwordHasher">The persistence store of users.</param>
-        public IdentityProvider(UserStore userStore, IPasswordHasher passwordHasher)
+        public IdentityProvider(IPasswordHasher passwordHasher)
         {
-            _userStore = userStore;
-            PasswordHasher = passwordHasher;
+            if (passwordHasher == null)
+            {
+                throw new ArgumentNullException();
+            }
 
+            _userStore = new UserStore();
+
+            PasswordHasher = passwordHasher;
             PasswordValidators.Add(new DefaultPasswordValidator());
             UserValidators.Add(new DefaultUserValidator());
         }
@@ -42,12 +45,12 @@ namespace Bytewizer.TinyCLR.Identity
         /// <summary>
         /// The <see cref="IUserValidator"/> used to validate users.
         /// </summary>
-        public ArrayList UserValidators { get; set; } = new ArrayList(1);
+        public ArrayList UserValidators { get; set; } = new ArrayList();
 
         /// <summary>
         /// The <see cref="IPasswordValidator"/> used to validate passwords.
         /// </summary>
-        public ArrayList PasswordValidators { get; set; } = new ArrayList(1);
+        public ArrayList PasswordValidators { get; set; } = new ArrayList();
 
         /// <summary>
         /// Gets the persistence store of users the manager operates over.
@@ -55,40 +58,54 @@ namespace Bytewizer.TinyCLR.Identity
         public Hashtable Users { get => _userStore.Users; }
 
         /// <inheritdoc/>
-        public virtual IdentityResult Create(IIdentityUser user, string password)
-        {
-            return Create(user, Encoding.UTF8.GetBytes(password));
-        }
-
-        /// <inheritdoc/>
         public virtual IdentityResult Create(IIdentityUser user, byte[] password)
         {
-            var errors = new ArrayList();
+            if (user == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (password == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            ArrayList errors = null;
 
             var userResults = ValidateUser(user);
+
             if (!userResults.Succeeded)
             {
+                errors ??= new ArrayList();
                 errors.AddRange(userResults.Errors);
             }
+
             var passwordResults = ValidatePassword(user, password);
+
             if (!passwordResults.Succeeded)
             {
+                errors ??= new ArrayList();
                 errors.AddRange(passwordResults.Errors);
             }
+
             var updateResults = UpdatePassword(user, password, false);
+
             if (!updateResults.Succeeded)
             {
+                errors ??= new ArrayList();
                 errors.AddRange(updateResults.Errors);
             }
-            if (errors.Count > 0)
+
+            if (errors != null)
             {
                 return IdentityResult.Failed(new AggregateException($"User validation failed:", errors));
             }
 
             var store = _userStore.Create(user);
+
             if (store.Succeeded)
             {
-                lock (_lock)
+                lock (_syncLock)
                 {
                     OnStoreChanged(this);
                 }
@@ -102,13 +119,14 @@ namespace Bytewizer.TinyCLR.Identity
         {
             if (user == null)
             {
-                throw new ArgumentNullException(nameof(user));
+                throw new ArgumentNullException();
             }
 
             var store = _userStore.Delete(user);
+
             if (store.Succeeded)
             {
-                lock (_lock)
+                lock (_syncLock)
                 {
                     OnStoreChanged(this);
                 }
@@ -122,10 +140,10 @@ namespace Bytewizer.TinyCLR.Identity
         {
             if (userName == null)
             {
-                throw new ArgumentNullException(nameof(userName));
+                throw new ArgumentNullException();
             }
 
-            return _userStore.TryGetUser(userName, out user);   
+            return _userStore.TryGetUser(userName, out user);
         }
 
         /// <inheritdoc/>
@@ -133,7 +151,7 @@ namespace Bytewizer.TinyCLR.Identity
         {
             if (userName == null)
             {
-                throw new ArgumentNullException(nameof(userName));
+                throw new ArgumentNullException();
             }
 
             return _userStore.FindByName(userName);
@@ -144,22 +162,27 @@ namespace Bytewizer.TinyCLR.Identity
         {
             if (userId == null)
             {
-                throw new ArgumentNullException(nameof(userId));
+                throw new ArgumentNullException();
             }
 
             return _userStore.FindById(userId);
         }
 
         /// <inheritdoc/>
-        public virtual bool CheckPassword(IIdentityUser user, string password)
-        {
-            return CheckPassword(user, Encoding.UTF8.GetBytes(password));
-        }
-
-        /// <inheritdoc/>
         public virtual bool CheckPassword(IIdentityUser user, byte[] password)
         {
+            if (user == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (password == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             var validate = VerifyPassword(user, password);
+
             if (validate.Succeeded)
             {
                 return true;
@@ -169,15 +192,20 @@ namespace Bytewizer.TinyCLR.Identity
         }
 
         /// <inheritdoc/>
-        public virtual IdentityResult VerifyPassword(IIdentityUser user, string password)
-        {
-            return VerifyPassword(user, Encoding.UTF8.GetBytes(password));
-        }
-
-        /// <inheritdoc/>
         public virtual IdentityResult VerifyPassword(IIdentityUser user, byte[] password)
         {
+            if (user == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (password == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             var hash = _userStore.GetPasswordHash(user);
+
             if (hash == null)
             {
                 return IdentityResult.Failed(new Exception("Authentication failed: (Invalid user name or password)."));
@@ -187,14 +215,18 @@ namespace Bytewizer.TinyCLR.Identity
         }
 
         /// <inheritdoc/>
-        public virtual IdentityResult UpdatePassword(IIdentityUser user, string newPassword)
-        {
-            return UpdatePassword(user, Encoding.UTF8.GetBytes(newPassword), true);
-        }
-
-        /// <inheritdoc/>
         public virtual IdentityResult UpdatePassword(IIdentityUser user, byte[] newPassword, bool validatePassword)
         {
+            if (user == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (newPassword == null)
+            {
+                throw new ArgumentNullException();
+            }
+
             if (validatePassword)
             {
                 var validate = ValidatePassword(user, newPassword);
@@ -208,7 +240,7 @@ namespace Bytewizer.TinyCLR.Identity
 
             if (user.PasswordHash != null)
             {
-                lock (_lock)
+                lock (_syncLock)
                 {
                     OnStoreChanged(this);
                 }
@@ -225,16 +257,25 @@ namespace Bytewizer.TinyCLR.Identity
         /// <returns>A <see cref="IdentityResult"/> representing whether validation was successful.</returns>
         private IdentityResult ValidateUser(IIdentityUser user)
         {
-            var errors = new ArrayList();
+            if (user == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            ArrayList errors = null;
+
             foreach (IUserValidator Validator in UserValidators)
             {
                 var result = Validator.Validate(this, user);
+
                 if (!result.Succeeded)
                 {
+                    errors ??= new ArrayList();
                     errors.AddRange(result.Errors);
                 }
             }
-            if (errors.Count > 0)
+
+            if (errors != null)
             {
                 return IdentityResult.Failed(new AggregateException($"User {user.Id} account validation failed:", errors));
             }
@@ -251,18 +292,30 @@ namespace Bytewizer.TinyCLR.Identity
         /// <returns>A <see cref="IdentityResult"/> representing whether validation was successful.</returns>
         private IdentityResult ValidatePassword(IIdentityUser user, byte[] password)
         {
-            var errors = new ArrayList();
+            if (user == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (password == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            ArrayList errors = null;
 
             foreach (IPasswordValidator Validator in PasswordValidators)
             {
                 var result = Validator.Validate(this, user, password);
+
                 if (!result.Succeeded)
                 {
+                    errors ??= new ArrayList();
                     errors.AddRange(result.Errors);
                 }
             }
 
-            if (errors.Count > 0)
+            if (errors != null)
             {
                 return IdentityResult.Failed(new AggregateException($"User {user.Id} password validation failed:", errors));
             }
