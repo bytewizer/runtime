@@ -70,15 +70,19 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\runtime\src\di\Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstractions.csproj">
+    <ProjectReference Include="..\..\core\Bytewizer.TinyCLR.Core\Bytewizer.TinyCLR.Core.csproj">
+      <Project>{70392D1D-6B78-46C8-9531-C02915742A46}</Project>
+      <Name>Bytewizer.TinyCLR.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\di\Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstractions.csproj">
       <Project>{F5997E37-7348-4FA6-9103-990D9906DA4F}</Project>
       <Name>Bytewizer.TinyCLR.DependencyInjection.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\runtime\src\di\Bytewizer.TinyCLR.DependencyInjection\Bytewizer.TinyCLR.DependencyInjection.csproj">
+    <ProjectReference Include="..\..\di\Bytewizer.TinyCLR.DependencyInjection\Bytewizer.TinyCLR.DependencyInjection.csproj">
       <Project>{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}</Project>
       <Name>Bytewizer.TinyCLR.DependencyInjection</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\hosting\Bytewizer.TinyCLR.Hosting\Bytewizer.TinyCLR.Hosting.csproj">
+    <ProjectReference Include="..\Bytewizer.TinyCLR.Hosting\Bytewizer.TinyCLR.Hosting.csproj">
       <Project>{70492D2D-6B78-46C8-9531-C02915742A46}</Project>
       <Name>Bytewizer.TinyCLR.Hosting</Name>
     </ProjectReference>

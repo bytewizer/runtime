@@ -75,6 +75,10 @@
       <Project>{F5997E37-7348-4FA6-9103-990D9906DA4F}</Project>
       <Name>Bytewizer.TinyCLR.DependencyInjection.Abstractions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\di\Bytewizer.TinyCLR.DependencyInjection\Bytewizer.TinyCLR.DependencyInjection.csproj">
+      <Project>{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}</Project>
+      <Name>Bytewizer.TinyCLR.DependencyInjection</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Bytewizer.TinyCLR.Logging.Abstractions\Bytewizer.TinyCLR.Logging.Abstractions.csproj">
       <Project>{598D7917-49D1-4E76-BFF4-23221BAD7072}</Project>
       <Name>Bytewizer.TinyCLR.Logging.Abstractions</Name>
