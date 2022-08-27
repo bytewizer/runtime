@@ -19,8 +19,8 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
-    <Description>Middleware pipeline library built for TinyCLR IoT devices.</Description>
-    <PackageTags>ghi tinyclr tinyclros sitcore iot log middleware pipeline</PackageTags>
+    <Description>Threading library built for TinyCLR IoT devices.</Description>
+    <PackageTags>ghi tinyclr tinyclros sitcore iot log Threading</PackageTags>
     <AssemblyProduct>TinyCLR</AssemblyProduct>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

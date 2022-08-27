@@ -4,11 +4,8 @@
 using System;
 using System.Threading;
 
-#if NanoCLR
-namespace nanoFramework.Hosting
-#else
 namespace Bytewizer.TinyCLR.Hosting
-#endif
+
 {
     /// <summary>
     /// Base class for implementing a long running <see cref="IHostedService"/>.

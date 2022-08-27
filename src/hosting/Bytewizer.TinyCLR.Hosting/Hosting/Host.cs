@@ -1,11 +1,4 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-
-#if NanoCLR
-namespace nanoFramework.Hosting
-#else
-namespace Bytewizer.TinyCLR.Hosting
-#endif
+﻿namespace Bytewizer.TinyCLR.Hosting
 {
     /// <summary>
     /// Provides convenience methods for creating instances of <see cref="IHostBuilder"/>.

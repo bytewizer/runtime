@@ -4,11 +4,7 @@
 using System;
 using System.Collections;
 
-#if NanoCLR
-namespace nanoFramework.Hosting
-#else
 namespace Bytewizer.TinyCLR.Hosting
-#endif
 {
     /// <summary>
     /// Context containing the common services on the <see cref="IHost" />. Some properties may be null until set by the <see cref="IHost" />.

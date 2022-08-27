@@ -19,7 +19,7 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
-    <Description>Generic Host library built for TinyCLR IoT devices.</Description>
+    <Description>Generic Host Configuration library built for TinyCLR IoT devices.</Description>
     <PackageTags>ghi tinyclr tinyclros sitcore iot generic host hosting</PackageTags>
     <AssemblyProduct>TinyCLR</AssemblyProduct>
   </PropertyGroup>

@@ -1,12 +1,8 @@
-﻿//
-// Copyright (c) .NET Foundation and Contributors
-// See LICENSE file in the project root for full license information.
-//
+﻿using System;
 
 using Bytewizer.TinyCLR.DependencyInjection;
-using System;
 
-namespace nanoFramework.Hosting
+namespace Bytewizer.TinyCLR.Hosting
 {
     /// <summary>
     /// Represents a function that can process a service.

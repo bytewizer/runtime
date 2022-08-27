@@ -1,18 +1,9 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-
-using System;
+﻿using System;
 using System.Collections;
 
-#if NanoCLR
-using Bytewizer.NanoCLR.DependencyInjection;
-
-namespace nanoFramework.Hosting.Internal
-#else
 using Bytewizer.TinyCLR.DependencyInjection;
 
 namespace Bytewizer.TinyCLR.Hosting.Internal
-#endif
 {
     /// <summary>
     /// Default implementation of <see cref="IHost"/>.

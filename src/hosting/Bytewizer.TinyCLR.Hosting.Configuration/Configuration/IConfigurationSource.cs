@@ -1,9 +1,4 @@
-﻿//
-// Copyright (c) .NET Foundation and Contributors
-// See LICENSE file in the project root for full license information.
-//
-
-namespace Bytewizer.TinyCLR.Hosting.Configuration
+﻿namespace Bytewizer.TinyCLR.Hosting.Configuration
 {
     /// <summary>
     /// Represents a source of configuration key/values for an application.

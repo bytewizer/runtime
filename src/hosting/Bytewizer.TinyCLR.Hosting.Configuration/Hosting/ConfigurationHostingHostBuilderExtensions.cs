@@ -1,9 +1,4 @@
-﻿//
-// Copyright (c) .NET Foundation and Contributors
-// See LICENSE file in the project root for full license information.
-//
-
-using Bytewizer.TinyCLR.DependencyInjection;
+﻿using Bytewizer.TinyCLR.DependencyInjection;
 
 namespace Bytewizer.TinyCLR.Hosting.Configuration
 {

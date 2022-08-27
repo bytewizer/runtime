@@ -1,8 +1,4 @@
-﻿#if NanoCLR
-namespace nanoFramework.Hosting
-#else
-namespace Bytewizer.TinyCLR.Hosting
-#endif
+﻿namespace Bytewizer.TinyCLR.Hosting
 {
     /// <summary>
     /// Represents a set of key/value application configuration properties.

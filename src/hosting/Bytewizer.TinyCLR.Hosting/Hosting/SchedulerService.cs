@@ -1,16 +1,7 @@
-﻿//
-// Copyright (c) .NET Foundation and Contributors
-// See LICENSE file in the project root for full license information.
-//
-
-using System;
+﻿using System;
 using System.Threading;
 
-#if NanoCLR
-namespace nanoFramework.Hosting
-#else
 namespace Bytewizer.TinyCLR.Hosting
-#endif
 {
     /// <summary>
     /// Base class timer service which calls an asynchronous action after the configured interval.

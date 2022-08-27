@@ -4,16 +4,10 @@
 using System;
 using System.Collections;
 
-#if NanoCLR
-using Bytewizer.NanoCLR.DependencyInjection;
-
-namespace nanoFramework.Hosting
-#else
 using Bytewizer.TinyCLR.DependencyInjection;
-using nanoFramework.Hosting;
 
 namespace Bytewizer.TinyCLR.Hosting
-#endif
+
 {
     /// <summary>
     /// A program initialization abstraction.
