@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Text;
 using GHIElectronics.TinyCLR.Cryptography;
 
 namespace Bytewizer.TinyCLR.Identity
@@ -17,17 +17,19 @@ namespace Bytewizer.TinyCLR.Identity
         /// <param name="user">The user whose password is to be hashed.</param>
         /// <param name="password">The password to hash.</param>
         /// <returns>A hashed representation of the supplied <paramref name="password"/> for the specified <paramref name="user"/>.</returns>
-        public byte[] HashPassword(IIdentityUser user, byte[] password)
+        public byte[] HashPassword(IIdentityUser user, string password)
         {
+            byte[] pass = Encoding.UTF8.GetBytes(password);
+
             var key = new byte[32];
             _random.NextBytes(key);
 
-            var salt = new byte[key.Length + password.Length];
+            var salt = new byte[key.Length + pass.Length];
             Array.Copy(key, 0, salt, 0, key.Length);
-            Array.Copy(password, 0, salt, key.Length, password.Length);
+            Array.Copy(pass, 0, salt, key.Length, pass.Length);
 
             user.PasswordSalt = salt;
-            user.PasswordHash = new HMACSHA256(salt).ComputeHash(password);
+            user.PasswordHash = new HMACSHA256(salt).ComputeHash(pass);
 
             return user.PasswordHash;
         }
@@ -39,12 +41,13 @@ namespace Bytewizer.TinyCLR.Identity
         /// <param name="hashedPassword">The hash value for a user's stored password.</param>
         /// <param name="providedPassword">The password supplied for comparison.</param>
         /// <returns>A <see cref="IdentityResult"/> indicating the result of a password hash comparison.</returns>
-        public IdentityResult VerifyHashedPassword(IIdentityUser user, byte[] hashedPassword, byte[] providedPassword)
+        public IdentityResult VerifyHashedPassword(IIdentityUser user, byte[] hashedPassword, string providedPassword)
         {
             try
             {
-                var hashBytes = new HMACSHA256(user.PasswordSalt).ComputeHash(providedPassword);
-
+                byte[] password = Encoding.UTF8.GetBytes(providedPassword);
+                var hashBytes = new HMACSHA256(user.PasswordSalt).ComputeHash(password);
+                
                 if (VerifyHashedPassword(hashedPassword, hashBytes))
                 {
                     return IdentityResult.Success;
@@ -62,6 +65,8 @@ namespace Bytewizer.TinyCLR.Identity
 
         private static bool VerifyHashedPassword(byte[] hashedPassword, byte[] password)
         {
+           
+
             if (hashedPassword.Length < 1 || password.Length < 1)
             {
                 return false;

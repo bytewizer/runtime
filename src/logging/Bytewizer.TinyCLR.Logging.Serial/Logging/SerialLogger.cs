@@ -1,8 +1,6 @@
-// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-
 using System;
 using System.Text;
+using System.Threading;
 
 using GHIElectronics.TinyCLR.Devices.Uart;
 
@@ -13,9 +11,8 @@ namespace Bytewizer.TinyCLR.Logging.Serial
     /// </summary>
     internal partial class SerialLogger : ILogger
     {
-        private readonly UartController _uartController;
         private readonly string _name;
-        private readonly LogLevel _minLevel;
+        private readonly UartController _uartController;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SerialLogger"/> class.
@@ -23,42 +20,16 @@ namespace Bytewizer.TinyCLR.Logging.Serial
         /// <param name="controller">The serial controller to use.</param>
         /// <param name="name">The name of the logger.</param>
         public SerialLogger(UartController controller, string name)
-            : this(controller, name, LogLevel.Trace)
-        {
-            _uartController = controller;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SerialLogger"/> class.
-        /// </summary>
-        /// <param name="controller">The serial controller to use.</param>
-        /// <param name="name">The name of the logger.</param>
-        /// <param name="minLevel">The minimum level of log messages to filter messages.</param>
-        public SerialLogger(UartController controller, string name, LogLevel minLevel)
         {
             _uartController = controller;
             _name = string.IsNullOrEmpty(name) ? nameof(SerialLogger) : name;
-            _minLevel = minLevel;
         }
 
         /// <inheritdoc />
         public bool IsEnabled(LogLevel logLevel)
         {
-            // If the filter is null, everything is enabled
-            // unless the debugger is not attached
             return _uartController != null &&
-                logLevel != LogLevel.None &&
-                LogFilter(logLevel);
-        }
-
-        private bool LogFilter(LogLevel logLevel)
-        {
-            if (_minLevel <= logLevel)
-            {
-                return true;
-            }
-
-            return false;
+                logLevel != LogLevel.None; 
         }
 
         /// <inheritdoc />
@@ -76,30 +47,32 @@ namespace Bytewizer.TinyCLR.Logging.Serial
                 return;
             }
 
-            var builder = new StringBuilder();
+            var sb = new StringBuilder();
 
-            builder.Append(LogLevelString.GetName(logLevel));
-            builder.Append(": ");
-            builder.Append(_name);
-            builder.Append("[");
-            builder.Append(eventId.Id);
-            builder.Append("]");
-            builder.Append(": ");
-            builder.Append(message);
+            sb.Append(LogLevelString.GetName(logLevel));
+            sb.Append(": ");
+            sb.Append(_name);
+            sb.Append("[");
+            sb.Append(eventId.Id);
+            sb.Append("]");
+            sb.Append(": ");
+            sb.Append(message);
 
             if (exception != null)
             {
-                builder.Append(": ");
-                builder.Append(exception);
+                sb.Append(": ");
+                sb.Append(exception);
             }
 
-            builder.AppendLine();
+            sb.AppendLine();
 
-            //TODO:  Add threaded write que
+            var bytes = Encoding.UTF8.GetBytes(sb.ToString());
 
-            var bytes = Encoding.UTF8.GetBytes(builder.ToString());
-
-            _uartController.Write(bytes);
+            ThreadPool.QueueUserWorkItem(
+               new WaitCallback(delegate (object state)
+               {
+                   _uartController.Write(bytes);
+               }));            
         }
     }
 }

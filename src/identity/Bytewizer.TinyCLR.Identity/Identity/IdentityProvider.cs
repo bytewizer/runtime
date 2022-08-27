@@ -58,7 +58,7 @@ namespace Bytewizer.TinyCLR.Identity
         public Hashtable Users { get => _userStore.Users; }
 
         /// <inheritdoc/>
-        public virtual IdentityResult Create(IIdentityUser user, byte[] password)
+        public virtual IdentityResult Create(IIdentityUser user, string password)
         {
             if (user == null)
             {
@@ -169,7 +169,7 @@ namespace Bytewizer.TinyCLR.Identity
         }
 
         /// <inheritdoc/>
-        public virtual bool CheckPassword(IIdentityUser user, byte[] password)
+        public virtual bool CheckPassword(IIdentityUser user, string password)
         {
             if (user == null)
             {
@@ -192,7 +192,7 @@ namespace Bytewizer.TinyCLR.Identity
         }
 
         /// <inheritdoc/>
-        public virtual IdentityResult VerifyPassword(IIdentityUser user, byte[] password)
+        public virtual IdentityResult VerifyPassword(IIdentityUser user, string password)
         {
             if (user == null)
             {
@@ -211,11 +211,13 @@ namespace Bytewizer.TinyCLR.Identity
                 return IdentityResult.Failed(new Exception("Authentication failed: (Invalid user name or password)."));
             }
 
+            
+
             return PasswordHasher.VerifyHashedPassword(user, hash, password);
         }
 
         /// <inheritdoc/>
-        public virtual IdentityResult UpdatePassword(IIdentityUser user, byte[] newPassword, bool validatePassword)
+        public virtual IdentityResult UpdatePassword(IIdentityUser user, string newPassword, bool validatePassword)
         {
             if (user == null)
             {
@@ -290,7 +292,7 @@ namespace Bytewizer.TinyCLR.Identity
         /// <param name="user">The user.</param>
         /// <param name="password">The password.</param>
         /// <returns>A <see cref="IdentityResult"/> representing whether validation was successful.</returns>
-        private IdentityResult ValidatePassword(IIdentityUser user, byte[] password)
+        private IdentityResult ValidatePassword(IIdentityUser user, string password)
         {
             if (user == null)
             {

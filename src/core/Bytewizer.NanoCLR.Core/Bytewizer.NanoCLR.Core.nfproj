@@ -44,9 +44,6 @@
     <Compile Include="..\Bytewizer.TinyCLR.Core\Extensions\TypeExtensions.cs">
       <Link>Extensions\TypeExtensions.cs</Link>
     </Compile>
-    <Compile Include="..\Bytewizer.TinyCLR.Core\Hosting\IServerService.cs">
-      <Link>Hosting\IServerService.cs</Link>
-    </Compile>
     <Compile Include="..\Bytewizer.TinyCLR.Core\System\Activator.cs">
       <Link>System\Activator.cs</Link>
     </Compile>
@@ -62,7 +59,6 @@
   <ItemGroup>
     <Folder Include="Execptions\" />
     <Folder Include="Extensions\" />
-    <Folder Include="Hosting\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib">

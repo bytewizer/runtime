@@ -2,8 +2,8 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 
 using System;
-using System.Diagnostics;
 using System.Text;
+using System.Diagnostics;
 
 #if NanoCLR
 namespace Bytewizer.NanoCLR.Logging.Debug
@@ -17,45 +17,21 @@ namespace Bytewizer.TinyCLR.Logging.Debug
     internal partial class DebugLogger : ILogger
     {
         private readonly string _name;
-        private readonly LogLevel _minLevel;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DebugLogger"/> class.
-        /// </summary>
-        public DebugLogger(string name)
-            : this(name, LogLevel.Trace)
-        {
-        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DebugLogger"/> class.
         /// </summary>
         /// <param name="name">The name of the logger.</param>
-        /// <param name="minLevel">The minimum level of log messages to filter messages.</param>
-        public DebugLogger(string name, LogLevel minLevel)
+        public DebugLogger(string name)
         {
             _name = string.IsNullOrEmpty(name) ? nameof(DebugLogger) : name;
-            _minLevel = minLevel;
         }
 
         /// <inheritdoc />
         public bool IsEnabled(LogLevel logLevel)
         {
-            // If the filter is null, everything is enabled
-            // unless the debugger is not attached
             return Debugger.IsAttached &&
-                logLevel != LogLevel.None &&
-                LogFilter(logLevel);
-        }
-
-        private bool LogFilter(LogLevel logLevel)
-        {
-            if (_minLevel <= logLevel)
-            {
-                return true;
-            }
-
-            return false;
+                logLevel != LogLevel.None;
         }
 
         /// <inheritdoc />

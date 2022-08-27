@@ -29,8 +29,8 @@
     <Compile Include="..\Bytewizer.TinyCLR.Logging.Debug\Logging\DebugLogger.debug.cs">
       <Link>Logging\DebugLogger.debug.cs</Link>
     </Compile>
-    <Compile Include="..\Bytewizer.TinyCLR.Logging.Debug\Logging\DebugLoggerFactoryExtensions.cs">
-      <Link>Logging\DebugLoggerFactoryExtensions.cs</Link>
+    <Compile Include="..\Bytewizer.TinyCLR.Logging.Debug\Logging\DebugLoggerBuilderExtensions.cs">
+      <Link>Logging\DebugLoggerBuilderExtensions.cs</Link>
     </Compile>
     <Compile Include="..\Bytewizer.TinyCLR.Logging.Debug\Logging\DebugLoggerProvider.cs">
       <Link>Logging\DebugLoggerProvider.cs</Link>

@@ -29,7 +29,7 @@
         /// </summary>
         /// <param name="user">The user whose password should be verified.</param>
         /// <param name="password">The password to verify.</param>
-        bool CheckPassword(IIdentityUser user, byte[] password);
+        bool CheckPassword(IIdentityUser user, string password);
 
         /// <summary>
         /// Deletes the specified <paramref name="user"/> from the user store.
@@ -42,14 +42,14 @@
         /// </summary>
         /// <param name="user">The user to create.</param>
         /// <param name="password">The password for the user to hash and store.</param>
-        IdentityResult Create(IIdentityUser user, byte[] password);
+        IdentityResult Create(IIdentityUser user, string password);
 
         /// <summary>
         /// Returns a <see cref="IdentityResult"/> indicating the result of a password hash comparison.
         /// </summary>
         /// <param name="user">The user whose password should be verified.</param>
         /// <param name="password">The password to verify.</param>
-        IdentityResult VerifyPassword(IIdentityUser user, byte[] password);
+        IdentityResult VerifyPassword(IIdentityUser user, string password);
 
         /// <summary>
         /// Updates a user's password hash.
@@ -58,6 +58,6 @@
         /// <param name="newPassword">The new password.</param>
         /// <param name="validatePassword">Whether to validate the password.</param>
         /// <returns>Whether the password has was successfully updated.</returns>
-        IdentityResult UpdatePassword(IIdentityUser user, byte[] newPassword, bool validatePassword);
+        IdentityResult UpdatePassword(IIdentityUser user, string newPassword, bool validatePassword);
     }
 }

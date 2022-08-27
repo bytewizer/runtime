@@ -15,7 +15,7 @@ namespace Bytewizer.TinyCLR.Identity
         /// <param name="user">The user whose password should be verified.</param>
         /// <param name="password">The password supplied for comparison.</param>
         /// <returns>A <see cref="IdentityResult"/> indicating the result of a password hash comparison.</returns>
-        public IdentityResult Validate(IdentityProvider manager, IIdentityUser user, byte[] password)
+        public IdentityResult Validate(IdentityProvider manager, IIdentityUser user, string password)
         {
             if (manager == null)
             {

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{86FC7114-6D76-4E8F-8D9A-E22260B1704C}</ProjectGuid>
+    <ProjectGuid>{71492D2D-6B78-46C8-9531-C02915742A46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bytewizer.TinyCLR.Logging.Serial</RootNamespace>
-    <AssemblyName>Bytewizer.TinyCLR.Logging.Serial</AssemblyName>
+    <RootNamespace>Bytewizer.TinyCLR.Hosting.Configuration</RootNamespace>
+    <AssemblyName>Bytewizer.TinyCLR.Hosting.Configuration</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A1948822-69DD-4150-919B-F3F42EFB71CC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -19,8 +19,8 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
-    <Description>Serial Logging library built for TinyCLR IoT devices.</Description>
-    <PackageTags>ghi tinyclr tinyclros sitcore iot log logging serial</PackageTags>
+    <Description>Generic Host library built for TinyCLR IoT devices.</Description>
+    <PackageTags>ghi tinyclr tinyclros sitcore iot generic host hosting</PackageTags>
     <AssemblyProduct>TinyCLR</AssemblyProduct>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -31,7 +31,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Bytewizer.TinyCLR.Logging.Serial.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\Bytewizer.TinyCLR.Hosting.Configuration.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -40,19 +40,27 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Bytewizer.TinyCLR.Logging.Serial.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\Bytewizer.TinyCLR.Hosting.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Logging\SerialLogger.cs" />
-    <Compile Include="Logging\SerialLoggerBuilderExtensions.cs" />
-    <Compile Include="Logging\SerialLoggerProvider.cs" />
+    <Compile Include="Hosting\ConfigurationAction.cs" />
+    <Compile Include="Configuration\ConfigurationBuilder.cs" />
+    <Compile Include="Hosting\ConfigurationHostingHostBuilderExtensions.cs" />
+    <Compile Include="Configuration\ConfigurationProvider.cs" />
+    <Compile Include="Configuration\ConfigurationRoot.cs" />
+    <Compile Include="Configuration\IConfigurationBuilder.cs" />
+    <Compile Include="Configuration\IConfigurationProvider.cs" />
+    <Compile Include="Configuration\IConfigurationRoot.cs" />
+    <Compile Include="Configuration\IConfigurationSource.cs" />
+    <Compile Include="Configuration\MemoryConfigurationBuilderExtensions.cs" />
+    <Compile Include="Configuration\MemoryConfigurationProvider.cs" />
+    <Compile Include="Configuration\MemoryConfigurationSource.cs" />
+    <Compile Include="Configuration\StreamConfigurationProvider.cs" />
+    <Compile Include="Configuration\StreamConfigurationSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GHIElectronics.TinyCLR.Core">
-      <Version>2.2.0.4200</Version>
-    </PackageReference>
-    <PackageReference Include="GHIElectronics.TinyCLR.Devices.Uart">
       <Version>2.2.0.4200</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
@@ -62,21 +70,17 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\di\Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstractions.csproj">
-      <Project>{f5997e37-7348-4fa6-9103-990d9906da4f}</Project>
+    <ProjectReference Include="..\..\..\..\runtime\src\di\Bytewizer.TinyCLR.DependencyInjection.Abstractions\Bytewizer.TinyCLR.DependencyInjection.Abstractions.csproj">
+      <Project>{F5997E37-7348-4FA6-9103-990D9906DA4F}</Project>
       <Name>Bytewizer.TinyCLR.DependencyInjection.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\threading\Bytewizer.TinyCLR.Threading\Bytewizer.TinyCLR.Threading.csproj">
-      <Project>{E9D60177-B93E-41A6-8894-8CFDF48B48D9}</Project>
-      <Name>Bytewizer.TinyCLR.Threading</Name>
+    <ProjectReference Include="..\..\..\..\runtime\src\di\Bytewizer.TinyCLR.DependencyInjection\Bytewizer.TinyCLR.DependencyInjection.csproj">
+      <Project>{AEB62F01-BA5F-45E3-A82C-4D2E058046A3}</Project>
+      <Name>Bytewizer.TinyCLR.DependencyInjection</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Bytewizer.TinyCLR.Logging.Abstractions\Bytewizer.TinyCLR.Logging.Abstractions.csproj">
-      <Project>{598D7917-49D1-4E76-BFF4-23221BAD7072}</Project>
-      <Name>Bytewizer.TinyCLR.Logging.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Bytewizer.TinyCLR.Logging\Bytewizer.TinyCLR.Logging.csproj">
-      <Project>{D6D13310-C4A1-4409-B0E3-10F29F7FF262}</Project>
-      <Name>Bytewizer.TinyCLR.Logging</Name>
+    <ProjectReference Include="..\..\hosting\Bytewizer.TinyCLR.Hosting\Bytewizer.TinyCLR.Hosting.csproj">
+      <Project>{70492D2D-6B78-46C8-9531-C02915742A46}</Project>
+      <Name>Bytewizer.TinyCLR.Hosting</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

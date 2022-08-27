@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Diagnostics;
 
 namespace System.Threading
 {
@@ -161,10 +160,11 @@ namespace System.Threading
                 {
                     thread.Dispose();
                     _Threads.Remove(thread);
-                    Debug.WriteLine(string.Concat("ThreadPool | ", DateTime.UtcNow.ToString("MM/dd/yyyy | HH:mm:ss.fff"), " | Thread stopped: #" + _Threads.Count));
+
                     return false;
                 }
             }
+
             // start next enqueued item
             lock (_ItemsQueue.SyncRoot)
             {

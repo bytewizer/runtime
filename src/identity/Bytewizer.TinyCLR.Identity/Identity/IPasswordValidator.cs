@@ -12,6 +12,6 @@ namespace Bytewizer.TinyCLR.Identity
         /// <param name="user">The user whose password should be validated.</param>
         /// <param name="password">The password supplied for validation</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        IdentityResult Validate(IdentityProvider manager, IIdentityUser user, byte[] password);
+        IdentityResult Validate(IdentityProvider manager, IIdentityUser user, string password);
     }
 }

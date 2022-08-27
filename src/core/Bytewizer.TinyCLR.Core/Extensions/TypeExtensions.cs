@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Reflection;
 
-#if NanoCLR
-namespace Bytewizer.NanoCLR
-#else
+#if !NanoCLR
 namespace Bytewizer.TinyCLR
-#endif
-{
-#if NanoCLR
-
-    //TODO: Create NanoCLR version of these methods
-
-#else
+{ 
     /// <summary>
     /// Contains extension methods for <see cref="Type"/>.
     /// </summary>
@@ -60,5 +52,5 @@ namespace Bytewizer.TinyCLR
             return constructors;
         }
     }
-#endif
 }
+#endif
