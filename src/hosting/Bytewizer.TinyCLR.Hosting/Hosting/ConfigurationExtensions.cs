@@ -57,8 +57,9 @@
             }
 
             var type = defaultValue.GetType();
+            
             if (type == typeof(string)) return (string)value;
-            //if (type == typeof(bool)) return ((string)value).ToLower() == "true";
+            if (type == typeof(bool)) return ((string)value).ToBoolean();
             if (type == typeof(int)) return int.Parse((string)value);
             if (type == typeof(uint)) return uint.Parse((string)value);
             if (type == typeof(byte)) return byte.Parse((string)value);
@@ -68,8 +69,28 @@
             if (type == typeof(long)) return long.Parse((string)value);
             if (type == typeof(ulong)) return ulong.Parse((string)value);
             if (type == typeof(double)) return double.Parse((string)value);
-            
+       
             return value;
+        }
+    }
+
+    internal static class StringExtensions
+    {
+        public static bool ToBoolean(this string value)
+        {
+            switch (value.ToLower().Trim())
+            {
+                case "true":
+                    return true;
+                case "1":
+                    return true;
+                case "false":
+                    return false;
+                case "0":
+                    return false;
+                default:
+                    return false;
+            }
         }
     }
 }

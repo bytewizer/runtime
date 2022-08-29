@@ -47,6 +47,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Hosting",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Hosting.Configuration", "hosting\Bytewizer.TinyCLR.Hosting.Configuration\Bytewizer.TinyCLR.Hosting.Configuration.csproj", "{71492D2D-6B78-46C8-9531-C02915742A46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Hosting.Configuration.Ini", "hosting\Bytewizer.TinyCLR.Hosting.Configuration.Ini\Bytewizer.TinyCLR.Hosting.Configuration.Ini.csproj", "{72592D2D-6B78-46C8-9531-C02915742A46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bytewizer.TinyCLR.Hosting.Configuration.Json", "hosting\Bytewizer.TinyCLR.Hosting.Configuration.Json\Bytewizer.TinyCLR.Hosting.Configuration.Json.csproj", "{72492D2D-6B78-46C8-9531-C02915742A46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +145,14 @@ Global
 		{71492D2D-6B78-46C8-9531-C02915742A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71492D2D-6B78-46C8-9531-C02915742A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71492D2D-6B78-46C8-9531-C02915742A46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72592D2D-6B78-46C8-9531-C02915742A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72592D2D-6B78-46C8-9531-C02915742A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72592D2D-6B78-46C8-9531-C02915742A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72592D2D-6B78-46C8-9531-C02915742A46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72492D2D-6B78-46C8-9531-C02915742A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72492D2D-6B78-46C8-9531-C02915742A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72492D2D-6B78-46C8-9531-C02915742A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72492D2D-6B78-46C8-9531-C02915742A46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
