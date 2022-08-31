@@ -23,9 +23,6 @@
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
-    <Compile Include="..\Bytewizer.TinyCLR.Core\Execptions\AggregateException.cs">
-      <Link>Execptions\AggregateException.cs</Link>
-    </Compile>
     <Compile Include="..\Bytewizer.TinyCLR.Core\Extensions\ArrayExtensions.cs">
       <Link>Extensions\ArrayExtensions.cs</Link>
     </Compile>
@@ -47,6 +44,9 @@
     <Compile Include="..\Bytewizer.TinyCLR.Core\System\Activator.cs">
       <Link>System\Activator.cs</Link>
     </Compile>
+    <Compile Include="..\Bytewizer.TinyCLR.Core\System\AggregateException.cs">
+      <Link>System\AggregateException.cs</Link>
+    </Compile>
     <Compile Include="..\Bytewizer.TinyCLR.Core\System\IServiceProvider.cs">
       <Link>System\IServiceProvider.cs</Link>
     </Compile>
@@ -57,7 +57,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Execptions\" />
     <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
