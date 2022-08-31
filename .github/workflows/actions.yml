@@ -66,7 +66,7 @@ jobs:
         -p:PackageOutputPath=\builds\artifacts
         -p:BuildNumber="${{ steps.info.outputs.build }}"
         -p:Copyright="${{ steps.info.outputs.copyright }}"
-        -p:VersionPrefix="2.1.13"
+        -p:VersionPrefix="2.1.14"
         -p:VersionSuffix=preview.${{ steps.info.outputs.build }}
         -p:Configuration=${env:CONFIGURATION}
         -p:ContinuousIntegrationBuild=true

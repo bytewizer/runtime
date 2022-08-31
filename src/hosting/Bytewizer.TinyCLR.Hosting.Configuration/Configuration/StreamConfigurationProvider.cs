@@ -8,12 +8,12 @@ namespace Bytewizer.TinyCLR.Hosting.Configuration
     /// </summary>
     public abstract class StreamConfigurationProvider : ConfigurationProvider
     {
+        private bool _loaded;
+
         /// <summary>
         /// The source settings for this provider.
         /// </summary>
         public StreamConfigurationSource Source { get; }
-
-        private bool _loaded;
 
         /// <summary>
         /// Constructor.

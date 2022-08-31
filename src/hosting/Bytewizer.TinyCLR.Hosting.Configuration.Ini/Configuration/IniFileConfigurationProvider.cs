@@ -6,25 +6,25 @@
 using System;
 using System.IO;
 
-namespace Bytewizer.TinyCLR.Hosting.Configuration.Json
+namespace Bytewizer.TinyCLR.Hosting.Configuration.Ini
 {
     /// <summary>
-    /// File Stream based configuration provider.
+    /// Loads configuration key/values from a INI file stream into a provider.
     /// </summary>
-    public abstract class FileConfigurationProvider : ConfigurationProvider
+    public class IniFileConfigurationProvider : ConfigurationProvider
     {
-        /// <summary>
-        /// The source settings for this provider.
-        /// </summary>
-        public FileConfigurationSource Source { get; }
-
         private bool _loaded;
 
         /// <summary>
-        /// Constructor.
+        /// The source settings for this provider.
         /// </summary>
-        /// <param name="source">The source.</param>
-        public FileConfigurationProvider(FileConfigurationSource source)
+        public IniFileConfigurationSource Source { get; }
+
+        /// <summary>
+        /// Initializes a new <see cref="IniFileConfigurationProvider"/>
+        /// </summary>
+        /// <param name="source">The <see cref="IniFileConfigurationSource"/>.</param>
+        public IniFileConfigurationProvider(IniFileConfigurationSource source)
         {
             if (source == null)
             {
@@ -42,10 +42,13 @@ namespace Bytewizer.TinyCLR.Hosting.Configuration.Json
             => $"{GetType().Name} for '{Source.Path}' ({(Source.Optional ? "optional" : "required")})";
 
         /// <summary>
-        /// Load the configuration data from the stream.
+        /// Loads INI configuration key/values from a stream into a provider.
         /// </summary>
-        /// <param name="stream">The data stream.</param>
-        public abstract void Load(Stream stream);
+        /// <param name="stream">The json <see cref="Stream"/> to load configuration data from.</param>
+        public void Load(Stream stream)
+        {         
+            Data = IniConfigurationParser.Parse(stream);
+        }
 
         /// <summary>
         /// Load the configuration data from the stream. Will throw after the first call.
@@ -57,16 +60,16 @@ namespace Bytewizer.TinyCLR.Hosting.Configuration.Json
                 throw new InvalidOperationException();
             }
 
-            try 
+            try
             {
-                var filePath = $"{Source.DriveProvider.Name}{Source.Path}";
-                Source.Stream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-                
-                Load(Source.Stream);
+                var filePath = Path.Combine(Source.DriveProvider.Name, Source.Path);
+                var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+
+                Load(stream);
             }
             catch (Exception ex)
             {
-                if (!Source.Optional)
+                if (Source.Optional == false)
                 {
                     throw ex;
                 }

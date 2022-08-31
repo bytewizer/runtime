@@ -1,10 +1,7 @@
-﻿using System;
-using System.Text;
-using System.Collections;
+﻿using System.Collections;
 using System.Diagnostics;
 
 namespace System
-
 {
     /// <summary>Initializes a new instance of the <see cref="AggregateException"/> class with a system-supplied message that describes the error.</summary>
     /// <remarks>

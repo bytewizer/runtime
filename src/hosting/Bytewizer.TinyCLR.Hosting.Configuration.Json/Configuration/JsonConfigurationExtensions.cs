@@ -7,7 +7,6 @@ using System;
 using System.IO;
 
 using GHIElectronics.TinyCLR.IO;
-using GHIElectronics.TinyCLR.Devices.Storage;
 
 namespace Bytewizer.TinyCLR.Hosting.Configuration.Json
 {
@@ -20,11 +19,12 @@ namespace Bytewizer.TinyCLR.Hosting.Configuration.Json
         /// Adds the JSON configuration provider at <paramref name="path"/> to <paramref name="builder"/>.
         /// </summary>
         /// <param name="builder">The <see cref="IConfigurationBuilder"/> to add to.</param>
+        /// <param name="driveProvider">The drive provider to the file.</param>
         /// <param name="path">Path relative to the base path stored in
         /// <see cref="IConfigurationBuilder.Properties"/> of <paramref name="builder"/>.</param>
         /// <param name="optional">Whether the file is optional.</param>
         /// <returns>The <see cref="IConfigurationBuilder"/>.</returns>
-        public static IConfigurationBuilder AddJsonFile(this IConfigurationBuilder builder, string path, bool optional)
+        public static IConfigurationBuilder AddJsonFile(this IConfigurationBuilder builder, IDriveProvider driveProvider, string path, bool optional)
         {
             if (builder == null)
             {
@@ -35,9 +35,6 @@ namespace Bytewizer.TinyCLR.Hosting.Configuration.Json
             {
                 throw new ArgumentNullException();
             }
-
-            var controller = StorageController.GetDefault();
-            var driveProvider = FileSystem.Mount(controller.Hdc);
 
             return builder.Add(new JsonFileConfigurationSource() 
                 { Path = path, Optional = optional, DriveProvider = driveProvider });

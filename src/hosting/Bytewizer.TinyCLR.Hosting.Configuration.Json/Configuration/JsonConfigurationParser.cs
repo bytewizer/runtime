@@ -6,7 +6,6 @@
 using System;
 using System.IO;
 using System.Collections;
-using System.Diagnostics;
 
 using GHIElectronics.TinyCLR.Data.Json;
 
@@ -57,7 +56,7 @@ namespace Bytewizer.TinyCLR.Hosting.Configuration.Json
             }
             catch
             {
-                throw new FormatException("Could not parse the JSON file.");
+                throw new FormatException("Failed to parse json file.");
             }
 
             return _data;

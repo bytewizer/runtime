@@ -49,8 +49,6 @@
     <Compile Include="Configuration\JsonStreamConfigurationProvider.cs" />
     <Compile Include="Configuration\JsonFileConfigurationSource.cs" />
     <Compile Include="Configuration\JsonStreamConfigurationSource.cs" />
-    <Compile Include="Configuration\FileConfigurationSource.cs" />
-    <Compile Include="Configuration\FileConfigurationProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,7 +58,7 @@
     <PackageReference Include="GHIElectronics.TinyCLR.Data.Json">
       <Version>2.2.0.4200</Version>
     </PackageReference>
-    <PackageReference Include="GHIElectronics.TinyCLR.Devices.Storage">
+    <PackageReference Include="GHIElectronics.TinyCLR.IO">
       <Version>2.2.0.4200</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Tasks.Pack">

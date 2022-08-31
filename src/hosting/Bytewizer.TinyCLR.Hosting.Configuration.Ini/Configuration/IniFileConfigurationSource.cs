@@ -3,21 +3,15 @@
 // See LICENSE file in the project root for full license information.
 //
 
-using System.IO;
 using GHIElectronics.TinyCLR.IO;
 
-namespace Bytewizer.TinyCLR.Hosting.Configuration.Json
+namespace Bytewizer.TinyCLR.Hosting.Configuration.Ini
 {
     /// <summary>
-    /// File based <see cref="IConfigurationSource" />.
+    /// Represents a INI file as an <see cref="IConfigurationSource"/>.
     /// </summary>
-    public abstract class FileConfigurationSource : IConfigurationSource
+    public class IniFileConfigurationSource : IConfigurationSource
     {
-        /// <summary>
-        /// The stream containing the configuration data.
-        /// </summary>
-        public Stream Stream { get; set; }
-
         /// <summary>
         /// The path to the file.
         /// </summary>
@@ -34,11 +28,12 @@ namespace Bytewizer.TinyCLR.Hosting.Configuration.Json
         public IDriveProvider DriveProvider { get; set; }
 
         /// <summary>
-        /// Builds the <see cref="FileConfigurationSource"/> for this source.
+        /// Builds the <see cref="IniFileConfigurationProvider"/> for this source.
         /// </summary>
         /// <param name="builder">The <see cref="IConfigurationBuilder"/>.</param>
-        /// <returns>An <see cref="IConfigurationProvider"/></returns>
-        public abstract IConfigurationProvider Build(IConfigurationBuilder builder);
+        /// <returns>An <see cref="IniFileConfigurationProvider"/></returns>
+        public IConfigurationProvider Build(IConfigurationBuilder builder)
+            => new IniFileConfigurationProvider(this);
     }
 }
 

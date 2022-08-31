@@ -33,7 +33,7 @@
                 return null;
             }
 
-            return (string)GetOrDefault(configuration, key, defaultValue);
+            return (string)GetValueOrDefault(configuration, key, defaultValue);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@
         /// <param name="configuration">The configuration.</param>
         /// <param name="key">The key of the configuration section's value to convert.</param>
         /// <param name="defaultValue">The default value to use if no value is found.</param>
-        public static object GetOrDefault(this IConfiguration configuration, string key, object defaultValue)
+        public static object GetValueOrDefault(this IConfiguration configuration, string key, object defaultValue)
         {
             if (configuration == null)
             {
@@ -69,7 +69,7 @@
             if (type == typeof(long)) return long.Parse((string)value);
             if (type == typeof(ulong)) return ulong.Parse((string)value);
             if (type == typeof(double)) return double.Parse((string)value);
-       
+
             return value;
         }
     }

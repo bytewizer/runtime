@@ -43,7 +43,7 @@
     <DocumentationFile>bin\Release\Bytewizer.TinyCLR.Core.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Execptions\AggregateException.cs" />
+    <Compile Include="System\AggregateException.cs" />
     <Compile Include="Extensions\ArrayExtensions.cs" />
     <Compile Include="Extensions\ByteArrayExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />

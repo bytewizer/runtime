@@ -46,6 +46,9 @@
     <Compile Include="Configuration\IniConfigurationExtensions.cs" />
     <Compile Include="Configuration\IniStreamConfigurationProvider.cs" />
     <Compile Include="Configuration\IniStreamConfigurationSource.cs" />
+    <Compile Include="Configuration\IniFileConfigurationProvider.cs" />
+    <Compile Include="Configuration\IniFileConfigurationSource.cs" />
+    <Compile Include="Configuration\IniConfigurationParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
