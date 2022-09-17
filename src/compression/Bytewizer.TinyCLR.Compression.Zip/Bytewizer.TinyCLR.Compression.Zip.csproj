@@ -52,10 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="GHIElectronics.TinyCLR.Core">
-      <Version>2.2.0.4200</Version>
+      <Version>2.2.0.5000</Version>
     </PackageReference>
     <PackageReference Include="GHIElectronics.TinyCLR.IO">
-      <Version>2.2.0.4200</Version>
+      <Version>2.2.0.5000</Version>
     </PackageReference>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
       <Version>6.3.0</Version>
